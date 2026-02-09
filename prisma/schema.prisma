@@ -40,3 +40,17 @@ model Content {
   @@unique([section, key, locale])
   @@index([section, locale])
 }
+
+model Project {
+  id          String   @id @default(cuid())
+  title       String
+  description String   @db.Text
+  imageUrl    String   // Path to project image
+  locale      String   @default("en")
+  order       Int      @default(0)
+  featured    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([locale, order])
+}

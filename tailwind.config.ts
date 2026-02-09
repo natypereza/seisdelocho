@@ -36,7 +36,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        decorative: ['var(--font-cinzel)', 'serif'],
+        decorative: ['var(--font-oswald)', 'sans-serif'],
         script: ['var(--font-oooh)', 'cursive'],
       },
       fontSize: {

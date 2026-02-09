@@ -61,17 +61,17 @@
 
   /* Creative Typography */
   .heading-creative {
-    font-family: var(--font-cinzel);
+    font-family: var(--font-oswald);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     color: theme('colors.warm-darker');
   }
 
   .heading-script {
     font-family: var(--font-oooh);
-    font-size: clamp(3rem, 6vw, 5rem);
-    line-height: 1.2;
+    font-size: clamp(4rem, 8vw, 7rem);
+    line-height: 1.1;
   }
 
   /* Gradient Utilities */

@@ -29,9 +29,9 @@ export function Hero() {
   };
 
   return (
-    <AnimatedSection className="pt-40 md:pt-48 pb-16 md:pb-32 gradient-warm">
+    <AnimatedSection className="pt-32 md:pt-40 pb-16 md:pb-32 gradient-warm">
       <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20 items-center md:items-start">
           {/* Image */}
           <motion.div
             className="flex justify-center md:justify-start order-first md:order-last"
@@ -40,12 +40,12 @@ export function Hero() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <div className="relative w-64 h-64 md:w-80 md:h-80">
+            <div className="relative w-72 h-72 md:w-96 md:h-96">
               <DynamicImage
                 category="profile"
                 fallbackSrc="/images/profile.jpg"
                 priority
-                className="rounded-2xl shadow-xl object-cover w-full h-full transition-transform duration-500 hover:scale-105"
+                className="rounded-3xl shadow-2xl object-cover w-full h-full transition-transform duration-500 hover:scale-105"
               />
             </div>
           </motion.div>
@@ -56,10 +56,11 @@ export function Hero() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
+            className="md:pl-4"
           >
             <motion.h1
               variants={itemVariants}
-              className="heading-script text-warm-darker mb-6 md:mb-8 tracking-tight"
+              className="heading-script text-warm-darker mb-4 md:mb-6 tracking-tight"
             >
               {t('header.name')}
             </motion.h1>
