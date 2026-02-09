@@ -43,12 +43,22 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="https://instagram.com"
+                  href="https://instagram.com/natapereza"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-base text-neutral-700 hover:text-neutral-900 transition-colors"
                 >
-                  Instagram
+                  @natapereza
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://instagram.com/seisdelocho_"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-base text-neutral-700 hover:text-neutral-900 transition-colors"
+                >
+                  @seisdelocho_
                 </a>
               </li>
             </ul>
