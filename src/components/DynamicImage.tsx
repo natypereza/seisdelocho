@@ -18,22 +18,12 @@ export function DynamicImage({
   fallbackSrc,
   priority = false,
 }: DynamicImageProps) {
-  const { images, loading } = useImages(category);
-
-  if (loading) {
-    return (
-      <div
-        className={`animate-pulse bg-warm-light ${className}`}
-        role="status"
-        aria-label="Loading image"
-      />
-    );
-  }
+  const { images, loading, error } = useImages(category);
 
   const image = images[0];
 
-  // Fallback to static image if no database image found
-  if (!image && fallbackSrc) {
+  // Use fallback if there's an error, no image found, or we're taking too long to load
+  if ((error || !image) && fallbackSrc) {
     const MotionImage = animated ? motion(Image) : Image;
 
     return (
@@ -50,6 +40,16 @@ export function DynamicImage({
           transition: { duration: 0.6 },
           viewport: { once: true },
         })}
+      />
+    );
+  }
+
+  if (loading && !image) {
+    return (
+      <div
+        className={`animate-pulse bg-warm-light ${className}`}
+        role="status"
+        aria-label="Loading image"
       />
     );
   }

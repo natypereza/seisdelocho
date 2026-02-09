@@ -29,7 +29,14 @@ export function useImages(category?: string) {
         const params = new URLSearchParams({ locale });
         if (category) params.append('category', category);
 
-        const response = await fetch(`/api/images?${params}`);
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+
+        const response = await fetch(`/api/images?${params}`, {
+          signal: controller.signal,
+        });
+        clearTimeout(timeoutId);
+
         if (!response.ok) throw new Error('Failed to fetch images');
 
         const data = await response.json();
