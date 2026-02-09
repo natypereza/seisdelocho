@@ -3,7 +3,9 @@ import { routing } from './routing';
 
 export default getRequestConfig(async ({ requestLocale }) => {
   const locale = await requestLocale;
+
   return {
-    messages: (await import(`../messages/${locale}.json`)).default,
+    locale,
+    messages: (await import(`../messages/${locale || routing.defaultLocale}.json`)).default,
   };
 });

@@ -1,5 +1,13 @@
-import { redirect } from 'next/navigation';
+import type { Metadata } from 'next';
 
-export default function RootLayout() {
-  redirect('/en');
+export const metadata: Metadata = {
+  title: 'Natalia Pérez Aguja - Brand Manager & Marketing Strategist',
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return children;
 }

@@ -1,15 +1,45 @@
+'use client';
+
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import { motion } from 'framer-motion';
+import { AnimatedSection } from './AnimatedSection';
 
 export function Hero() {
   const t = useTranslations();
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6,  },
+    },
+  };
+
   return (
-    <section className="pt-40 md:pt-48 pb-16 md:pb-32 bg-white">
+    <AnimatedSection className="pt-40 md:pt-48 pb-16 md:pb-32 bg-white">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start">
           {/* Image */}
-          <div className="flex justify-center md:justify-start order-first md:order-last">
+          <motion.div
+            className="flex justify-center md:justify-start order-first md:order-last"
+            variants={itemVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             <div className="relative w-64 h-64 md:w-80 md:h-80">
               <Image
                 src="/images/profile.jpg"
@@ -17,39 +47,56 @@ export function Hero() {
                 width={320}
                 height={320}
                 priority
-                className="rounded-lg shadow-lg object-cover w-full h-full"
+                className="rounded-2xl shadow-xl object-cover w-full h-full transition-transform duration-500 hover:scale-105"
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* Content */}
-          <div>
-            <h1 className="text-5xl md:text-6xl font-light leading-tight mb-6 md:mb-8">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h1
+              variants={itemVariants}
+              className="fluid-display text-neutral-900 mb-6 md:mb-8 font-light tracking-tight"
+            >
               {t('header.name')}
-            </h1>
-            <p className="text-2xl md:text-3xl font-light text-neutral-600 mb-8 md:mb-12">
+            </motion.h1>
+            <motion.p
+              variants={itemVariants}
+              className="text-2xl md:text-3xl font-light text-neutral-600 mb-8 md:mb-12 tracking-wide"
+            >
               {t('hero.title')}
-            </p>
-            <p className="text-lg md:text-xl text-neutral-600 mb-8 md:mb-12 leading-relaxed max-w-prose">
+            </motion.p>
+            <motion.p
+              variants={itemVariants}
+              className="text-lg md:text-xl text-neutral-700 mb-8 md:mb-12 leading-relaxed max-w-prose font-light"
+            >
               {t('hero.subtitle')}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            </motion.p>
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row gap-4"
+            >
               <a
                 href={`mailto:${t('contact.email')}`}
-                className="px-8 py-3 border-2 border-neutral-900 text-neutral-900 text-center hover:bg-neutral-900 hover:text-white transition-all duration-300 hover:scale-105 inline-block"
+                className="px-8 py-3 border-2 border-neutral-900 text-neutral-900 text-center hover:bg-neutral-900 hover:text-white transition-all duration-300 hover:scale-105 inline-block rounded-sm"
               >
                 {t('hero.cta')}
               </a>
               <a
                 href={`tel:${t('contact.phone')}`}
-                className="px-8 py-3 text-neutral-600 text-center hover:text-neutral-900 transition-colors inline-block touch-target"
+                className="px-8 py-3 text-neutral-600 text-center hover:text-accent transition-colors inline-block touch-target"
               >
                 {t('contact.phone')}
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
