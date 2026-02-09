@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Image {
+  id          String   @id @default(cuid())
+  category    String   // "profile", "hero", "gallery", "background"
+  title       String
+  description String?
+  url         String   // Path to image in public folder or CDN URL
+  altText     String
+  width       Int
+  height      Int
+  priority    Boolean  @default(false)
+  order       Int      @default(0)
+  locale      String   @default("en") // Support for i18n
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([category, locale, order])
+}
+
+model Content {
+  id        String   @id @default(cuid())
+  section   String   // "hero", "about", "experience", "skills"
+  key       String   // Identifier for the content piece
+  locale    String
+  value     String   @db.Text // JSON string for complex content
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([section, key, locale])
+  @@index([section, locale])
+}

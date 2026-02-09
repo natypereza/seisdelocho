@@ -29,14 +29,14 @@ export function Experience() {
   };
 
   return (
-    <AnimatedSection id="experience" className="section bg-neutral-50">
+    <AnimatedSection id="experience" className="section bg-bg-subtle">
       <div className="container-custom">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="section-heading text-neutral-900"
+          className="heading-creative gradient-text"
         >
           {t('heading')}
         </motion.h2>
@@ -52,13 +52,13 @@ export function Experience() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="relative pl-8 md:pl-10 pb-12 md:pb-16 border-l-2 border-neutral-300 transition-colors duration-300 hover:border-accent"
+              className="relative pl-8 md:pl-10 pb-12 md:pb-16 border-l-2 border-warm-light transition-colors duration-300 hover:border-warm-base"
             >
-              <motion.div className="absolute -left-[9px] md:-left-[11px] top-0 w-4 md:w-5 h-4 md:h-5 rounded-full bg-neutral-900 transition-transform duration-300 hover:scale-125" />
+              <motion.div className="absolute -left-[9px] md:-left-[11px] top-0 w-4 md:w-5 h-4 md:h-5 rounded-full bg-warm-darker transition-transform duration-300 hover:scale-125" />
 
               <div>
                 <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 mb-2">
-                  <h3 className="text-xl md:text-2xl font-medium text-neutral-900">
+                  <h3 className="text-xl md:text-2xl font-medium text-warm-darker">
                     {item.title}
                   </h3>
                   {item.current && (
@@ -67,13 +67,13 @@ export function Experience() {
                     </span>
                   )}
                 </div>
-                <p className="text-sm md:text-base text-neutral-600 mb-1">
+                <p className="text-sm md:text-base text-warm-dark mb-1">
                   {item.company} • {item.period}
                 </p>
-                <p className="text-sm text-neutral-500 mb-4">
+                <p className="text-sm text-warm-base mb-4">
                   {item.location}
                 </p>
-                <p className="text-base md:text-lg text-neutral-700 leading-relaxed font-light">
+                <p className="text-base md:text-lg text-warm-dark leading-relaxed font-light">
                   {item.description}
                 </p>
               </div>

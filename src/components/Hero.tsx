@@ -1,9 +1,9 @@
 'use client';
 
-import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { AnimatedSection } from './AnimatedSection';
+import { DynamicImage } from './DynamicImage';
 
 export function Hero() {
   const t = useTranslations();
@@ -29,7 +29,7 @@ export function Hero() {
   };
 
   return (
-    <AnimatedSection className="pt-40 md:pt-48 pb-16 md:pb-32 bg-white">
+    <AnimatedSection className="pt-40 md:pt-48 pb-16 md:pb-32 gradient-warm">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start">
           {/* Image */}
@@ -41,11 +41,9 @@ export function Hero() {
             viewport={{ once: true }}
           >
             <div className="relative w-64 h-64 md:w-80 md:h-80">
-              <Image
-                src="/images/profile.jpg"
-                alt={t('header.name')}
-                width={320}
-                height={320}
+              <DynamicImage
+                category="profile"
+                fallbackSrc="/images/profile.jpg"
                 priority
                 className="rounded-2xl shadow-xl object-cover w-full h-full transition-transform duration-500 hover:scale-105"
               />
@@ -61,7 +59,7 @@ export function Hero() {
           >
             <motion.h1
               variants={itemVariants}
-              className="fluid-display text-neutral-900 mb-6 md:mb-8 font-light tracking-tight"
+              className="heading-script text-warm-darker mb-6 md:mb-8 tracking-tight"
             >
               {t('header.name')}
             </motion.h1>

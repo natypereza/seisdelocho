@@ -30,14 +30,14 @@ export function Skills() {
   };
 
   return (
-    <AnimatedSection id="skills" className="section bg-white">
+    <AnimatedSection id="skills" className="section bg-bg-base">
       <div className="container-custom">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="section-heading text-neutral-900"
+          className="heading-creative gradient-text"
         >
           {t('heading')}
         </motion.h2>
@@ -58,7 +58,7 @@ export function Skills() {
               >
                 <Palette className="w-6 h-6 text-accent" />
               </motion.div>
-              <h3 className="text-lg md:text-xl font-medium text-neutral-900">
+              <h3 className="text-lg md:text-xl font-medium text-warm-darker">
                 {categories.languages}
               </h3>
             </div>
@@ -66,7 +66,7 @@ export function Skills() {
               {(items.languages as string[]).map((skill, index) => (
                 <motion.li
                   key={index}
-                  className="text-base text-neutral-700 hover:text-accent transition-colors cursor-pointer"
+                  className="text-base text-warm-dark hover:text-warm-base transition-colors cursor-pointer"
                   whileHover={{ x: 5 }}
                 >
                   {skill}
@@ -84,7 +84,7 @@ export function Skills() {
               >
                 <Code className="w-6 h-6 text-accent" />
               </motion.div>
-              <h3 className="text-lg md:text-xl font-medium text-neutral-900">
+              <h3 className="text-lg md:text-xl font-medium text-warm-darker">
                 {categories.design}
               </h3>
             </div>
@@ -92,7 +92,7 @@ export function Skills() {
               {(items.design as string[]).map((skill, index) => (
                 <motion.li
                   key={index}
-                  className="text-base text-neutral-700 hover:text-accent transition-colors cursor-pointer"
+                  className="text-base text-warm-dark hover:text-warm-base transition-colors cursor-pointer"
                   whileHover={{ x: 5 }}
                 >
                   {skill}
@@ -110,7 +110,7 @@ export function Skills() {
               >
                 <Sparkles className="w-6 h-6 text-accent" />
               </motion.div>
-              <h3 className="text-lg md:text-xl font-medium text-neutral-900">
+              <h3 className="text-lg md:text-xl font-medium text-warm-darker">
                 {categories.strengths}
               </h3>
             </div>
@@ -118,7 +118,7 @@ export function Skills() {
               {(items.strengths as string[]).map((skill, index) => (
                 <motion.li
                   key={index}
-                  className="text-base text-neutral-700 hover:text-accent transition-colors cursor-pointer"
+                  className="text-base text-warm-dark hover:text-warm-base transition-colors cursor-pointer"
                   whileHover={{ x: 5 }}
                 >
                   {skill}

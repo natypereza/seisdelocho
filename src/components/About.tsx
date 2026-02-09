@@ -29,7 +29,7 @@ export function About() {
   return (
     <AnimatedSection
       id="about"
-      className="section bg-white"
+      className="section bg-bg-base"
     >
       <div className="container-custom">
         <div className="grid grid-cols-12 gap-8">
@@ -42,13 +42,13 @@ export function About() {
           >
             <motion.h2
               variants={itemVariants}
-              className="section-heading text-neutral-900"
+              className="heading-creative gradient-text"
             >
               {t('about.heading')}
             </motion.h2>
             <motion.p
               variants={itemVariants}
-              className="text-lg md:text-body-lg text-neutral-700 leading-relaxed mb-6 font-light tracking-wide"
+              className="text-lg md:text-body-lg text-warm-dark leading-relaxed mb-6 font-light tracking-wide"
             >
               {t('about.bio')}
             </motion.p>

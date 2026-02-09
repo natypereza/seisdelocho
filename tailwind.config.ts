@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Legacy neutrals (kept for compatibility)
         'neutral-50': '#fafafa',
         'neutral-100': '#f5f5f5',
         'neutral-200': '#e5e5e5',
@@ -19,9 +20,24 @@ const config: Config = {
         'cream': { DEFAULT: '#FAFAF8', dark: '#F5F4F1' },
         'charcoal': '#1A1A1A',
         'accent': '#C9B8A8',
+
+        // New warm color palette
+        'bg-base': '#FAFAFA',
+        'bg-subtle': '#F5F5F5',
+        'bg-elevated': '#FFFFFF',
+        'warm-darker': '#5C4A3A',
+        'warm-dark': '#8B7355',
+        'warm-base': '#B8956A',
+        'warm-light': '#D4B896',
+        'warm-accent': '#E8D5B7',
+        'gradient-from': '#F4E8D8',
+        'gradient-via': '#E8D5C4',
+        'gradient-to': '#DCC6B0',
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        decorative: ['var(--font-cinzel)', 'serif'],
+        script: ['var(--font-oooh)', 'cursive'],
       },
       fontSize: {
         'display': ['4.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],

@@ -9,7 +9,7 @@
   }
 
   body {
-    @apply bg-white text-neutral-900 antialiased;
+    @apply bg-bg-base text-warm-dark antialiased;
   }
 
   *:focus-visible {
@@ -57,6 +57,37 @@
 
   .section-heading {
     @apply text-4xl md:text-5xl font-light uppercase tracking-widest mb-12 md:mb-16;
+  }
+
+  /* Creative Typography */
+  .heading-creative {
+    font-family: var(--font-cinzel);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: theme('colors.warm-darker');
+  }
+
+  .heading-script {
+    font-family: var(--font-oooh);
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 1.2;
+  }
+
+  /* Gradient Utilities */
+  .gradient-warm {
+    background: linear-gradient(135deg, #F4E8D8 0%, #E8D5C4 50%, #DCC6B0 100%);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #8B7355 0%, #B8956A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-border {
+    border-image: linear-gradient(to right, #B8956A, #E8D5B7) 1;
   }
 
   /* Touch Target Sizing */
