@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-neutral-900 antialiased;
+  }
+}
+
+@layer components {
+  .section {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  .container-custom {
+    @apply mx-auto px-6 md:px-12 lg:px-16 max-w-content;
+  }
+
+  .section-heading {
+    @apply text-4xl md:text-5xl font-light uppercase tracking-widest mb-12 md:mb-16;
+  }
+}

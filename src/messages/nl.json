@@ -1,0 +1,164 @@
+{
+  "header": {
+    "name": "Natalia Pérez Aguja"
+  },
+  "hero": {
+    "title": "Merkmanager en Marketingstrateeg",
+    "subtitle": "Merken transformeren door creatieve visie en strategische uitvoering",
+    "cta": "Neem contact op"
+  },
+  "about": {
+    "heading": "Over mij",
+    "bio": "Ik ben een tweetalige marketingprofessional met passie voor het transformeren van merken door strategische creativiteit en innovatief ontwerp. Momenteel volg ik een diploma in Bedrijfsadministratie aan de Universidad de Palermo terwijl ik mijn professionele portfolio opbouw in merkbeheer en digitale marketing. Met expertise die zich uitstrekt van visueel ontwerp, strategieën voor sociale media en evenementenplanning, blink ik uit op het kruispunt van creativiteit en zakelijke doelstellingen. Ik word gekenmerkt door mijn proactieve aanpak, positieve houding en vermogen om mij aan te passen aan snelle omgevingen terwijl ik een sterke focus op meetbare resultaten behoud."
+  },
+  "experience": {
+    "heading": "Werkervaring",
+    "current": "Huidige",
+    "items": [
+      {
+        "title": "Merkmanager",
+        "company": "PANEM Cub",
+        "period": "Juni 2025 - Februari 2026",
+        "location": "Guatemala Stad, Guatemala",
+        "description": "Beheer van merkidentiteit, aanwezigheid op sociale media en marketingstrategie voor het merkportfolio van PANEM Cub."
+      },
+      {
+        "title": "Marketingmanager",
+        "company": "Energy Foods",
+        "period": "Februari 2023 - Januari 2025",
+        "location": "Guatemala Stad, Guatemala",
+        "description": "Leidde geïntegreerde marketingcampagnes, beheerde strategie op sociale media en leidde contentcreatie voor meerdere merkprojecten."
+      },
+      {
+        "title": "Evenementenplanner en Ontwerper",
+        "company": "KA Events",
+        "period": "Januari 2020 - Heden",
+        "location": "Guatemala Stad, Guatemala",
+        "description": "Coördinatie en ontwerp van evenementen van concept tot uitvoering. Het creëren van merkervaringen die het publiek betrekken en doelstellingen van klanten realiseren."
+      },
+      {
+        "title": "Stagiair",
+        "company": "Taylor & Taylor",
+        "period": "Juni - Juli 2022",
+        "location": "Virginia Beach, USA",
+        "description": "Professionele stage met ervaring in internationaal marketing en merkentwickeling."
+      },
+      {
+        "title": "Bijles Diensten",
+        "company": "Zelfstandig",
+        "period": "Oktober - December 2020",
+        "location": "San Salvador, El Salvador",
+        "description": "Wiskunde- en natuurkundebijles geven aan middelbare scholieren."
+      },
+      {
+        "title": "Stagiair",
+        "company": "V Medical Spa",
+        "period": "2020",
+        "location": "Guatemala Stad, Guatemala",
+        "description": "Ervaring in gezondheids- en hotelsector."
+      }
+    ]
+  },
+  "skills": {
+    "heading": "Vaardigheden en Expertise",
+    "categories": {
+      "languages": "Talen",
+      "design": "Ontwerp- en Media-tools",
+      "strengths": "Professionele Sterktepunten"
+    },
+    "items": {
+      "languages": [
+        "Spaans",
+        "Engels"
+      ],
+      "design": [
+        "Adobe Photoshop",
+        "Canva",
+        "CapCut",
+        "Fotografie",
+        "Microsoft Office"
+      ],
+      "strengths": [
+        "Strategisch Denken",
+        "Creatief Probleemoplossen",
+        "Strategie Sociale Media",
+        "Merkentwickeling",
+        "Teamleiderschap",
+        "Aanpassingsvermogen",
+        "Projectmanagement",
+        "Digitale Marketing"
+      ]
+    }
+  },
+  "education": {
+    "heading": "Onderwijs",
+    "current": "Lopend",
+    "items": [
+      {
+        "degree": "Bedrijfsadministratie",
+        "institution": "Universidad de Palermo",
+        "location": "Buenos Aires, Argentinië",
+        "year": "4e jaar",
+        "current": true
+      },
+      {
+        "degree": "Bachiller en Ciencias y Letras",
+        "institution": "Colegio Valle Verde",
+        "year": "2020"
+      }
+    ]
+  },
+  "certifications": {
+    "heading": "Professionele Certificeringen",
+    "items": [
+      {
+        "title": "Franklin Covey Leiderschapsprogramma",
+        "issuer": "El Líder en Mi",
+        "year": "2013-2020"
+      },
+      {
+        "title": "Basisniveau Fotografieles",
+        "issuer": "Professionele Ontwikkeling",
+        "year": "2018"
+      },
+      {
+        "title": "Webontwerp HTML en CSS",
+        "issuer": "Digitaal Ontwerp",
+        "year": "2022"
+      },
+      {
+        "title": "De Grondbeginselen van Digitale Marketing",
+        "issuer": "Google",
+        "year": "2022"
+      },
+      {
+        "title": "Digitale Competenties voor Professionals",
+        "issuer": "Professionele Ontwikkeling",
+        "year": "2023"
+      },
+      {
+        "title": "Digitaliseer je Bedrijf met Google-tools",
+        "issuer": "Google",
+        "year": "2023"
+      },
+      {
+        "title": "Cyberbeveiliging in Telewerk",
+        "issuer": "Professionele Ontwikkeling",
+        "year": "2023"
+      },
+      {
+        "title": "Je Leven Leiden via Emotionele Intelligentie",
+        "issuer": "ALINEA Vida y Futuro",
+        "year": "2023"
+      }
+    ]
+  },
+  "footer": {
+    "copyright": "© 2026 Natalia Pérez Aguja. Alle rechten voorbehouden."
+  },
+  "contact": {
+    "email": "natyperezaguja@gmail.com",
+    "phone": "+502 5696-8292",
+    "location": "Guatemala Stad, Guatemala"
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "header": {
+    "name": "Natalia Pérez Aguja"
+  },
+  "hero": {
+    "title": "Gerente de Marca y Estratega de Marketing",
+    "subtitle": "Transformando marcas a través de visión creativa y ejecución estratégica",
+    "cta": "Ponte en contacto"
+  },
+  "about": {
+    "heading": "Acerca de",
+    "bio": "Soy una profesional de marketing bilingüe apasionada por transformar marcas a través de creatividad estratégica y diseño innovador. Actualmente cursando una licenciatura en Administración de Empresas en la Universidad de Palermo mientras construyo mi cartera profesional en gestión de marcas y marketing digital. Con expertise que abarca diseño visual, estrategia de redes sociales y planificación de eventos, destaco en la intersección de creatividad y objetivos empresariales. Me caracterizo por mi actitud proactiva, perspectiva positiva y capacidad de adaptarme a entornos dinámicos mientras mantengo un fuerte enfoque en resultados medibles."
+  },
+  "experience": {
+    "heading": "Experiencia",
+    "current": "Actual",
+    "items": [
+      {
+        "title": "Gerente de Marca",
+        "company": "PANEM Cub",
+        "period": "Junio 2025 - Febrero 2026",
+        "location": "Ciudad de Guatemala, Guatemala",
+        "description": "Gestionando identidad de marca, presencia en redes sociales y estrategia de marketing para el portafolio de marcas de PANEM Cub."
+      },
+      {
+        "title": "Gerente de Marketing",
+        "company": "Energy Foods",
+        "period": "Febrero 2023 - Enero 2025",
+        "location": "Ciudad de Guatemala, Guatemala",
+        "description": "Lideré campañas de marketing integradas, gestioné estrategia en redes sociales y dirigí la creación de contenido para múltiples propiedades de marcas."
+      },
+      {
+        "title": "Planificadora de Eventos y Diseñadora",
+        "company": "KA Events",
+        "period": "Enero 2020 - Presente",
+        "location": "Ciudad de Guatemala, Guatemala",
+        "description": "Coordinando y diseñando eventos desde el concepto hasta la ejecución. Creando experiencias de marca que involucren a la audiencia y cumplan objetivos del cliente."
+      },
+      {
+        "title": "Pasantía",
+        "company": "Taylor & Taylor",
+        "period": "Junio - Julio 2022",
+        "location": "Virginia Beach, Estados Unidos",
+        "description": "Pasantía profesional adquiriendo experiencia en marketing internacional y desarrollo de marca."
+      },
+      {
+        "title": "Servicios de Tutoría",
+        "company": "Independiente",
+        "period": "Octubre - Diciembre 2020",
+        "location": "San Salvador, El Salvador",
+        "description": "Proporcionando tutoría de matemática y física a estudiantes de secundaria."
+      },
+      {
+        "title": "Pasantía",
+        "company": "V Medical Spa",
+        "period": "2020",
+        "location": "Ciudad de Guatemala, Guatemala",
+        "description": "Experiencia en sector de salud y hospitalidad."
+      }
+    ]
+  },
+  "skills": {
+    "heading": "Habilidades y Expertise",
+    "categories": {
+      "languages": "Idiomas",
+      "design": "Herramientas de Diseño y Media",
+      "strengths": "Fortalezas Profesionales"
+    },
+    "items": {
+      "languages": [
+        "Español",
+        "Inglés"
+      ],
+      "design": [
+        "Adobe Photoshop",
+        "Canva",
+        "CapCut",
+        "Fotografía",
+        "Microsoft Office"
+      ],
+      "strengths": [
+        "Pensamiento Estratégico",
+        "Resolución Creativa de Problemas",
+        "Estrategia en Redes Sociales",
+        "Desarrollo de Marca",
+        "Liderazgo de Equipo",
+        "Adaptabilidad",
+        "Gestión de Proyectos",
+        "Marketing Digital"
+      ]
+    }
+  },
+  "education": {
+    "heading": "Educación",
+    "current": "En Progreso",
+    "items": [
+      {
+        "degree": "Administración de Empresas",
+        "institution": "Universidad de Palermo",
+        "location": "Buenos Aires, Argentina",
+        "year": "4º Año",
+        "current": true
+      },
+      {
+        "degree": "Bachiller en Ciencias y Letras",
+        "institution": "Colegio Valle Verde",
+        "year": "2020"
+      }
+    ]
+  },
+  "certifications": {
+    "heading": "Certificaciones Profesionales",
+    "items": [
+      {
+        "title": "Programa de Liderazgo Franklin Covey",
+        "issuer": "El Líder en Mi",
+        "year": "2013-2020"
+      },
+      {
+        "title": "Curso de Fotografía Básica",
+        "issuer": "Desarrollo Profesional",
+        "year": "2018"
+      },
+      {
+        "title": "Diseño Web HTML y CSS",
+        "issuer": "Diseño Digital",
+        "year": "2022"
+      },
+      {
+        "title": "Los Fundamentos del Marketing Digital",
+        "issuer": "Google",
+        "year": "2022"
+      },
+      {
+        "title": "Competencias Digitales para Profesionales",
+        "issuer": "Desarrollo Profesional",
+        "year": "2023"
+      },
+      {
+        "title": "Digitaliza tu Negocio con Herramientas de Google",
+        "issuer": "Google",
+        "year": "2023"
+      },
+      {
+        "title": "Ciberseguridad en el Teletrabajo",
+        "issuer": "Desarrollo Profesional",
+        "year": "2023"
+      },
+      {
+        "title": "Liderando tu Vida a Través de la Inteligencia Emocional",
+        "issuer": "ALINEA Vida y Futuro",
+        "year": "2023"
+      }
+    ]
+  },
+  "footer": {
+    "copyright": "© 2026 Natalia Pérez Aguja. Todos los derechos reservados."
+  },
+  "contact": {
+    "email": "natyperezaguja@gmail.com",
+    "phone": "+502 5696-8292",
+    "location": "Ciudad de Guatemala, Guatemala"
+  }
+}

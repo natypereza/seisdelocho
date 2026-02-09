@@ -1,0 +1,164 @@
+{
+  "header": {
+    "name": "Natalia Pérez Aguja"
+  },
+  "hero": {
+    "title": "Brand Manager & Marketing Strategist",
+    "subtitle": "Transforming brands through creative vision and strategic execution",
+    "cta": "Get in touch"
+  },
+  "about": {
+    "heading": "About",
+    "bio": "I'm a bilingual marketing professional with a passion for transforming brands through strategic creativity and innovative design. Currently pursuing a degree in Business Administration at Universidad de Palermo while building my professional portfolio in brand management and digital marketing. With expertise spanning visual design, social media strategy, and event planning, I thrive at the intersection of creativity and business objectives. I'm known for my proactive approach, positive attitude, and ability to adapt to fast-paced environments while maintaining a strong focus on delivering measurable results."
+  },
+  "experience": {
+    "heading": "Experience",
+    "current": "Current",
+    "items": [
+      {
+        "title": "Brand Manager",
+        "company": "PANEM Cub",
+        "period": "June 2025 - February 2026",
+        "location": "Guatemala City, Guatemala",
+        "description": "Managing brand identity, social media presence, and marketing strategy for PANEM Cub's portfolio brands."
+      },
+      {
+        "title": "Marketing Manager",
+        "company": "Energy Foods",
+        "period": "February 2023 - January 2025",
+        "location": "Guatemala City, Guatemala",
+        "description": "Led integrated marketing campaigns, managed social media strategy, and directed content creation for multiple brand properties."
+      },
+      {
+        "title": "Event Planner & Designer",
+        "company": "KA Events",
+        "period": "January 2020 - Present",
+        "location": "Guatemala City, Guatemala",
+        "description": "Coordinating and designing events from concept to execution. Creating branded experiences that engage audiences and deliver client objectives."
+      },
+      {
+        "title": "Internship",
+        "company": "Taylor & Taylor",
+        "period": "June - July 2022",
+        "location": "Virginia Beach, USA",
+        "description": "Professional internship gaining experience in international marketing and brand development."
+      },
+      {
+        "title": "Tutoring Services",
+        "company": "Independent",
+        "period": "October - December 2020",
+        "location": "San Salvador, El Salvador",
+        "description": "Providing mathematics and physics tutoring to high school students."
+      },
+      {
+        "title": "Internship",
+        "company": "V Medical Spa",
+        "period": "2020",
+        "location": "Guatemala City, Guatemala",
+        "description": "Healthcare and hospitality sector experience."
+      }
+    ]
+  },
+  "skills": {
+    "heading": "Skills & Expertise",
+    "categories": {
+      "languages": "Languages",
+      "design": "Design & Media Tools",
+      "strengths": "Professional Strengths"
+    },
+    "items": {
+      "languages": [
+        "Spanish",
+        "English"
+      ],
+      "design": [
+        "Adobe Photoshop",
+        "Canva",
+        "CapCut",
+        "Photography",
+        "Microsoft Office"
+      ],
+      "strengths": [
+        "Strategic Thinking",
+        "Creative Problem Solving",
+        "Social Media Strategy",
+        "Brand Development",
+        "Team Leadership",
+        "Adaptability",
+        "Project Management",
+        "Digital Marketing"
+      ]
+    }
+  },
+  "education": {
+    "heading": "Education",
+    "current": "In Progress",
+    "items": [
+      {
+        "degree": "Business Administration",
+        "institution": "Universidad de Palermo",
+        "location": "Buenos Aires, Argentina",
+        "year": "4th Year",
+        "current": true
+      },
+      {
+        "degree": "Bachiller en Ciencias y Letras",
+        "institution": "Colegio Valle Verde",
+        "year": "2020"
+      }
+    ]
+  },
+  "certifications": {
+    "heading": "Professional Certifications",
+    "items": [
+      {
+        "title": "Franklin Covey Leadership Program",
+        "issuer": "El Líder en Mi",
+        "year": "2013-2020"
+      },
+      {
+        "title": "Basic Photography Course",
+        "issuer": "Professional Development",
+        "year": "2018"
+      },
+      {
+        "title": "Web Design HTML & CSS",
+        "issuer": "Digital Design",
+        "year": "2022"
+      },
+      {
+        "title": "The Fundamentals of Digital Marketing",
+        "issuer": "Google",
+        "year": "2022"
+      },
+      {
+        "title": "Digital Competencies for Professionals",
+        "issuer": "Professional Development",
+        "year": "2023"
+      },
+      {
+        "title": "Digitize Your Business with Google Tools",
+        "issuer": "Google",
+        "year": "2023"
+      },
+      {
+        "title": "Cybersecurity in Remote Work",
+        "issuer": "Professional Development",
+        "year": "2023"
+      },
+      {
+        "title": "Leading Your Life Through Emotional Intelligence",
+        "issuer": "ALINEA Vida y Futuro",
+        "year": "2023"
+      }
+    ]
+  },
+  "footer": {
+    "copyright": "© 2026 Natalia Pérez Aguja. All rights reserved."
+  },
+  "contact": {
+    "email": "natyperezaguja@gmail.com",
+    "phone": "+502 5696-8292",
+    "location": "Ciudad de Guatemala, Guatemala"
+  }
+}
