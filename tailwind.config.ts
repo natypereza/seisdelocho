@@ -16,6 +16,9 @@ const config: Config = {
         'neutral-600': '#525252',
         'neutral-800': '#262626',
         'neutral-900': '#171717',
+        'cream': { DEFAULT: '#FAFAF8', dark: '#F5F4F1' },
+        'charcoal': '#1A1A1A',
+        'accent': '#C9B8A8',
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
@@ -31,6 +34,8 @@ const config: Config = {
       },
       maxWidth: {
         'content': '1200px',
+        'content-xl': '1400px',
+        'content-2xl': '1600px',
         'prose': '700px',
       },
     },

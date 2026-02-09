@@ -19,11 +19,20 @@ export const metadata: Metadata = {
     siteName: 'Natalia Pérez Aguja',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Natalia Pérez Aguja - Brand Manager & Marketing Strategist',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Natalia Pérez Aguja - Brand Manager & Marketing Strategist',
     description: 'Marketing professional with expertise in brand management, digital strategy, and creative design.',
+    images: ['/og-image.jpg'],
   },
   alternates: {
     languages: {

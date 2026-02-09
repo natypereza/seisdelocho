@@ -9,15 +9,17 @@ import { Footer } from '@/components/Footer';
 
 export default function Home() {
   return (
-    <main className="bg-white">
+    <>
       <Header />
-      <Hero />
-      <About />
-      <Experience />
-      <Skills />
-      <Education />
-      <Certifications />
+      <main id="main" className="bg-white pt-16 md:pt-20">
+        <Hero />
+        <About />
+        <Experience />
+        <Skills />
+        <Education />
+        <Certifications />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

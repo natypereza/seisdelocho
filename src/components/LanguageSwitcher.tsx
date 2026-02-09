@@ -13,20 +13,24 @@ export function LanguageSwitcher() {
   };
 
   return (
-    <div className="flex gap-4">
-      {['EN', 'ES', 'NL'].map((lang) => (
-        <button
-          key={lang}
-          onClick={() => handleChange(lang.toLowerCase())}
-          className={`text-sm font-light tracking-wider transition-colors ${
-            locale === lang.toLowerCase()
-              ? 'text-neutral-900'
-              : 'text-neutral-400 hover:text-neutral-600'
-          }`}
-        >
-          {lang}
-        </button>
-      ))}
-    </div>
+    <nav aria-label="Language selection" className="language-switcher">
+      <div className="flex gap-1 bg-neutral-100 rounded-full p-1">
+        {['en', 'es', 'nl'].map((lang) => (
+          <button
+            key={lang}
+            onClick={() => handleChange(lang)}
+            aria-label={`Switch to ${lang === 'en' ? 'English' : lang === 'es' ? 'Spanish' : 'Dutch'}`}
+            aria-current={locale === lang ? 'page' : undefined}
+            className={`px-4 py-2 rounded-full transition-all duration-300 text-sm font-medium touch-target ${
+              locale === lang
+                ? 'bg-white shadow-sm text-neutral-900'
+                : 'text-neutral-600 hover:text-neutral-900'
+            }`}
+          >
+            {lang.toUpperCase()}
+          </button>
+        ))}
+      </div>
+    </nav>
   );
 }

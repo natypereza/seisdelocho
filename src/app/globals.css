@@ -5,23 +5,104 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
 
   body {
     @apply bg-white text-neutral-900 antialiased;
   }
+
+  *:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  button:focus-visible {
+    outline-color: theme('colors.accent');
+  }
 }
 
 @layer components {
+  /* Fluid Typography */
+  .fluid-display {
+    font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .fluid-heading {
+    font-size: clamp(1.75rem, 3vw + 0.5rem, 3rem);
+    line-height: 1.2;
+  }
+
+  /* Sections */
   .section {
-    @apply py-16 md:py-24 lg:py-32;
+    padding-top: clamp(4rem, 10vh, 8rem);
+    padding-bottom: clamp(4rem, 10vh, 8rem);
+  }
+
+  @media (min-width: 1024px) {
+    .section {
+      padding-top: clamp(6rem, 15vh, 12rem);
+      padding-bottom: clamp(6rem, 15vh, 12rem);
+    }
   }
 
   .container-custom {
-    @apply mx-auto px-6 md:px-12 lg:px-16 max-w-content;
+    @apply mx-auto max-w-content;
+    padding-left: clamp(1.5rem, 4vw, 2rem);
+    padding-right: clamp(1.5rem, 4vw, 2rem);
   }
 
   .section-heading {
     @apply text-4xl md:text-5xl font-light uppercase tracking-widest mb-12 md:mb-16;
+  }
+
+  /* Touch Target Sizing */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  /* Skip to Content Link */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
+
+/* Print Styles */
+@media print {
+  header,
+  footer,
+  .language-switcher {
+    display: none;
+  }
+
+  * {
+    color: black !important;
+    background: white !important;
+  }
+
+  section {
+    page-break-inside: avoid;
   }
 }

@@ -6,7 +6,7 @@ export function Certifications() {
   const items: CertificationItem[] = t.raw('items');
 
   return (
-    <section className="section bg-white">
+    <section id="certifications" className="section bg-white">
       <div className="container-custom">
         <h2 className="section-heading">{t('heading')}</h2>
 
@@ -14,7 +14,7 @@ export function Certifications() {
           {items.map((item, index) => (
             <div
               key={index}
-              className="border border-neutral-200 p-6 md:p-8 hover:border-neutral-400 transition-colors"
+              className="border border-neutral-200 p-6 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-accent"
             >
               <h3 className="text-lg md:text-xl font-medium mb-2 text-neutral-900">
                 {item.title}

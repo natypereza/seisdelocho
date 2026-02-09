@@ -6,7 +6,7 @@ export function Education() {
   const items: EducationItem[] = t.raw('items');
 
   return (
-    <section className="section bg-neutral-50">
+    <section id="education" className="section bg-neutral-50">
       <div className="container-custom">
         <h2 className="section-heading">{t('heading')}</h2>
 
@@ -14,7 +14,7 @@ export function Education() {
           {items.map((item, index) => (
             <div
               key={index}
-              className="relative pl-8 md:pl-10 pb-12 md:pb-16 border-l-2 border-neutral-300"
+              className="relative pl-8 md:pl-10 pb-12 md:pb-16 border-l-2 border-neutral-300 transition-colors hover:border-accent"
             >
               <div className="absolute -left-[9px] md:-left-[11px] top-0 w-4 md:w-5 h-4 md:h-5 rounded-full bg-neutral-900" />
 
