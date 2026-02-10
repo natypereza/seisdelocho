@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 
+export const dynamic = 'force-dynamic';
+
 function isAdminAuthenticated(request: Request): boolean {
   const cookie = request.headers.get('cookie');
   return cookie?.includes('admin-auth-secure=true') ?? false;
