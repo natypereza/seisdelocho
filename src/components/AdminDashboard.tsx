@@ -54,7 +54,7 @@ export default function AdminDashboard() {
 
   const handleLogout = () => {
     document.cookie = 'admin-auth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    document.cookie = 'admin-auth-secure=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie = 'admin-session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     router.push('/admin/login');
   };
 

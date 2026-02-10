@@ -1,12 +1,8 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { isAdminAuthenticated, unauthorizedResponse } from '@/lib/auth-guard';
 
 export const dynamic = 'force-dynamic';
-
-function isAdminAuthenticated(request: Request): boolean {
-  const cookie = request.headers.get('cookie');
-  return cookie?.includes('admin-auth-secure=true') ?? false;
-}
 
 export async function PUT(
   request: Request,
@@ -14,10 +10,7 @@ export async function PUT(
 ) {
   try {
     if (!isAdminAuthenticated(request)) {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
+      return unauthorizedResponse();
     }
 
     const { id } = await params;
@@ -55,10 +48,7 @@ export async function DELETE(
 ) {
   try {
     if (!isAdminAuthenticated(request)) {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
+      return unauthorizedResponse();
     }
 
     const { id } = await params;

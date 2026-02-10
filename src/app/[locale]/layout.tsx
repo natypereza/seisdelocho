@@ -5,7 +5,6 @@ import { NextIntlClientProvider } from 'next-intl';
 import { routing } from '@/i18n/routing';
 import '../globals.css';
 
-export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   metadataBase: new URL('https://seisdelocho.com'),
   title: 'Natalia Pérez Aguja - Brand Manager & Marketing Strategist',

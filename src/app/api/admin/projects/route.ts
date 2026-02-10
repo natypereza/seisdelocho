@@ -1,18 +1,11 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-
-function isAdminAuthenticated(request: Request): boolean {
-  const cookie = request.headers.get('cookie');
-  return cookie?.includes('admin-auth-secure=true') ?? false;
-}
+import { isAdminAuthenticated, unauthorizedResponse } from '@/lib/auth-guard';
 
 export async function GET(request: Request) {
   try {
     if (!isAdminAuthenticated(request)) {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
+      return unauthorizedResponse();
     }
 
     const { searchParams } = new URL(request.url);
@@ -36,10 +29,7 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   try {
     if (!isAdminAuthenticated(request)) {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
+      return unauthorizedResponse();
     }
 
     const formData = await request.formData();

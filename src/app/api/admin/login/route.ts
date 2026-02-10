@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { verifyAdminPassword } from '@/lib/admin-auth';
+import { verifyAdminPassword, createSessionToken } from '@/lib/admin-auth';
 
 export async function POST(request: Request) {
   try {
@@ -19,27 +19,28 @@ export async function POST(request: Request) {
       );
     }
 
+    const token = createSessionToken();
+
     const response = NextResponse.json(
       { success: true, message: 'Authenticated' },
       { status: 200 }
     );
 
-    // Set cookies for admin session
-    // httpOnly cookie for backend verification
-    response.cookies.set('admin-auth-secure', 'true', {
+    // Signed httpOnly cookie for backend verification
+    response.cookies.set('admin-session', token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',
-      maxAge: 24 * 60 * 60, // 24 hours
+      maxAge: 24 * 60 * 60,
       path: '/',
     });
 
-    // Non-httpOnly cookie for frontend detection
+    // Non-httpOnly cookie for frontend detection only
     response.cookies.set('admin-auth', 'true', {
       httpOnly: false,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',
-      maxAge: 24 * 60 * 60, // 24 hours
+      maxAge: 24 * 60 * 60,
       path: '/',
     });
 
