@@ -3,7 +3,7 @@ import { prisma } from '@/lib/prisma';
 
 function isAdminAuthenticated(request: Request): boolean {
   const cookie = request.headers.get('cookie');
-  return cookie?.includes('admin-auth=true') ?? false;
+  return cookie?.includes('admin-auth-secure=true') ?? false;
 }
 
 export async function PUT(

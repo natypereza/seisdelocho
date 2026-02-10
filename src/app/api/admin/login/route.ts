@@ -24,9 +24,19 @@ export async function POST(request: Request) {
       { status: 200 }
     );
 
-    // Set a secure cookie for admin session
-    response.cookies.set('admin-auth', 'true', {
+    // Set cookies for admin session
+    // httpOnly cookie for backend verification
+    response.cookies.set('admin-auth-secure', 'true', {
       httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      maxAge: 24 * 60 * 60, // 24 hours
+      path: '/',
+    });
+
+    // Non-httpOnly cookie for frontend detection
+    response.cookies.set('admin-auth', 'true', {
+      httpOnly: false,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',
       maxAge: 24 * 60 * 60, // 24 hours
