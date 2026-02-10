@@ -23,6 +23,7 @@ export async function PUT(
     const title = formData.get('title') as string;
     const description = formData.get('description') as string;
     const imageUrl = formData.get('imageUrl') as string;
+    const websiteUrl = (formData.get('websiteUrl') as string) || null;
     const featured = formData.get('featured') === 'true';
 
     const project = await prisma.project.update({
@@ -31,6 +32,7 @@ export async function PUT(
         ...(title && { title }),
         ...(description && { description }),
         ...(imageUrl && { imageUrl }),
+        websiteUrl,
         featured,
       },
     });

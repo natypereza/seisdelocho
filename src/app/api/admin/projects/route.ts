@@ -46,6 +46,7 @@ export async function POST(request: Request) {
     const title = formData.get('title') as string;
     const description = formData.get('description') as string;
     const imageUrl = formData.get('imageUrl') as string;
+    const websiteUrl = (formData.get('websiteUrl') as string) || null;
     const locale = (formData.get('locale') as string) || 'en';
     const featured = formData.get('featured') === 'true';
 
@@ -61,6 +62,7 @@ export async function POST(request: Request) {
         title,
         description,
         imageUrl,
+        websiteUrl,
         locale,
         featured,
       },

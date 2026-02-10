@@ -46,6 +46,7 @@ model Project {
   title       String
   description String   @db.Text
   imageUrl    String   // Path to project image
+  websiteUrl  String?  // Link to project website/portfolio
   locale      String   @default("en")
   order       Int      @default(0)
   featured    Boolean  @default(false)
