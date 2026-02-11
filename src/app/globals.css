@@ -90,6 +90,10 @@
     border-image: linear-gradient(to right, #B8956A, #E8D5B7) 1;
   }
 
+  .gradient-warm-soft {
+    background: linear-gradient(180deg, #FAFAFA 0%, #F5F0EB 50%, #F0E8DE 100%);
+  }
+
   /* Touch Target Sizing */
   .touch-target {
     @apply min-h-[44px] min-w-[44px];
@@ -117,6 +121,14 @@
     overflow: visible;
     clip: auto;
     white-space: normal;
+  }
+}
+
+/* Small screen adjustments */
+@media (max-width: 360px) {
+  .container-custom {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 

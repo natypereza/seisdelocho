@@ -2,8 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { AnimatedSection } from './AnimatedSection';
-import { DynamicImage } from './DynamicImage';
+import { ChevronDown } from 'lucide-react';
 
 export function Hero() {
   const t = useTranslations();
@@ -13,89 +12,88 @@ export function Hero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1,
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6,  },
+      transition: { duration: 0.8, ease: 'easeOut' as const },
     },
   };
 
   return (
-    <AnimatedSection className="pt-32 md:pt-40 pb-16 md:pb-32 gradient-warm">
-      <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20 items-center md:items-start">
-          {/* Image */}
-          <motion.div
-            className="flex justify-center md:justify-start order-first md:order-last"
-            variants={itemVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <div className="relative w-72 h-72 md:w-96 md:h-96">
-              <DynamicImage
-                category="profile"
-                fallbackSrc="/images/profile.jpg"
-                priority
-                className="rounded-3xl shadow-2xl object-cover w-full h-full transition-transform duration-500 hover:scale-105"
-              />
-            </div>
-          </motion.div>
-
-          {/* Content */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="md:pl-4"
-          >
-            <motion.h1
-              variants={itemVariants}
-              className="heading-script text-warm-darker mb-4 md:mb-6 tracking-tight"
-            >
-              {t('header.name')}
-            </motion.h1>
-            <motion.p
-              variants={itemVariants}
-              className="text-2xl md:text-3xl font-light text-neutral-600 mb-8 md:mb-12 tracking-wide"
-            >
-              {t('hero.title')}
-            </motion.p>
-            <motion.p
-              variants={itemVariants}
-              className="text-lg md:text-xl text-neutral-700 mb-8 md:mb-12 leading-relaxed max-w-prose font-light"
-            >
-              {t('hero.subtitle')}
-            </motion.p>
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <a
-                href={`mailto:${t('contact.email')}`}
-                className="px-8 py-3 border-2 border-neutral-900 text-neutral-900 text-center hover:bg-neutral-900 hover:text-white transition-all duration-300 hover:scale-105 inline-block rounded-sm"
-              >
-                {t('hero.cta')}
-              </a>
-              <a
-                href={`tel:${t('contact.phone')}`}
-                className="px-8 py-3 text-neutral-600 text-center hover:text-accent transition-colors inline-block touch-target"
-              >
-                {t('contact.phone')}
-              </a>
-            </motion.div>
-          </motion.div>
-        </div>
+    <section className="relative min-h-screen flex items-center justify-center gradient-warm overflow-hidden">
+      {/* Subtle decorative elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 -left-32 w-64 h-64 bg-warm-base/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-warm-light/15 rounded-full blur-3xl" />
       </div>
-    </AnimatedSection>
+
+      <div className="container-custom relative z-10 text-center">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="max-w-4xl mx-auto"
+        >
+          {/* Brand name */}
+          <motion.h1
+            variants={itemVariants}
+            className="font-script text-warm-darker mb-6"
+            style={{ fontSize: 'clamp(5rem, 12vw, 10rem)', lineHeight: 1 }}
+          >
+            6del8
+          </motion.h1>
+
+          {/* Tagline */}
+          <motion.p
+            variants={itemVariants}
+            className="heading-creative text-warm-darker tracking-widest mb-6"
+            style={{ fontSize: 'clamp(1.25rem, 3vw, 2.5rem)' }}
+          >
+            {t('hero.tagline')}
+          </motion.p>
+
+          {/* Subtitle */}
+          <motion.p
+            variants={itemVariants}
+            className="text-lg md:text-xl text-warm-dark font-light tracking-wide max-w-2xl mx-auto mb-12"
+          >
+            {t('hero.subtitle')}
+          </motion.p>
+
+          {/* CTA */}
+          <motion.div variants={itemVariants}>
+            <a
+              href="#work"
+              className="inline-block px-10 py-4 border-2 border-warm-darker text-warm-darker text-sm uppercase tracking-[0.2em] font-medium hover:bg-warm-darker hover:text-white transition-all duration-300 rounded-sm"
+            >
+              {t('hero.cta')}
+            </a>
+          </motion.div>
+        </motion.div>
+      </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 0.8 }}
+      >
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+        >
+          <ChevronDown className="w-6 h-6 text-warm-dark/50" />
+        </motion.div>
+      </motion.div>
+    </section>
   );
 }

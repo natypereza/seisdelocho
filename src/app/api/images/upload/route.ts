@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
-import { writeFile, mkdir } from 'fs/promises';
-import { join } from 'path';
-import { existsSync } from 'fs';
 import { prisma } from '@/lib/prisma';
+import { getSupabase } from '@/lib/supabase';
 import { isAdminAuthenticated, unauthorizedResponse } from '@/lib/auth-guard';
+
+export const dynamic = 'force-dynamic';
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
@@ -37,7 +37,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Validate file type
     if (!ALLOWED_TYPES.includes(file.type)) {
       return NextResponse.json(
         { error: 'Invalid file type. Only JPEG, PNG, WebP, and GIF are allowed.' },
@@ -45,7 +44,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Validate file size
     if (file.size > MAX_FILE_SIZE) {
       return NextResponse.json(
         { error: 'File too large. Maximum size is 10MB.' },
@@ -53,30 +51,44 @@ export async function POST(request: Request) {
       );
     }
 
-    // Create images directory if it doesn't exist
-    const imagesDir = join(process.cwd(), 'public', 'images');
-    if (!existsSync(imagesDir)) {
-      await mkdir(imagesDir, { recursive: true });
-    }
-
-    // Sanitize filename: remove path components, non-ASCII, and special chars
+    // Sanitize filename
     const safeName = file.name
       .replace(/[^a-zA-Z0-9._-]/g, '-')
       .replace(/\.{2,}/g, '.')
       .substring(0, 100);
-    const filename = `${Date.now()}-${safeName}`;
-    const filePath = join(imagesDir, filename);
+    const filePath = `${category}/${Date.now()}-${safeName}`;
 
+    // Upload to Supabase Storage
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
-    await writeFile(filePath, buffer);
+
+    const supabase = getSupabase();
+    const { error: uploadError } = await supabase.storage
+      .from('images')
+      .upload(filePath, buffer, {
+        contentType: file.type,
+        upsert: false,
+      });
+
+    if (uploadError) {
+      console.error('Supabase upload error:', uploadError);
+      return NextResponse.json(
+        { error: 'Failed to upload image to storage' },
+        { status: 500 }
+      );
+    }
+
+    // Get public URL
+    const { data: urlData } = supabase.storage
+      .from('images')
+      .getPublicUrl(filePath);
 
     const image = await prisma.image.create({
       data: {
         category,
         title,
         altText,
-        url: `/images/${filename}`,
+        url: urlData.publicUrl,
         width: widthStr ? parseInt(widthStr) : 1920,
         height: heightStr ? parseInt(heightStr) : 1080,
         locale,

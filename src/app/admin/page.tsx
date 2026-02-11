@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import AdminDashboard from '@/components/AdminDashboard';
+import AdminShell from '@/components/admin/AdminShell';
 
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -32,5 +32,5 @@ export default function AdminPage() {
     return null;
   }
 
-  return <AdminDashboard />;
+  return <AdminShell />;
 }

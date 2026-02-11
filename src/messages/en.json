@@ -1,15 +1,50 @@
 {
   "header": {
-    "name": "Natalia Pérez Aguja"
+    "name": "6del8",
+    "nav": {
+      "work": "Work",
+      "services": "Services",
+      "about": "About",
+      "contact": "Contact"
+    }
   },
   "hero": {
-    "title": "Brand Manager & Marketing Strategist",
-    "subtitle": "Transforming brands through creative vision and strategic execution",
-    "cta": "Get in touch"
+    "tagline": "Creativity without rules",
+    "subtitle": "Branding, content & aesthetics made simple",
+    "cta": "View our work"
+  },
+  "portfolio": {
+    "heading": "Work",
+    "viewProject": "View project",
+    "featured": "Featured"
+  },
+  "services": {
+    "heading": "Services",
+    "branding": {
+      "title": "Branding",
+      "description": "Brand identity, strategy & visual systems"
+    },
+    "content": {
+      "title": "Content",
+      "description": "Content creation, social media & storytelling"
+    },
+    "aesthetics": {
+      "title": "Aesthetics",
+      "description": "Visual direction, photography & design"
+    }
   },
   "about": {
     "heading": "About",
-    "bio": "I'm a bilingual marketing professional with a passion for transforming brands through strategic creativity and innovative design. Currently pursuing a degree in Business Administration at Universidad de Palermo while building my professional portfolio in brand management and digital marketing. With expertise spanning visual design, social media strategy, and event planning, I thrive at the intersection of creativity and business objectives. I'm known for my proactive approach, positive attitude, and ability to adapt to fast-paced environments while maintaining a strong focus on delivering measurable results."
+    "bio": "seisdelocho is a creative studio led by Natalia Pérez, specializing in branding, content creation, and visual aesthetics. We believe in design with purpose — transforming ideas into visual experiences that connect and inspire.",
+    "viewCv": "View full CV"
+  },
+  "contact": {
+    "heading": "Let's work together",
+    "cta": "Get in touch",
+    "email": "natyperezaguja@gmail.com",
+    "phone": "+502 5696-8292",
+    "location": "Guatemala City, Guatemala",
+    "dm": "DM to work together"
   },
   "experience": {
     "heading": "Experience",
@@ -67,27 +102,9 @@
       "strengths": "Professional Strengths"
     },
     "items": {
-      "languages": [
-        "Spanish",
-        "English"
-      ],
-      "design": [
-        "Adobe Photoshop",
-        "Canva",
-        "CapCut",
-        "Photography",
-        "Microsoft Office"
-      ],
-      "strengths": [
-        "Strategic Thinking",
-        "Creative Problem Solving",
-        "Social Media Strategy",
-        "Brand Development",
-        "Team Leadership",
-        "Adaptability",
-        "Project Management",
-        "Digital Marketing"
-      ]
+      "languages": ["Spanish", "English"],
+      "design": ["Adobe Photoshop", "Canva", "CapCut", "Photography", "Microsoft Office"],
+      "strengths": ["Strategic Thinking", "Creative Problem Solving", "Social Media Strategy", "Brand Development", "Team Leadership", "Adaptability", "Project Management", "Digital Marketing"]
     }
   },
   "education": {
@@ -111,54 +128,25 @@
   "certifications": {
     "heading": "Professional Certifications",
     "items": [
-      {
-        "title": "Franklin Covey Leadership Program",
-        "issuer": "El Líder en Mi",
-        "year": "2013-2020"
-      },
-      {
-        "title": "Basic Photography Course",
-        "issuer": "Professional Development",
-        "year": "2018"
-      },
-      {
-        "title": "Web Design HTML & CSS",
-        "issuer": "Digital Design",
-        "year": "2022"
-      },
-      {
-        "title": "The Fundamentals of Digital Marketing",
-        "issuer": "Google",
-        "year": "2022"
-      },
-      {
-        "title": "Digital Competencies for Professionals",
-        "issuer": "Professional Development",
-        "year": "2023"
-      },
-      {
-        "title": "Digitize Your Business with Google Tools",
-        "issuer": "Google",
-        "year": "2023"
-      },
-      {
-        "title": "Cybersecurity in Remote Work",
-        "issuer": "Professional Development",
-        "year": "2023"
-      },
-      {
-        "title": "Leading Your Life Through Emotional Intelligence",
-        "issuer": "ALINEA Vida y Futuro",
-        "year": "2023"
-      }
+      { "title": "Franklin Covey Leadership Program", "issuer": "El Líder en Mi", "year": "2013-2020" },
+      { "title": "Basic Photography Course", "issuer": "Professional Development", "year": "2018" },
+      { "title": "Web Design HTML & CSS", "issuer": "Digital Design", "year": "2022" },
+      { "title": "The Fundamentals of Digital Marketing", "issuer": "Google", "year": "2022" },
+      { "title": "Digital Competencies for Professionals", "issuer": "Professional Development", "year": "2023" },
+      { "title": "Digitize Your Business with Google Tools", "issuer": "Google", "year": "2023" },
+      { "title": "Cybersecurity in Remote Work", "issuer": "Professional Development", "year": "2023" },
+      { "title": "Leading Your Life Through Emotional Intelligence", "issuer": "ALINEA Vida y Futuro", "year": "2023" }
     ]
   },
-  "footer": {
-    "copyright": "© 2026 Natalia Pérez Aguja. All rights reserved."
+  "cv": {
+    "title": "CV — Natalia Pérez Aguja",
+    "backHome": "Back to home"
   },
-  "contact": {
-    "email": "natyperezaguja@gmail.com",
-    "phone": "+502 5696-8292",
-    "location": "Ciudad de Guatemala, Guatemala"
+  "footer": {
+    "copyright": "© 2026 seisdelocho. All rights reserved.",
+    "work": "Work",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact"
   }
 }

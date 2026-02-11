@@ -1,23 +1,21 @@
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
+import { Portfolio } from '@/components/Portfolio';
+import { Services } from '@/components/Services';
 import { About } from '@/components/About';
-import { Experience } from '@/components/Experience';
-import { Skills } from '@/components/Skills';
-import { Education } from '@/components/Education';
-import { Certifications } from '@/components/Certifications';
+import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
 
 export default function Home() {
   return (
     <>
       <Header />
-      <main id="main" className="bg-white pt-16 md:pt-20">
+      <main id="main">
         <Hero />
+        <Portfolio />
+        <Services />
         <About />
-        <Experience />
-        <Skills />
-        <Education />
-        <Certifications />
+        <Contact />
       </main>
       <Footer />
     </>
