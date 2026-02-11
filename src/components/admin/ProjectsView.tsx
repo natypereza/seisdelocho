@@ -110,7 +110,7 @@ export default function ProjectsView() {
     setIsReordering(true);
 
     try {
-      await fetch('/api/admin/projects/reorder', {
+      await fetch('/api/admin/projects', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -135,7 +135,7 @@ export default function ProjectsView() {
     setIsReordering(true);
 
     try {
-      await fetch('/api/admin/projects/reorder', {
+      await fetch('/api/admin/projects', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
