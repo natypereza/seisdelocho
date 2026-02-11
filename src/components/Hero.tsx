@@ -43,13 +43,12 @@ export function Hero() {
           className="max-w-4xl mx-auto"
         >
           {/* Brand name */}
-          <motion.h1
+          <motion.div
             variants={itemVariants}
-            className="font-script text-warm-darker mb-6"
-            style={{ fontSize: 'clamp(5rem, 12vw, 10rem)', lineHeight: 1 }}
+            className="mb-6 flex justify-center"
           >
-            6del8
-          </motion.h1>
+            <img src="/N.svg" alt="6del8" className="w-auto" style={{ height: 'clamp(8rem, 20vw, 16rem)' }} />
+          </motion.div>
 
           {/* Tagline */}
           <motion.p

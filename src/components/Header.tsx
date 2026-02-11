@@ -20,8 +20,8 @@ export function Header() {
       <header className="fixed top-0 w-full bg-bg-base/95 backdrop-blur-sm border-b border-warm-accent/50 z-50">
         <div className="container-custom h-16 md:h-20 flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="font-script text-2xl md:text-3xl text-warm-darker hover:text-warm-base transition-colors">
-            6del8
+          <a href="#" className="hover:opacity-80 transition-opacity">
+            <img src="/N.svg" alt="6del8" className="h-8 md:h-10 w-auto" />
           </a>
 
           {/* Desktop nav */}

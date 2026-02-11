@@ -29,7 +29,7 @@ export default function AdminHeader({ activeView, onToggleMobileMenu }: AdminHea
           </button>
 
           {/* Mobile brand */}
-          <h1 className="lg:hidden heading-script text-warm-darker text-xl">6del8</h1>
+          <img src="/N.svg" alt="6del8" className="lg:hidden h-7 w-auto" />
 
           {/* Page title */}
           <div className="hidden lg:block">

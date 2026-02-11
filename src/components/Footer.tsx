@@ -11,8 +11,8 @@ export function Footer() {
       <div className="container-custom">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-8">
           {/* Logo */}
-          <a href="#" className="font-script text-3xl text-warm-darker hover:text-warm-base transition-colors">
-            6del8
+          <a href="#" className="hover:opacity-80 transition-opacity">
+            <img src="/N.svg" alt="6del8" className="h-10 w-auto" />
           </a>
 
           {/* Nav */}

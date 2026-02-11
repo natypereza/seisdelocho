@@ -58,7 +58,7 @@ export default function AdminShell() {
               >
                 {/* Mobile Brand */}
                 <div className="p-5 border-b-2 border-warm-accent/50">
-                  <h1 className="heading-script text-warm-darker text-2xl leading-none">6del8</h1>
+                  <img src="/N.svg" alt="6del8" className="h-8 w-auto" />
                   <p className="text-[10px] uppercase tracking-[0.2em] text-warm-base mt-1">Portfolio Admin</p>
                 </div>
 
