@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
 import { routing } from '@/i18n/routing';
-import '../globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://seisdelocho.com'),
