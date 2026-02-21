@@ -42,16 +42,35 @@ model Content {
 }
 
 model Project {
-  id          String   @id @default(cuid())
+  id          String         @id @default(cuid())
   title       String
-  description String   @db.Text
-  imageUrl    String   // Path to project image
-  websiteUrl  String?  // Link to project website/portfolio
-  locale      String   @default("en")
-  order       Int      @default(0)
-  featured    Boolean  @default(false)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  slug        String
+  description String         @db.Text
+  imageUrl    String
+  websiteUrl  String?
+  category    String?
+  locale      String         @default("en")
+  order       Int            @default(0)
+  featured    Boolean        @default(false)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  images      ProjectImage[]
 
+  @@unique([slug, locale])
   @@index([locale, order])
+}
+
+model ProjectImage {
+  id        String   @id @default(cuid())
+  projectId String
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  url       String
+  altText   String   @default("")
+  caption   String?
+  width     Int      @default(1920)
+  height    Int      @default(1080)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+
+  @@index([projectId, order])
 }

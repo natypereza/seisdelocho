@@ -16,7 +16,19 @@
   "portfolio": {
     "heading": "Trabajo",
     "viewProject": "Ver proyecto",
-    "featured": "Destacado"
+    "viewDetails": "Ver detalles",
+    "featured": "Destacado",
+    "backToWork": "Volver al trabajo",
+    "pdfTitle": "Portafolio de Diseño",
+    "backHome": "Volver al inicio",
+    "categories": {
+      "all": "Todos",
+      "branding": "Branding",
+      "product": "Producto",
+      "events": "Eventos",
+      "photography": "Fotografía",
+      "marketing": "Marketing"
+    }
   },
   "services": {
     "heading": "Servicios",
@@ -36,7 +48,8 @@
   "about": {
     "heading": "Nosotros",
     "bio": "seisdelocho es un estudio creativo liderado por Natalia Pérez, especializado en branding, creación de contenido y estética visual. Creemos en el diseño con propósito — transformando ideas en experiencias visuales que conectan e inspiran.",
-    "viewCv": "Ver CV completo"
+    "viewCv": "Ver CV completo",
+    "viewPortfolio": "Ver Portafolio"
   },
   "contact": {
     "heading": "Trabajemos juntos",

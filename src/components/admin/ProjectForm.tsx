@@ -8,16 +8,27 @@ import { useToast } from './ToastProvider';
 
 interface ProjectFormData {
   title: string;
+  slug: string;
   description: string;
   imageUrl: string;
   websiteUrl: string;
+  category: string;
   locale: string;
   featured: boolean;
 }
 
 interface ProjectFormProps {
   editingId: string | null;
-  initialData: ProjectFormData | null;
+  initialData: {
+    title: string;
+    slug?: string;
+    description: string;
+    imageUrl: string;
+    websiteUrl: string;
+    category?: string;
+    locale: string;
+    featured: boolean;
+  } | null;
   defaultLocale: string;
   onClose: () => void;
   onSaved: () => void;
@@ -25,32 +36,66 @@ interface ProjectFormProps {
 
 const emptyForm: ProjectFormData = {
   title: '',
+  slug: '',
   description: '',
   imageUrl: '',
   websiteUrl: '',
+  category: '',
   locale: 'en',
   featured: false,
 };
 
+function generateSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
 export default function ProjectForm({ editingId, initialData, defaultLocale, onClose, onSaved }: ProjectFormProps) {
   const [formData, setFormData] = useState<ProjectFormData>(
-    initialData || { ...emptyForm, locale: defaultLocale }
+    initialData
+      ? { ...emptyForm, ...initialData, slug: initialData.slug || '', category: initialData.category || '' }
+      : { ...emptyForm, locale: defaultLocale }
   );
+  const [slugManuallyEdited, setSlugManuallyEdited] = useState(!!editingId);
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState(initialData?.imageUrl || '');
+  const [galleryFiles, setGalleryFiles] = useState<{ file: File; previewUrl: string }[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const { showToast } = useToast();
 
   useEffect(() => {
     if (initialData) {
-      setFormData(initialData);
+      setFormData({
+        ...emptyForm,
+        ...initialData,
+        slug: initialData.slug || '',
+        category: initialData.category || '',
+      });
       setPreviewUrl(initialData.imageUrl || '');
+      setSlugManuallyEdited(true);
     } else {
       setFormData({ ...emptyForm, locale: defaultLocale });
       setPreviewUrl('');
+      setSlugManuallyEdited(false);
     }
     setImageFile(null);
+    setGalleryFiles([]);
   }, [initialData, defaultLocale]);
+
+  const handleTitleChange = (title: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      title,
+      ...(slugManuallyEdited ? {} : { slug: generateSlug(title) }),
+    }));
+  };
+
+  const handleSlugChange = (slug: string) => {
+    setSlugManuallyEdited(true);
+    setFormData((prev) => ({ ...prev, slug }));
+  };
 
   const handleFileSelect = useCallback((file: File) => {
     setImageFile(file);
@@ -64,16 +109,31 @@ export default function ProjectForm({ editingId, initialData, defaultLocale, onC
     setFormData((prev) => ({ ...prev, imageUrl: '' }));
   }, []);
 
+  const handleGalleryFilesSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files || []);
+    const newFiles = files.map((file) => ({
+      file,
+      previewUrl: URL.createObjectURL(file),
+    }));
+    setGalleryFiles((prev) => [...prev, ...newFiles]);
+  };
+
+  const removeGalleryFile = (index: number) => {
+    setGalleryFiles((prev) => prev.filter((_, i) => i !== index));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
 
     const form = new FormData();
     form.append('title', formData.title);
+    form.append('slug', formData.slug || generateSlug(formData.title));
     form.append('description', formData.description);
     form.append('locale', formData.locale);
     form.append('featured', formData.featured ? 'true' : 'false');
     form.append('websiteUrl', formData.websiteUrl || '');
+    form.append('category', formData.category || '');
 
     if (imageFile) {
       const compressed = await compressImage(imageFile);
@@ -105,6 +165,42 @@ export default function ProjectForm({ editingId, initialData, defaultLocale, onC
       }
     } else {
       form.append('imageUrl', formData.imageUrl);
+    }
+
+    // Upload gallery images
+    const galleryImageData: { url: string; altText: string; width: number; height: number }[] = [];
+
+    for (const { file } of galleryFiles) {
+      const compressed = await compressImage(file);
+      const galleryForm = new FormData();
+      galleryForm.append('file', compressed);
+      galleryForm.append('category', 'project');
+      galleryForm.append('title', `${formData.title} - Gallery`);
+      galleryForm.append('altText', formData.title);
+      galleryForm.append('locale', formData.locale);
+
+      try {
+        const uploadResponse = await fetch('/api/images/upload', {
+          method: 'POST',
+          body: galleryForm,
+        });
+
+        if (uploadResponse.ok) {
+          const uploadData = await uploadResponse.json();
+          galleryImageData.push({
+            url: uploadData.image.url,
+            altText: formData.title,
+            width: uploadData.image.width,
+            height: uploadData.image.height,
+          });
+        }
+      } catch {
+        // Continue with other uploads
+      }
+    }
+
+    if (galleryImageData.length > 0) {
+      form.append('galleryImages', JSON.stringify(galleryImageData));
     }
 
     try {
@@ -178,11 +274,44 @@ export default function ProjectForm({ editingId, initialData, defaultLocale, onC
             <input
               type="text"
               value={formData.title}
-              onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+              onChange={(e) => handleTitleChange(e.target.value)}
               placeholder="E.g. Brand Identity for Café Luna"
               className="w-full px-4 py-3 border-2 border-warm-light rounded-xl focus:outline-none focus:border-warm-darker focus:ring-2 focus:ring-warm-light/30 text-warm-darker bg-bg-base transition-all text-sm"
               required
             />
+          </div>
+
+          {/* Slug */}
+          <div>
+            <label className="block text-xs font-semibold text-warm-darker mb-2 uppercase tracking-wide">
+              URL Slug
+            </label>
+            <input
+              type="text"
+              value={formData.slug}
+              onChange={(e) => handleSlugChange(e.target.value)}
+              placeholder="auto-generated-from-title"
+              className="w-full px-4 py-3 border-2 border-warm-light rounded-xl focus:outline-none focus:border-warm-darker focus:ring-2 focus:ring-warm-light/30 text-warm-darker bg-bg-base transition-all text-sm font-mono"
+            />
+          </div>
+
+          {/* Category */}
+          <div>
+            <label className="block text-xs font-semibold text-warm-darker mb-2 uppercase tracking-wide">
+              Category
+            </label>
+            <select
+              value={formData.category}
+              onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+              className="w-full px-4 py-3 border-2 border-warm-light rounded-xl focus:outline-none focus:border-warm-darker text-warm-darker bg-bg-base transition-all text-sm"
+            >
+              <option value="">None</option>
+              <option value="branding">Branding</option>
+              <option value="product">Product Design</option>
+              <option value="events">Events</option>
+              <option value="photography">Photography</option>
+              <option value="marketing">Marketing</option>
+            </select>
           </div>
 
           {/* Description */}
@@ -245,6 +374,36 @@ export default function ProjectForm({ editingId, initialData, defaultLocale, onC
               Featured Project
             </span>
           </label>
+
+          {/* Gallery Images */}
+          <div>
+            <label className="block text-xs font-semibold text-warm-darker mb-2 uppercase tracking-wide">
+              Gallery Images
+            </label>
+            {galleryFiles.length > 0 && (
+              <div className="grid grid-cols-3 gap-2 mb-3">
+                {galleryFiles.map((item, i) => (
+                  <div key={i} className="relative aspect-square rounded-lg overflow-hidden">
+                    <img src={item.previewUrl} alt="" className="w-full h-full object-cover" />
+                    <button
+                      type="button"
+                      onClick={() => removeGalleryFile(i)}
+                      className="absolute top-1 right-1 p-1 bg-black/50 rounded-full text-white hover:bg-black/70 transition-colors"
+                    >
+                      <X className="w-3 h-3" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+            <input
+              type="file"
+              multiple
+              accept="image/*"
+              onChange={handleGalleryFilesSelect}
+              className="w-full text-sm text-warm-dark file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-2 file:border-warm-light file:text-sm file:font-semibold file:bg-bg-base file:text-warm-darker hover:file:bg-warm-light/30 file:transition-all file:cursor-pointer"
+            />
+          </div>
 
           {/* Spacer for bottom padding */}
           <div className="h-4" />

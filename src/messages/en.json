@@ -16,7 +16,19 @@
   "portfolio": {
     "heading": "Work",
     "viewProject": "View project",
-    "featured": "Featured"
+    "viewDetails": "View details",
+    "featured": "Featured",
+    "backToWork": "Back to work",
+    "pdfTitle": "Design Portfolio",
+    "backHome": "Back to home",
+    "categories": {
+      "all": "All",
+      "branding": "Branding",
+      "product": "Product",
+      "events": "Events",
+      "photography": "Photography",
+      "marketing": "Marketing"
+    }
   },
   "services": {
     "heading": "Services",
@@ -36,7 +48,8 @@
   "about": {
     "heading": "About",
     "bio": "seisdelocho is a creative studio led by Natalia Pérez, specializing in branding, content creation, and visual aesthetics. We believe in design with purpose — transforming ideas into visual experiences that connect and inspire.",
-    "viewCv": "View full CV"
+    "viewCv": "View full CV",
+    "viewPortfolio": "View Portfolio"
   },
   "contact": {
     "heading": "Let's work together",

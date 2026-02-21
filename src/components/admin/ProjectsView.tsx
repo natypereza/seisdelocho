@@ -211,9 +211,11 @@ export default function ProjectsView() {
               editingProject
                 ? {
                     title: editingProject.title,
+                    slug: editingProject.slug,
                     description: editingProject.description,
                     imageUrl: editingProject.imageUrl,
                     websiteUrl: editingProject.websiteUrl || '',
+                    category: editingProject.category || '',
                     locale: editingProject.locale,
                     featured: editingProject.featured,
                   }

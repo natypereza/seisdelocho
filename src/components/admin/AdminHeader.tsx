@@ -29,7 +29,7 @@ export default function AdminHeader({ activeView, onToggleMobileMenu }: AdminHea
           </button>
 
           {/* Mobile brand */}
-          <img src="/N.svg" alt="6del8" className="lg:hidden h-7 w-auto" />
+          <img src="/n-logo-2.png" alt="6del8" className="lg:hidden h-7 w-auto" />
 
           {/* Page title */}
           <div className="hidden lg:block">

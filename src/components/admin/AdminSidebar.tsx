@@ -48,7 +48,7 @@ export default function AdminSidebar({
               exit={{ opacity: 0 }}
               transition={{ duration: 0.15 }}
             >
-              <img src="/N.svg" alt="6del8" className="h-8 w-auto" />
+              <img src="/n-logo-2.png" alt="6del8" className="h-8 w-auto" />
               <p className="text-[10px] uppercase tracking-[0.2em] text-warm-base mt-1">Portfolio Admin</p>
             </motion.div>
           )}

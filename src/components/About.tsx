@@ -43,7 +43,7 @@ export function About() {
             <div className="relative w-64 h-64 md:w-80 md:h-80">
               <DynamicImage
                 category="profile"
-                fallbackSrc="/images/profile.jpg"
+                fallbackSrc="/n-logo.png"
                 className="rounded-2xl shadow-xl object-cover w-full h-full"
               />
             </div>
@@ -77,6 +77,12 @@ export function About() {
                 className="px-6 py-3 border-2 border-warm-darker text-warm-darker text-sm uppercase tracking-[0.15em] font-medium hover:bg-warm-darker hover:text-white transition-all duration-300 rounded-sm"
               >
                 {t('about.viewCv')}
+              </Link>
+              <Link
+                href={`/${locale}/portfolio`}
+                className="px-6 py-3 border-2 border-warm-darker text-warm-darker text-sm uppercase tracking-[0.15em] font-medium hover:bg-warm-darker hover:text-white transition-all duration-300 rounded-sm"
+              >
+                {t('about.viewPortfolio')}
               </Link>
               <a
                 href="https://instagram.com/seisdelocho_"

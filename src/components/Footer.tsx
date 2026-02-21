@@ -12,7 +12,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-8">
           {/* Logo */}
           <a href="#" className="hover:opacity-80 transition-opacity">
-            <img src="/N.svg" alt="6del8" className="h-10 w-auto" />
+            <img src="/n-logo-2.png" alt="6del8" className="h-10 w-auto" />
           </a>
 
           {/* Nav */}

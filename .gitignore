@@ -9,3 +9,14 @@ out/
 .idea/
 .vscode/
 .claude/
+
+# Raw media files in repo root (originals live in Supabase)
+/*.HEIC
+/*.heic
+/*.png
+/*.PNG
+/*.jpg
+/*.JPG
+/*.pdf
+/*.PDF
+scripts/image-manifest.json

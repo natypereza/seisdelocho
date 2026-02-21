@@ -47,7 +47,7 @@ export function Hero() {
             variants={itemVariants}
             className="mb-6 flex justify-center"
           >
-            <img src="/N.svg" alt="6del8" className="w-auto" style={{ height: 'clamp(8rem, 20vw, 16rem)' }} />
+            <img src="/n-logo.png" alt="6del8" className="w-auto" style={{ height: 'clamp(8rem, 20vw, 16rem)' }} />
           </motion.div>
 
           {/* Tagline */}

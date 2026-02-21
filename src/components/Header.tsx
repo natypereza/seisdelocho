@@ -21,7 +21,7 @@ export function Header() {
         <div className="container-custom h-16 md:h-20 flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="hover:opacity-80 transition-opacity">
-            <img src="/N.svg" alt="6del8" className="h-8 md:h-10 w-auto" />
+            <img src="/n-logo-2.png" alt="6del8" className="h-10 md:h-14 w-auto" />
           </a>
 
           {/* Desktop nav */}

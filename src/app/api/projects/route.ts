@@ -11,6 +11,11 @@ export async function GET(request: Request) {
     const projects = await prisma.project.findMany({
       where: { locale },
       orderBy: [{ featured: 'desc' }, { order: 'asc' }],
+      include: {
+        _count: {
+          select: { images: true },
+        },
+      },
     });
 
     return NextResponse.json({ projects });

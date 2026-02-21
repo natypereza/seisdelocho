@@ -16,14 +16,17 @@ import {
 export interface Project {
   id: string;
   title: string;
+  slug: string;
   description: string;
   imageUrl: string;
   websiteUrl?: string;
+  category?: string;
   locale: string;
   order: number;
   featured: boolean;
   createdAt: string;
   updatedAt?: string;
+  _count?: { images: number };
 }
 
 interface ProjectCardProps {
@@ -187,9 +190,19 @@ export default function ProjectCard({
                 Featured
               </span>
             )}
+            {project.category && (
+              <span className="text-[11px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-full bg-warm-light/20 text-warm-dark">
+                {project.category}
+              </span>
+            )}
             <span className="text-[11px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-full bg-warm-light/20 text-warm-dark">
               {localeLabels[project.locale] || project.locale}
             </span>
+            {project._count && project._count.images > 0 && (
+              <span className="text-[11px] text-warm-base">
+                {project._count.images} images
+              </span>
+            )}
             {project.websiteUrl && (
               <a
                 href={project.websiteUrl}

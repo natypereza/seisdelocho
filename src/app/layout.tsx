@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/N.svg" type="image/svg+xml" />
+        <link rel="icon" href="/n-logo-2.png" type="image/png" />
       </head>
       <body className={`${inter.variable} ${oswald.variable} ${ooohBaby.variable} ${inter.className}`} suppressHydrationWarning>
         {children}

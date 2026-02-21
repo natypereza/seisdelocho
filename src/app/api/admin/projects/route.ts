@@ -16,6 +16,11 @@ export async function GET(request: Request) {
     const projects = await prisma.project.findMany({
       where: { locale },
       orderBy: { order: 'asc' },
+      include: {
+        _count: {
+          select: { images: true },
+        },
+      },
     });
 
     return NextResponse.json({ projects });
@@ -36,11 +41,14 @@ export async function POST(request: Request) {
 
     const formData = await request.formData();
     const title = formData.get('title') as string;
+    const slug = formData.get('slug') as string;
     const description = formData.get('description') as string;
     const imageUrl = formData.get('imageUrl') as string;
     const websiteUrl = (formData.get('websiteUrl') as string) || null;
+    const category = (formData.get('category') as string) || null;
     const locale = (formData.get('locale') as string) || 'en';
     const featured = formData.get('featured') === 'true';
+    const galleryImages = formData.get('galleryImages') as string | null;
 
     if (!title || !description || !imageUrl) {
       return NextResponse.json(
@@ -49,14 +57,32 @@ export async function POST(request: Request) {
       );
     }
 
+    // Generate slug if not provided
+    const projectSlug = slug || title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
     const project = await prisma.project.create({
       data: {
         title,
+        slug: projectSlug,
         description,
         imageUrl,
         websiteUrl,
+        category,
         locale,
         featured,
+        ...(galleryImages
+          ? {
+              images: {
+                create: JSON.parse(galleryImages).map((img: { url: string; altText?: string; width?: number; height?: number }, i: number) => ({
+                  url: img.url,
+                  altText: img.altText || title,
+                  width: img.width || 1920,
+                  height: img.height || 1080,
+                  order: i,
+                })),
+              },
+            }
+          : {}),
       },
     });
 
