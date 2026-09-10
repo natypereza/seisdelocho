@@ -2,16 +2,16 @@
   "header": {
     "name": "6del8",
     "nav": {
-      "work": "Work",
-      "services": "Services",
+      "home": "Home",
       "about": "About",
+      "services": "Services",
       "contact": "Contact"
     }
   },
   "hero": {
     "tagline": "Creativity without rules",
-    "subtitle": "Branding, content & aesthetics made simple",
-    "cta": "View our work"
+    "subtitle": "Design & creativity with purpose",
+    "subtitle2": "Branding, content and aesthetics made simple"
   },
   "portfolio": {
     "heading": "Work",
@@ -32,32 +32,37 @@
   },
   "services": {
     "heading": "Services",
-    "branding": {
-      "title": "Branding",
-      "description": "Brand identity, strategy & visual systems"
+    "tagline": "Visual design for meaningful events and intentional brands.",
+    "backToServices": "Back to services",
+    "eventDesign": {
+      "title": "Event Design",
+      "tagline": "Invitations, menus, and event details that feel cohesive and intentional.",
+      "description": "From invitations and menus to signage and every detail in between — we design event materials that feel cohesive and intentional. Each piece is crafted to reflect the tone, palette, and personality of your celebration, creating a seamless visual experience for your guests."
     },
-    "content": {
-      "title": "Content",
-      "description": "Content creation, social media & storytelling"
+    "weddingExperience": {
+      "title": "Wedding Experience",
+      "tagline": "A curated digital and visual identity for your wedding.",
+      "description": "Your wedding deserves its own visual identity. We create a curated digital and print experience — from save-the-dates and invitations to day-of details and keepsakes — all designed to tell your story with elegance and intention."
     },
-    "aesthetics": {
-      "title": "Aesthetics",
-      "description": "Visual direction, photography & design"
+    "brandDesign": {
+      "title": "Brand Design",
+      "tagline": "Strategic and aesthetic design for brands that want to stand out.",
+      "description": "We build brands that are both strategic and beautiful. From logo design and color palettes to brand guidelines and visual systems, we help you create a cohesive identity that resonates with your audience and stands out in your market."
+    },
+    "creativeSupport": {
+      "title": "Creative Support",
+      "tagline": "Content and photography that complements the overall vision.",
+      "description": "Sometimes you just need an extra pair of creative hands. We offer content creation, photography, and visual support that complements your existing brand or project — ensuring everything stays aligned with your overall vision."
     }
   },
   "about": {
-    "heading": "About",
-    "bio": "seisdelocho is a creative studio led by Natalia Pérez, specializing in branding, content creation, and visual aesthetics. We believe in design with purpose — transforming ideas into visual experiences that connect and inspire.",
-    "viewCv": "View full CV",
-    "viewPortfolio": "View Portfolio"
+    "heading": "Who is 6 del 8",
+    "bio": "seisdelocho is a creative studio led by Natalia Pérez, specializing in branding, content creation, and visual aesthetics. We believe in design with purpose — transforming ideas into visual experiences that connect and inspire."
   },
   "contact": {
     "heading": "Let's work together",
-    "cta": "Get in touch",
     "email": "natyperezaguja@gmail.com",
-    "phone": "+502 5696-8292",
-    "location": "Guatemala City, Guatemala",
-    "dm": "DM to work together"
+    "whatsapp": "+502 5696-8292"
   },
   "experience": {
     "heading": "Experience",
@@ -153,13 +158,14 @@
   },
   "cv": {
     "title": "CV — Natalia Pérez Aguja",
-    "backHome": "Back to home"
+    "backHome": "Back to home",
+    "download": "Download CV"
   },
   "footer": {
     "copyright": "© 2026 seisdelocho. All rights reserved.",
-    "work": "Work",
-    "services": "Services",
+    "home": "Home",
     "about": "About",
+    "services": "Services",
     "contact": "Contact"
   }
 }

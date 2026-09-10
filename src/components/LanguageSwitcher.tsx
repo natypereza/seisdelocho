@@ -14,17 +14,17 @@ export function LanguageSwitcher() {
 
   return (
     <nav aria-label="Language selection" className="language-switcher">
-      <div className="flex gap-1 bg-warm-light/30 rounded-full p-1">
+      <div className="flex gap-2">
         {['en', 'es', 'nl'].map((lang) => (
           <button
             key={lang}
             onClick={() => handleChange(lang)}
             aria-label={`Switch to ${lang === 'en' ? 'English' : lang === 'es' ? 'Spanish' : 'Dutch'}`}
             aria-current={locale === lang ? 'page' : undefined}
-            className={`px-3 py-1.5 rounded-full transition-all duration-300 text-xs font-medium touch-target ${
+            className={`text-[11px] font-light tracking-wide transition-colors touch-target ${
               locale === lang
-                ? 'bg-bg-elevated shadow-sm text-warm-darker'
-                : 'text-warm-dark hover:text-warm-darker'
+                ? 'text-warm-darker'
+                : 'text-greige hover:text-warm-dark'
             }`}
           >
             {lang.toUpperCase()}

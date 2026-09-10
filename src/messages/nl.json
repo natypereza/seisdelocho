@@ -2,16 +2,16 @@
   "header": {
     "name": "6del8",
     "nav": {
-      "work": "Werk",
-      "services": "Diensten",
+      "home": "Home",
       "about": "Over ons",
+      "services": "Diensten",
       "contact": "Contact"
     }
   },
   "hero": {
     "tagline": "Creativiteit zonder regels",
-    "subtitle": "Branding, content en esthetiek vereenvoudigd",
-    "cta": "Bekijk ons werk"
+    "subtitle": "Design & creativiteit met een doel",
+    "subtitle2": "Branding, content en esthetiek vereenvoudigd"
   },
   "portfolio": {
     "heading": "Werk",
@@ -32,32 +32,37 @@
   },
   "services": {
     "heading": "Diensten",
-    "branding": {
-      "title": "Branding",
-      "description": "Merkidentiteit, strategie en visuele systemen"
+    "tagline": "Visueel ontwerp voor betekenisvolle evenementen en doelgerichte merken.",
+    "backToServices": "Terug naar diensten",
+    "eventDesign": {
+      "title": "Evenement Design",
+      "tagline": "Uitnodigingen, menu's en evenementdetails die samenhangend en doelgericht aanvoelen.",
+      "description": "Van uitnodigingen en menu's tot bewegwijzering en elk detail daartussen — we ontwerpen evenementmaterialen die samenhangend en doelgericht aanvoelen. Elk stuk is gemaakt om de toon, het kleurenpalet en de persoonlijkheid van je viering te weerspiegelen."
     },
-    "content": {
-      "title": "Content",
-      "description": "Contentcreatie, social media en storytelling"
+    "weddingExperience": {
+      "title": "Bruiloft Ervaring",
+      "tagline": "Een gecureerde digitale en visuele identiteit voor je bruiloft.",
+      "description": "Je bruiloft verdient een eigen visuele identiteit. We creëren een gecureerde digitale en gedrukte ervaring — van save-the-dates en uitnodigingen tot details op de dag zelf en aandenken — allemaal ontworpen om je verhaal te vertellen met elegantie en intentie."
     },
-    "aesthetics": {
-      "title": "Esthetiek",
-      "description": "Visuele regie, fotografie en ontwerp"
+    "brandDesign": {
+      "title": "Merk Design",
+      "tagline": "Strategisch en esthetisch ontwerp voor merken die willen opvallen.",
+      "description": "We bouwen merken die zowel strategisch als mooi zijn. Van logo-ontwerp en kleurenpaletten tot merkrichtlijnen en visuele systemen, we helpen je een samenhangende identiteit te creëren die resoneert met je doelgroep en opvalt in je markt."
+    },
+    "creativeSupport": {
+      "title": "Creatieve Ondersteuning",
+      "tagline": "Content en fotografie die de algehele visie complementeren.",
+      "description": "Soms heb je gewoon een extra paar creatieve handen nodig. We bieden contentcreatie, fotografie en visuele ondersteuning die je bestaande merk of project complementeert — zodat alles op één lijn blijft met je algehele visie."
     }
   },
   "about": {
-    "heading": "Over ons",
-    "bio": "seisdelocho is een creatieve studio geleid door Natalia Pérez, gespecialiseerd in branding, contentcreatie en visuele esthetiek. Wij geloven in ontwerp met een doel — ideeën transformeren in visuele ervaringen die verbinden en inspireren.",
-    "viewCv": "Bekijk volledig CV",
-    "viewPortfolio": "Bekijk Portfolio"
+    "heading": "Wie is 6 del 8",
+    "bio": "seisdelocho is een creatieve studio geleid door Natalia Pérez, gespecialiseerd in branding, contentcreatie en visuele esthetiek. Wij geloven in ontwerp met een doel — ideeën transformeren in visuele ervaringen die verbinden en inspireren."
   },
   "contact": {
     "heading": "Laten we samenwerken",
-    "cta": "Neem contact op",
     "email": "natyperezaguja@gmail.com",
-    "phone": "+502 5696-8292",
-    "location": "Guatemala Stad, Guatemala",
-    "dm": "Stuur een bericht om samen te werken"
+    "whatsapp": "+502 5696-8292"
   },
   "experience": {
     "heading": "Werkervaring",
@@ -153,13 +158,14 @@
   },
   "cv": {
     "title": "CV — Natalia Pérez Aguja",
-    "backHome": "Terug naar home"
+    "backHome": "Terug naar home",
+    "download": "CV downloaden"
   },
   "footer": {
     "copyright": "© 2026 seisdelocho. Alle rechten voorbehouden.",
-    "work": "Werk",
-    "services": "Diensten",
+    "home": "Home",
     "about": "Over ons",
+    "services": "Diensten",
     "contact": "Contact"
   }
 }

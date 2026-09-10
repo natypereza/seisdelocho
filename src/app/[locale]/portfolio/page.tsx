@@ -1,8 +1,6 @@
 'use client';
 
 import { useTranslations, useLocale } from 'next-intl';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -17,8 +15,6 @@ export default function PortfolioPage() {
 
   return (
     <>
-      <Header />
-      <main id="main" className="pt-20 md:pt-24">
         <section className="gradient-warm py-12 md:py-16">
           <div className="container-custom">
             <motion.div
@@ -67,8 +63,6 @@ export default function PortfolioPage() {
             )}
           </motion.div>
         </section>
-      </main>
-      <Footer />
     </>
   );
 }

@@ -1,0 +1,185 @@
+PROJECT SPEC: Add New Portfolio Content to seisdelocho.com
+==========================================================
+
+CONTEXT
+-------
+Natalia has added many new image files to the project root — client work,
+photography, event designs, branding assets, and PDFs. These need to be
+organized, uploaded to Supabase, and displayed as portfolio projects on the
+site. Duplicates need to be cleaned up. The PDF portfolio should be viewable
+inline on the site.
+
+
+STEP 1: CLEAN UP FILES
+-----------------------
+
+Delete all duplicates (byte-identical "copy 2" variants, duplicate PDFs/JPGs):
+  - All 6del8.X copy 2.png files (12 files)
+  - N (1) 2.png, N (2) 2.png, N 2.png
+  - PORTFOLIO - NATALIA PEREZ 2.pdf, Portfolio Natalia Pérez 2.pdf
+  - 5a0c1fa2-... 2.jpg, de70e604-... 2.jpg
+  - public/N (1).png, public/N (2).png, public/N.png (unused, site uses N.svg)
+
+Rename remaining files to web-friendly names (no spaces, lowercase):
+  - INFLUENCERS.png           -> paccari-influencers.png
+  - producto.png              -> paccari-product.png
+  - 6.png                     -> taylor-taylor-logo.png
+  - 7.png                     -> taylor-taylor-card.png
+  - 5.png, 12.png, 15.png    -> lule-product-{1,2,3}.png
+  - Lifestyle images          -> lule-lifestyle-{1,2,3}.png
+  - Benefit/recipe images     -> lule-benefit-{1,2}.png, lule-recipe.png
+  - FRONT.png                 -> ba-menu.png
+  - Event designs             -> wedding-save-the-date.png, engagement-poster.png
+  - 6del8.X copy.png          -> 6del8-{01..12}.png
+  - PANEM - LANZAMIENTO SHOT  -> panem-launch.png
+
+Skip HEIC files for now (not web-compatible). Can convert later with sips.
+
+
+STEP 2: DATABASE SCHEMA CHANGES
+--------------------------------
+
+Modify prisma/schema.prisma:
+  - Add "slug String @unique" and "category String?" to Project model
+  - Add new ProjectImage model:
+      id, projectId, url, altText, caption, width, height, order
+      Relation to Project (onDelete: Cascade)
+  - Add @@index for slug and projectId+order
+
+Run migration: npx prisma migrate dev --name add_project_detail_support
+Backfill existing projects with generated slugs.
+
+
+STEP 3: UPLOAD IMAGES TO SUPABASE
+-----------------------------------
+
+Create one-time script: scripts/upload-images.ts
+  1. Read each renamed image from the project root
+  2. Use sharp to resize (max 1920px width) and convert to WebP (quality 85)
+  3. Upload to Supabase Storage in organized folders:
+     projects/paccari/, projects/lule/, projects/taylor-taylor/, etc.
+  4. Output the public URLs for use in the seed script
+
+Dev dependencies needed: sharp, ts-node
+
+
+STEP 4: SEED NEW PROJECTS
+---------------------------
+
+Create prisma/seed.ts to insert projects for all 3 locales (en, es, nl):
+
+  Project                    | Category    | Images | Featured
+  ---------------------------|-------------|--------|----------
+  PACCARI                    | branding    | 2      | Yes
+  taylor&taylor creations    | branding    | 2      | No
+  lulé                       | product     | 9      | Yes
+  BA Restaurant Menu         | branding    | 1      | No
+  Wedding Save-the-Date      | events      | 1      | No
+  Engagement Party Poster    | events      | 1      | No
+  6del8 Photography          | photography | 12     | Yes
+  PANEM Launch               | marketing   | 1      | No
+
+Each project gets a hero imageUrl (first image) for the portfolio grid card,
+plus related ProjectImage entries for the detail page gallery.
+
+
+STEP 5: PROJECT DETAIL PAGE
+-----------------------------
+
+Create new route: src/app/[locale]/project/[slug]/page.tsx
+  - Server component, fetches project by slug with ProjectImage relations
+  - Hero section: project title, description, category badge
+  - Image gallery in masonry/grid layout with Framer Motion animations
+  - Back button to /#work
+  - Reuses existing Header/Footer, same warm aesthetic
+
+Create API route: src/app/api/projects/[slug]/route.ts
+  - GET /api/projects/[slug]?locale=en
+  - Returns project with its ProjectImage[] array
+
+
+STEP 6: UPDATE PORTFOLIO COMPONENT
+------------------------------------
+
+Modify src/components/Portfolio.tsx:
+  - Add slug and category to the Project interface
+  - Add category filter tabs above the grid:
+    "All", "Branding", "Product", "Events", "Photography", "Marketing"
+  - Make project cards clickable -> link to /[locale]/project/[slug]
+  - Keep hover overlay with title
+  - Show "View details" instead of external link for multi-image projects
+
+Update src/app/api/projects/route.ts:
+  - Include slug, category, and image count in the response
+
+
+STEP 7: PDF PORTFOLIO VIEWER
+------------------------------
+
+Upload smaller PDF (~52MB "Portfolio Natalia Pérez.pdf") to Supabase Storage
+under documents/.
+
+Create new page: src/app/[locale]/portfolio/page.tsx
+  - Embeds the PDF using <iframe> with the Supabase public URL
+  - Clean layout with Header/Footer, centered iframe at ~3:4 aspect ratio
+  - Mobile-friendly with scroll
+
+Add "View Portfolio" button in src/components/About.tsx next to existing
+"View CV" button.
+
+Add translation keys to all 3 locale files (en.json, es.json, nl.json).
+
+
+STEP 8: ADMIN DASHBOARD UPDATES
+---------------------------------
+
+Update src/components/admin/ProjectForm.tsx:
+  - Add category dropdown and slug field (auto-generated from title)
+  - Add multi-image upload section for ProjectImage entries
+
+Update admin API routes to handle new category, slug fields and nested
+image creation/deletion.
+
+
+STEP 9: CLEANUP
+----------------
+
+  - Add *.HEIC, *.heic to .gitignore
+  - Remove all uploaded image originals from repo root (they live in Supabase)
+  - Only keep N.svg in the root (already tracked)
+
+
+FILES TO MODIFY
+----------------
+  prisma/schema.prisma                    — add slug, category, ProjectImage model
+  src/components/Portfolio.tsx             — category filters, detail page links
+  src/components/About.tsx                 — add "View Portfolio" button
+  src/app/api/projects/route.ts           — include new fields in response
+  src/messages/en.json                    — new translation keys
+  src/messages/es.json                    — new translation keys
+  src/messages/nl.json                    — new translation keys
+  src/components/admin/ProjectForm.tsx    — new form fields
+  src/app/api/admin/projects/route.ts     — handle new fields
+  .gitignore                              — exclude media files
+
+
+FILES TO CREATE
+----------------
+  scripts/upload-images.ts                        — one-time image upload script
+  prisma/seed.ts                                  — seed new projects
+  src/app/[locale]/project/[slug]/page.tsx        — project detail page
+  src/app/api/projects/[slug]/route.ts            — single project API
+  src/app/[locale]/portfolio/page.tsx              — PDF viewer page
+
+
+VERIFICATION
+-------------
+  1. npx prisma migrate dev               — migration applies cleanly
+  2. Run upload script                     — all images land in Supabase Storage
+  3. Run seed script                       — all 8 projects appear in all 3 locales
+  4. Visit homepage                        — portfolio grid shows new projects with filters
+  5. Click a multi-image project           — detail page loads with gallery
+  6. Visit /en/portfolio                   — PDF renders in the iframe
+  7. Check About section                   — "View Portfolio" button links correctly
+  8. Test admin                            — can edit new projects, add/remove images
+  9. next build                            — succeeds on Vercel

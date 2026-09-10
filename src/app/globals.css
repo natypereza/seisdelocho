@@ -61,37 +61,36 @@
 
   /* Creative Typography */
   .heading-creative {
-    font-family: var(--font-oswald);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-family: var(--font-playfair);
+    font-weight: 600;
+    letter-spacing: 0.02em;
     color: theme('colors.warm-darker');
   }
 
   .heading-script {
-    font-family: var(--font-oooh);
+    font-family: var(--font-moontime);
     font-size: clamp(4rem, 8vw, 7rem);
     line-height: 1.1;
   }
 
   /* Gradient Utilities */
   .gradient-warm {
-    background: linear-gradient(135deg, #F4E8D8 0%, #E8D5C4 50%, #DCC6B0 100%);
+    background: linear-gradient(135deg, #f0efea 0%, #ffdccf 50%, #f0efea 100%);
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, #8B7355 0%, #B8956A 100%);
+    background: linear-gradient(135deg, #5C4A3A 0%, #7A6B5D 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .gradient-border {
-    border-image: linear-gradient(to right, #B8956A, #E8D5B7) 1;
+    border-image: linear-gradient(to right, #BFB8AE, #ffdccf) 1;
   }
 
   .gradient-warm-soft {
-    background: linear-gradient(180deg, #FAFAFA 0%, #F5F0EB 50%, #F0E8DE 100%);
+    background: linear-gradient(180deg, #f0efea 0%, #f5f0eb 50%, #ffdccf 100%);
   }
 
   /* Touch Target Sizing */

@@ -1,15 +1,22 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import Link from 'next/link';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const navLinks = ['work', 'services', 'about', 'contact'] as const;
+const navLinks = [
+  { key: 'home', href: '' },
+  { key: 'about', href: '/about' },
+  { key: 'services', href: '/services' },
+  { key: 'contact', href: '/contact' },
+] as const;
 
 export function Header() {
   const t = useTranslations();
+  const locale = useLocale();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -17,23 +24,23 @@ export function Header() {
       <a href="#main" className="sr-only focus:not-sr-only">
         Skip to main content
       </a>
-      <header className="fixed top-0 w-full bg-bg-base/95 backdrop-blur-sm border-b border-warm-accent/50 z-50">
+      <header className="fixed top-0 w-full bg-bg-base/95 backdrop-blur-sm border-b border-greige/40 z-50">
         <div className="container-custom h-16 md:h-20 flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="hover:opacity-80 transition-opacity">
-            <img src="/n-logo-2.png" alt="6del8" className="h-10 md:h-14 w-auto" />
-          </a>
+          <Link href={`/${locale}`} className="hover:opacity-80 transition-opacity">
+            <img src="/n-logo-2.png" alt="6del8" className="h-12 md:h-16 w-auto" />
+          </Link>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
-            {navLinks.map((key) => (
-              <a
+            {navLinks.map(({ key, href }) => (
+              <Link
                 key={key}
-                href={`#${key}`}
+                href={`/${locale}${href}`}
                 className="text-sm uppercase tracking-[0.15em] text-warm-dark hover:text-warm-darker transition-colors font-medium"
               >
                 {t(`header.nav.${key}`)}
-              </a>
+              </Link>
             ))}
             <LanguageSwitcher />
           </nav>
@@ -59,19 +66,19 @@ export function Header() {
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden overflow-hidden bg-bg-base border-t border-warm-accent/30"
+              className="md:hidden overflow-hidden bg-bg-base border-t border-greige/30"
               aria-label="Mobile navigation"
             >
               <div className="container-custom py-4 flex flex-col gap-2">
-                {navLinks.map((key) => (
-                  <a
+                {navLinks.map(({ key, href }) => (
+                  <Link
                     key={key}
-                    href={`#${key}`}
+                    href={`/${locale}${href}`}
                     onClick={() => setMobileMenuOpen(false)}
                     className="py-3 text-sm uppercase tracking-[0.15em] text-warm-dark hover:text-warm-darker transition-colors font-medium"
                   >
                     {t(`header.nav.${key}`)}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </motion.nav>

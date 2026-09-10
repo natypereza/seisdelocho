@@ -2,7 +2,6 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
 
 export function Hero() {
   const t = useTranslations();
@@ -12,7 +11,7 @@ export function Hero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.25,
         delayChildren: 0.3,
       },
     },
@@ -28,11 +27,11 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center gradient-warm overflow-hidden">
+    <section className="relative min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)] flex items-center justify-center bg-bg-base overflow-hidden">
       {/* Subtle decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 -left-32 w-64 h-64 bg-warm-base/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-warm-light/15 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 -left-32 w-72 h-72 bg-peach/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-greige/15 rounded-full blur-3xl" />
       </div>
 
       <div className="container-custom relative z-10 text-center">
@@ -42,57 +41,41 @@ export function Hero() {
           animate="visible"
           className="max-w-4xl mx-auto"
         >
-          {/* Brand name */}
+          {/* Brand logo */}
           <motion.div
             variants={itemVariants}
-            className="mb-6 flex justify-center"
+            className="mb-8 flex justify-center"
           >
             <img src="/n-logo.png" alt="6del8" className="w-auto" style={{ height: 'clamp(8rem, 20vw, 16rem)' }} />
           </motion.div>
 
           {/* Tagline */}
-          <motion.p
+          <motion.h1
             variants={itemVariants}
-            className="heading-creative text-warm-darker tracking-widest mb-6"
-            style={{ fontSize: 'clamp(1.25rem, 3vw, 2.5rem)' }}
+            className="font-script text-warm-darker mb-6"
+            style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', lineHeight: 1.1 }}
           >
             {t('hero.tagline')}
-          </motion.p>
+          </motion.h1>
 
-          {/* Subtitle */}
+          {/* Subtitle line 1 */}
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-xl text-warm-dark font-light tracking-wide max-w-2xl mx-auto mb-12"
+            className="font-decorative text-warm-darker tracking-wide mb-3"
+            style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.8rem)' }}
           >
             {t('hero.subtitle')}
           </motion.p>
 
-          {/* CTA */}
-          <motion.div variants={itemVariants}>
-            <a
-              href="#work"
-              className="inline-block px-10 py-4 border-2 border-warm-darker text-warm-darker text-sm uppercase tracking-[0.2em] font-medium hover:bg-warm-darker hover:text-white transition-all duration-300 rounded-sm"
-            >
-              {t('hero.cta')}
-            </a>
-          </motion.div>
+          {/* Subtitle line 2 */}
+          <motion.p
+            variants={itemVariants}
+            className="text-lg md:text-xl text-warm-dark font-light tracking-wide max-w-2xl mx-auto"
+          >
+            {t('hero.subtitle2')}
+          </motion.p>
         </motion.div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.8 }}
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-        >
-          <ChevronDown className="w-6 h-6 text-warm-dark/50" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }

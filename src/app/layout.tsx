@@ -1,17 +1,17 @@
 import type { Metadata } from 'next';
-import { Inter, Oswald, Oooh_Baby } from 'next/font/google';
+import { Montserrat, Playfair_Display } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const oswald = Oswald({
-  weight: ['400', '500', '600', '700'],
+const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat' });
+const playfair = Playfair_Display({
   subsets: ['latin'],
-  variable: '--font-oswald',
+  variable: '--font-playfair',
 });
-const ooohBaby = Oooh_Baby({
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-oooh',
+const moontime = localFont({
+  src: './fonts/MoonTime-Regular.ttf',
+  variable: '--font-moontime',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -28,7 +28,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/n-logo-2.png" type="image/png" />
       </head>
-      <body className={`${inter.variable} ${oswald.variable} ${ooohBaby.variable} ${inter.className}`} suppressHydrationWarning>
+      <body className={`${montserrat.variable} ${playfair.variable} ${moontime.variable} ${montserrat.className}`} suppressHydrationWarning>
         {children}
       </body>
     </html>

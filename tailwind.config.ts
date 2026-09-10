@@ -9,35 +9,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Legacy neutrals (kept for compatibility)
-        'neutral-50': '#fafafa',
-        'neutral-100': '#f5f5f5',
-        'neutral-200': '#e5e5e5',
-        'neutral-400': '#a3a3a3',
-        'neutral-600': '#525252',
-        'neutral-800': '#262626',
-        'neutral-900': '#171717',
-        'cream': { DEFAULT: '#FAFAF8', dark: '#F5F4F1' },
-        'charcoal': '#1A1A1A',
-        'accent': '#C9B8A8',
-
-        // New warm color palette
-        'bg-base': '#FAFAFA',
-        'bg-subtle': '#F5F5F5',
+        // Brand colors
+        'bg-base': '#f0efea',       // cloud dancer - main base
+        'bg-subtle': '#e8e7e2',     // slightly darker base
         'bg-elevated': '#FFFFFF',
-        'warm-darker': '#5C4A3A',
-        'warm-dark': '#8B7355',
-        'warm-base': '#B8956A',
-        'warm-light': '#D4B896',
-        'warm-accent': '#E8D5B7',
-        'gradient-from': '#F4E8D8',
-        'gradient-via': '#E8D5C4',
-        'gradient-to': '#DCC6B0',
+        'peach': '#ffdccf',         // soft peach - accent
+        'greige': '#BFB8AE',        // structure
+        'warm-darker': '#5C4A3A',   // dark text
+        'warm-dark': '#7A6B5D',     // body text
+        'warm-light': '#D4C8BC',    // light accents
+        'warm-accent': '#BFB8AE',   // same as greige for borders
+        'accent': '#ffdccf',        // peach accent
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        decorative: ['var(--font-oswald)', 'sans-serif'],
-        script: ['var(--font-oooh)', 'cursive'],
+        sans: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
+        decorative: ['var(--font-playfair)', 'Georgia', 'serif'],
+        script: ['var(--font-moontime)', 'cursive'],
       },
       fontSize: {
         'display': ['4.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],

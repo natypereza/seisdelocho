@@ -2,16 +2,16 @@
   "header": {
     "name": "6del8",
     "nav": {
-      "work": "Trabajo",
-      "services": "Servicios",
+      "home": "Inicio",
       "about": "Nosotros",
+      "services": "Servicios",
       "contact": "Contacto"
     }
   },
   "hero": {
     "tagline": "Creatividad sin reglas",
-    "subtitle": "Branding, contenido y estética simplificados",
-    "cta": "Ver nuestro trabajo"
+    "subtitle": "Diseño y creatividad con propósito",
+    "subtitle2": "Branding, contenido y estética simplificados"
   },
   "portfolio": {
     "heading": "Trabajo",
@@ -32,32 +32,37 @@
   },
   "services": {
     "heading": "Servicios",
-    "branding": {
-      "title": "Branding",
-      "description": "Identidad de marca, estrategia y sistemas visuales"
+    "tagline": "Diseño visual para eventos significativos y marcas intencionales.",
+    "backToServices": "Volver a servicios",
+    "eventDesign": {
+      "title": "Diseño de Eventos",
+      "tagline": "Invitaciones, menús y detalles de eventos que se sienten cohesivos e intencionales.",
+      "description": "Desde invitaciones y menús hasta señalización y cada detalle intermedio — diseñamos materiales de eventos que se sienten cohesivos e intencionales. Cada pieza está elaborada para reflejar el tono, la paleta y la personalidad de tu celebración, creando una experiencia visual perfecta para tus invitados."
     },
-    "content": {
-      "title": "Contenido",
-      "description": "Creación de contenido, redes sociales y storytelling"
+    "weddingExperience": {
+      "title": "Experiencia de Boda",
+      "tagline": "Una identidad visual y digital curada para tu boda.",
+      "description": "Tu boda merece su propia identidad visual. Creamos una experiencia curada digital e impresa — desde save-the-dates e invitaciones hasta detalles del día y recuerdos — todo diseñado para contar tu historia con elegancia e intención."
     },
-    "aesthetics": {
-      "title": "Estética",
-      "description": "Dirección visual, fotografía y diseño"
+    "brandDesign": {
+      "title": "Diseño de Marca",
+      "tagline": "Diseño estratégico y estético para marcas que quieren destacar.",
+      "description": "Construimos marcas que son tanto estratégicas como hermosas. Desde diseño de logo y paletas de color hasta guías de marca y sistemas visuales, te ayudamos a crear una identidad cohesiva que resuene con tu audiencia y destaque en tu mercado."
+    },
+    "creativeSupport": {
+      "title": "Soporte Creativo",
+      "tagline": "Contenido y fotografía que complementan la visión general.",
+      "description": "A veces solo necesitas un par de manos creativas extra. Ofrecemos creación de contenido, fotografía y soporte visual que complementa tu marca o proyecto existente — asegurando que todo se mantenga alineado con tu visión general."
     }
   },
   "about": {
-    "heading": "Nosotros",
-    "bio": "seisdelocho es un estudio creativo liderado por Natalia Pérez, especializado en branding, creación de contenido y estética visual. Creemos en el diseño con propósito — transformando ideas en experiencias visuales que conectan e inspiran.",
-    "viewCv": "Ver CV completo",
-    "viewPortfolio": "Ver Portafolio"
+    "heading": "Quién es 6 del 8",
+    "bio": "seisdelocho es un estudio creativo liderado por Natalia Pérez, especializado en branding, creación de contenido y estética visual. Creemos en el diseño con propósito — transformando ideas en experiencias visuales que conectan e inspiran."
   },
   "contact": {
     "heading": "Trabajemos juntos",
-    "cta": "Contáctanos",
     "email": "natyperezaguja@gmail.com",
-    "phone": "+502 5696-8292",
-    "location": "Ciudad de Guatemala, Guatemala",
-    "dm": "Escríbenos para colaborar"
+    "whatsapp": "+502 5696-8292"
   },
   "experience": {
     "heading": "Experiencia",
@@ -153,13 +158,14 @@
   },
   "cv": {
     "title": "CV — Natalia Pérez Aguja",
-    "backHome": "Volver al inicio"
+    "backHome": "Volver al inicio",
+    "download": "Descargar CV"
   },
   "footer": {
     "copyright": "© 2026 seisdelocho. Todos los derechos reservados.",
-    "work": "Trabajo",
-    "services": "Servicios",
+    "home": "Inicio",
     "about": "Nosotros",
+    "services": "Servicios",
     "contact": "Contacto"
   }
 }

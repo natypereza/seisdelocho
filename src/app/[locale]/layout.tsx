@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
 import { routing } from '@/i18n/routing';
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://seisdelocho.com'),
@@ -62,7 +64,11 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
-      {children}
+      <Header />
+      <main id="main" className="pt-16 md:pt-20">
+        {children}
+      </main>
+      <Footer />
     </NextIntlClientProvider>
   );
 }
