@@ -4,6 +4,7 @@
     "nav": {
       "home": "Inicio",
       "about": "Nosotros",
+      "portfolio": "Portafolio",
       "services": "Servicios",
       "contact": "Contacto"
     }
@@ -19,6 +20,8 @@
     "viewDetails": "Ver detalles",
     "featured": "Destacado",
     "backToWork": "Volver al trabajo",
+    "pageTitle": "Portafolio",
+    "empty": "Proyectos próximamente.",
     "pdfTitle": "Portafolio de Diseño",
     "backHome": "Volver al inicio",
     "categories": {
