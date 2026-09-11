@@ -13,6 +13,23 @@ const nextConfig = {
       },
     ],
   },
+  // /es and /nl were live before the site moved to English only. Send those
+  // URLs to their English equivalent instead of serving a 404 to anyone
+  // arriving from a bookmark or a search result.
+  async redirects() {
+    return [
+      {
+        source: '/:locale(es|nl)',
+        destination: '/en',
+        permanent: false,
+      },
+      {
+        source: '/:locale(es|nl)/:path*',
+        destination: '/en/:path*',
+        permanent: false,
+      },
+    ];
+  },
 };
 
 module.exports = withNextIntl(nextConfig);

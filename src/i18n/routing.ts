@@ -2,7 +2,9 @@ import { defineRouting } from 'next-intl/routing';
 import { createSharedPathnamesNavigation } from 'next-intl/navigation';
 
 export const routing = defineRouting({
-  locales: ['en', 'es', 'nl'],
+  // Spanish and Dutch are paused; their messages files are kept in
+  // src/messages so they can be switched back on by listing them here.
+  locales: ['en'],
   defaultLocale: 'en',
   localePrefix: 'always',
 });

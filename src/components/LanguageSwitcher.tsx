@@ -1,6 +1,7 @@
 'use client';
 
 import { useLocale } from 'next-intl';
+import { routing } from '@/i18n/routing';
 import { useRouter, usePathname } from '@/i18n/routing';
 
 export function LanguageSwitcher() {
@@ -12,10 +13,13 @@ export function LanguageSwitcher() {
     router.push(pathname, { locale: newLocale as any });
   };
 
+  // Nothing to switch between while the site ships in a single language.
+  if (routing.locales.length < 2) return null;
+
   return (
     <nav aria-label="Language selection" className="language-switcher">
       <div className="flex gap-2">
-        {['en', 'es', 'nl'].map((lang) => (
+        {routing.locales.map((lang) => (
           <button
             key={lang}
             onClick={() => handleChange(lang)}
