@@ -4,6 +4,7 @@
     "nav": {
       "home": "Home",
       "about": "Over ons",
+      "portfolio": "Portfolio",
       "services": "Diensten",
       "contact": "Contact"
     }
@@ -19,6 +20,8 @@
     "viewDetails": "Bekijk details",
     "featured": "Uitgelicht",
     "backToWork": "Terug naar werk",
+    "pageTitle": "Portfolio",
+    "empty": "Projecten binnenkort.",
     "pdfTitle": "Design Portfolio",
     "backHome": "Terug naar home",
     "categories": {

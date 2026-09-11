@@ -4,6 +4,7 @@
     "nav": {
       "home": "Home",
       "about": "About",
+      "portfolio": "Portfolio",
       "services": "Services",
       "contact": "Contact"
     }
@@ -19,6 +20,8 @@
     "viewDetails": "View details",
     "featured": "Featured",
     "backToWork": "Back to work",
+    "pageTitle": "Portfolio",
+    "empty": "Projects coming soon.",
     "pdfTitle": "Design Portfolio",
     "backHome": "Back to home",
     "categories": {

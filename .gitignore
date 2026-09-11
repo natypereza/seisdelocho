@@ -20,3 +20,4 @@ out/
 /*.pdf
 /*.PDF
 scripts/image-manifest.json
+tsconfig.tsbuildinfo
