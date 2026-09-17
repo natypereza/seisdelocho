@@ -121,10 +121,7 @@ export function PortfolioBody() {
             <h2 className="mt-2 font-decorative text-2xl font-extrabold uppercase leading-tight tracking-tight text-warm-darker md:text-3xl">
               {intro.name}
             </h2>
-            <p className="mt-2.5 text-xs font-bold uppercase tracking-[0.24em] text-greige">
-              {intro.role}
-            </p>
-            <div className="mt-6 grid max-w-[62ch] gap-4 text-base leading-relaxed text-warm-dark">
+            <div className="mt-5 grid max-w-[62ch] gap-4 text-base leading-relaxed text-warm-dark">
               {intro.bio.map((p) => (
                 <p key={p.slice(0, 24)}>{p}</p>
               ))}

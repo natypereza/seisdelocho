@@ -5,10 +5,10 @@
 export const intro = {
   greeting: 'Hi there!',
   name: 'I’m Natalia Pérez',
-  role: 'Brand & Communications Lead · Founder of 6 del 8',
   bio: [
-    'Since 2020 I’ve run 6 del 8, my own studio for design, branding and social media content. It has taken me through brands in food, wellness, retail and events across Guatemala, El Salvador and the United States — from building an identity from zero to running the day-to-day content that keeps it alive.',
-    'Right now I’m Brand & Communications Lead at Bussola, and I’m studying for a Bachelor’s Degree in Marketing at ESI — School of Management. I work where strategy and visual direction meet, because a brand that looks good but says nothing is only half finished.',
+    'I’m a creative person who loves turning ideas into something real. I’ve always enjoyed design and marketing, but what I love most is understanding the whole picture — the people behind a brand, what they want to communicate, their goals, their values, and how all of those pieces can come together.',
+    'I started 6 del 8 in 2020 by helping people around me with their businesses. What began as something I genuinely enjoyed quickly became an opportunity to work with very different brands across food, wellness, retail, events and more. And that’s probably my favorite part: no two brands are the same. I like getting to know each one, thinking outside the box, and finding the best way to bring their ideas to life.',
+    'Outside of work, I’m someone who really values the people around me, good food, traveling, learning new things and finding inspiration everywhere. I’m curious by nature, I like being involved, and whether I’m working on a brand, an event or a completely new idea, I’m happiest when I can understand it, build it and actually make it happen.',
   ],
 } as const;
 
