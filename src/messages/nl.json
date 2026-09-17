@@ -6,7 +6,9 @@
       "about": "Over ons",
       "portfolio": "Portfolio",
       "services": "Diensten",
-      "contact": "Contact"
+      "contact": "Contact",
+      "experience": "Ervaring",
+      "clients": "Klanten"
     }
   },
   "hero": {
@@ -123,9 +125,27 @@
       "strengths": "Professionele Sterktepunten"
     },
     "items": {
-      "languages": ["Spaans", "Engels"],
-      "design": ["Adobe Photoshop", "Canva", "CapCut", "Fotografie", "Microsoft Office"],
-      "strengths": ["Strategisch Denken", "Creatief Probleemoplossen", "Strategie Sociale Media", "Merkentwickeling", "Teamleiderschap", "Aanpassingsvermogen", "Projectmanagement", "Digitale Marketing"]
+      "languages": [
+        "Spaans",
+        "Engels"
+      ],
+      "design": [
+        "Adobe Photoshop",
+        "Canva",
+        "CapCut",
+        "Fotografie",
+        "Microsoft Office"
+      ],
+      "strengths": [
+        "Strategisch Denken",
+        "Creatief Probleemoplossen",
+        "Strategie Sociale Media",
+        "Merkentwickeling",
+        "Teamleiderschap",
+        "Aanpassingsvermogen",
+        "Projectmanagement",
+        "Digitale Marketing"
+      ]
     }
   },
   "education": {
@@ -149,14 +169,46 @@
   "certifications": {
     "heading": "Professionele Certificeringen",
     "items": [
-      { "title": "Franklin Covey Leiderschapsprogramma", "issuer": "El Líder en Mi", "year": "2013-2020" },
-      { "title": "Basisniveau Fotografieles", "issuer": "Professionele Ontwikkeling", "year": "2018" },
-      { "title": "Webontwerp HTML en CSS", "issuer": "Digitaal Ontwerp", "year": "2022" },
-      { "title": "De Grondbeginselen van Digitale Marketing", "issuer": "Google", "year": "2022" },
-      { "title": "Digitale Competenties voor Professionals", "issuer": "Professionele Ontwikkeling", "year": "2023" },
-      { "title": "Digitaliseer je Bedrijf met Google-tools", "issuer": "Google", "year": "2023" },
-      { "title": "Cyberbeveiliging in Telewerk", "issuer": "Professionele Ontwikkeling", "year": "2023" },
-      { "title": "Je Leven Leiden via Emotionele Intelligentie", "issuer": "ALINEA Vida y Futuro", "year": "2023" }
+      {
+        "title": "Franklin Covey Leiderschapsprogramma",
+        "issuer": "El Líder en Mi",
+        "year": "2013-2020"
+      },
+      {
+        "title": "Basisniveau Fotografieles",
+        "issuer": "Professionele Ontwikkeling",
+        "year": "2018"
+      },
+      {
+        "title": "Webontwerp HTML en CSS",
+        "issuer": "Digitaal Ontwerp",
+        "year": "2022"
+      },
+      {
+        "title": "De Grondbeginselen van Digitale Marketing",
+        "issuer": "Google",
+        "year": "2022"
+      },
+      {
+        "title": "Digitale Competenties voor Professionals",
+        "issuer": "Professionele Ontwikkeling",
+        "year": "2023"
+      },
+      {
+        "title": "Digitaliseer je Bedrijf met Google-tools",
+        "issuer": "Google",
+        "year": "2023"
+      },
+      {
+        "title": "Cyberbeveiliging in Telewerk",
+        "issuer": "Professionele Ontwikkeling",
+        "year": "2023"
+      },
+      {
+        "title": "Je Leven Leiden via Emotionele Intelligentie",
+        "issuer": "ALINEA Vida y Futuro",
+        "year": "2023"
+      }
     ]
   },
   "cv": {

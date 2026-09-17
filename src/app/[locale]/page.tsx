@@ -1,11 +1,13 @@
 import { Hero } from '@/components/Hero';
-import { WorkShowcase } from '@/components/WorkShowcase';
+import { PortfolioBody } from '@/components/PortfolioBody';
+import { ContactBlock } from '@/components/ContactBlock';
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <WorkShowcase />
+      <PortfolioBody />
+      <ContactBlock />
     </>
   );
 }

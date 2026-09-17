@@ -10,19 +10,20 @@ const config: Config = {
     extend: {
       colors: {
         // Brand colors
-        'bg-base': '#f0efea',       // cloud dancer - main base
-        'bg-subtle': '#e8e7e2',     // slightly darker base
+        'bg-base': '#fff6f1',       // warm off-white, tinted toward the peach
+        'bg-subtle': '#fbeae1',     // slightly deeper ground
         'bg-elevated': '#FFFFFF',
-        'peach': '#ffdccf',         // soft peach - accent
-        'greige': '#BFB8AE',        // structure
-        'warm-darker': '#5C4A3A',   // dark text
-        'warm-dark': '#7A6B5D',     // body text
-        'warm-light': '#D4C8BC',    // light accents
-        'warm-accent': '#BFB8AE',   // same as greige for borders
+        'peach': '#ffdccf',         // brand peach
+        'peach-deep': '#f7c3ac',    // peach with more body, for stripes and fills
+        'greige': '#c3ada0',        // borders and muted text
+        'warm-darker': '#000000',   // headings
+        'warm-dark': '#4c4340',     // body text
+        'warm-light': '#f2dccf',    // hairlines
+        'warm-accent': '#e0c6b7',   // borders
         'accent': '#ffdccf',        // peach accent
       },
       fontFamily: {
-        sans: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
+        sans: ['Arial', 'Helvetica', 'system-ui', 'sans-serif'],
         decorative: ['var(--font-playfair)', 'Georgia', 'serif'],
         script: ['var(--font-moontime)', 'cursive'],
       },
