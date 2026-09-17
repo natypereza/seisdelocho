@@ -10,7 +10,7 @@ export default function BackgroundPage() {
   const locale = useLocale();
 
   return (
-    <section className="section bg-bg-base">
+    <section className="bg-bg-base pt-5 pb-24 md:pt-7 md:pb-32">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -19,7 +19,7 @@ export default function BackgroundPage() {
         >
           <Link
             href={`/${locale}`}
-            className="mb-8 inline-flex items-center gap-2 text-sm text-warm-dark transition-colors hover:text-warm-darker"
+            className="mb-10 inline-flex items-center gap-2 text-sm md:mb-12 text-warm-dark transition-colors hover:text-warm-darker"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to home
@@ -41,7 +41,7 @@ export default function BackgroundPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="mt-14 md:mt-20"
+          className="mt-10 md:mt-14"
         >
           <CvGrid />
         </motion.div>

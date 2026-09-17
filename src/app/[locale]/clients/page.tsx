@@ -10,7 +10,7 @@ export default function ClientsPage() {
   const locale = useLocale();
 
   return (
-    <section className="section bg-bg-base">
+    <section className="bg-bg-base pt-5 pb-24 md:pt-7 md:pb-32">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -19,7 +19,7 @@ export default function ClientsPage() {
         >
           <Link
             href={`/${locale}`}
-            className="mb-8 inline-flex items-center gap-2 text-sm text-warm-dark transition-colors hover:text-warm-darker"
+            className="mb-10 inline-flex items-center gap-2 text-sm md:mb-12 text-warm-dark transition-colors hover:text-warm-darker"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to home
@@ -44,7 +44,7 @@ export default function ClientsPage() {
             hidden: { opacity: 0 },
             visible: { opacity: 1, transition: { staggerChildren: 0.07 } },
           }}
-          className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 md:mt-20 lg:grid-cols-3"
+          className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 md:mt-14 lg:grid-cols-3"
         >
           {clients.map((c) => (
             <motion.figure
