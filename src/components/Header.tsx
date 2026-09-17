@@ -12,7 +12,7 @@ const navLinks = [
   { key: 'about', href: '#about' },
   { key: 'background', href: '/background' },
   { key: 'clients', href: '/clients' },
-  { key: 'contact', href: '#contact' },
+  { key: 'contact', href: '/contact' },
 ] as const;
 
 export function Header() {
