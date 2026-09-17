@@ -7,12 +7,12 @@ import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+// Single-page site: every link scrolls to a section on the home page.
 const navLinks = [
-  { key: 'home', href: '' },
-  { key: 'about', href: '/about' },
-  { key: 'portfolio', href: '/portfolio' },
-  { key: 'services', href: '/services' },
-  { key: 'contact', href: '/contact' },
+  { key: 'about', href: '#about' },
+  { key: 'experience', href: '#experience' },
+  { key: 'clients', href: '#clients' },
+  { key: 'contact', href: '#contact' },
 ] as const;
 
 export function Header() {

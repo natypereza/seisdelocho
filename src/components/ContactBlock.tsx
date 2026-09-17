@@ -3,21 +3,15 @@
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 
-export default function ContactPage() {
+export function ContactBlock() {
   const t = useTranslations('contact');
 
-  const container = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
-  };
-  const item = {
-    hidden: { opacity: 0, y: 15 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
+  const container = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } };
+  const item = { hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
 
   return (
     // Black ground with peach type — the closing block of the 6del8 portfolio.
-    <section className="bg-black text-peach section">
+    <section id="contact" className="scroll-mt-24 bg-black py-16 text-peach md:py-24">
       <div className="container-custom">
         <motion.div
           variants={container}
@@ -26,13 +20,13 @@ export default function ContactPage() {
           className="grid items-end gap-10 md:grid-cols-[1fr_auto]"
         >
           <div>
-            <motion.h1
+            <motion.h2
               variants={item}
               className="font-script"
               style={{ fontSize: 'clamp(2.75rem, 7vw, 5.5rem)', lineHeight: 1 }}
             >
               {t('heading')}
-            </motion.h1>
+            </motion.h2>
 
             <motion.div variants={item} className="mt-6 grid gap-2.5 text-base md:text-lg">
               <a

@@ -32,7 +32,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative flex items-center justify-center overflow-hidden bg-peach py-20 md:py-28 min-h-[70vh]">
+    <section className="relative flex items-center justify-center overflow-hidden bg-peach py-16 md:py-24">
       {/* Water loop. Sits above the section's own background but below the copy. */}
       <video
         ref={videoRef}
@@ -86,14 +86,6 @@ export function Hero() {
               </span>
             ))}
           </motion.div>
-
-          <motion.p
-            variants={item}
-            className="mx-auto mt-10 max-w-2xl font-decorative text-black"
-            style={{ fontSize: 'clamp(1.1rem, 2.4vw, 1.7rem)' }}
-          >
-            {t('hero.subtitle')}
-          </motion.p>
         </motion.div>
       </div>
     </section>

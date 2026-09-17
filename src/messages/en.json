@@ -6,7 +6,9 @@
       "about": "About",
       "portfolio": "Portfolio",
       "services": "Services",
-      "contact": "Contact"
+      "contact": "Contact",
+      "experience": "Experience",
+      "clients": "Clients"
     }
   },
   "hero": {
@@ -123,9 +125,27 @@
       "strengths": "Professional Strengths"
     },
     "items": {
-      "languages": ["Spanish", "English"],
-      "design": ["Adobe Photoshop", "Canva", "CapCut", "Photography", "Microsoft Office"],
-      "strengths": ["Strategic Thinking", "Creative Problem Solving", "Social Media Strategy", "Brand Development", "Team Leadership", "Adaptability", "Project Management", "Digital Marketing"]
+      "languages": [
+        "Spanish",
+        "English"
+      ],
+      "design": [
+        "Adobe Photoshop",
+        "Canva",
+        "CapCut",
+        "Photography",
+        "Microsoft Office"
+      ],
+      "strengths": [
+        "Strategic Thinking",
+        "Creative Problem Solving",
+        "Social Media Strategy",
+        "Brand Development",
+        "Team Leadership",
+        "Adaptability",
+        "Project Management",
+        "Digital Marketing"
+      ]
     }
   },
   "education": {
@@ -149,14 +169,46 @@
   "certifications": {
     "heading": "Professional Certifications",
     "items": [
-      { "title": "Franklin Covey Leadership Program", "issuer": "El Líder en Mi", "year": "2013-2020" },
-      { "title": "Basic Photography Course", "issuer": "Professional Development", "year": "2018" },
-      { "title": "Web Design HTML & CSS", "issuer": "Digital Design", "year": "2022" },
-      { "title": "The Fundamentals of Digital Marketing", "issuer": "Google", "year": "2022" },
-      { "title": "Digital Competencies for Professionals", "issuer": "Professional Development", "year": "2023" },
-      { "title": "Digitize Your Business with Google Tools", "issuer": "Google", "year": "2023" },
-      { "title": "Cybersecurity in Remote Work", "issuer": "Professional Development", "year": "2023" },
-      { "title": "Leading Your Life Through Emotional Intelligence", "issuer": "ALINEA Vida y Futuro", "year": "2023" }
+      {
+        "title": "Franklin Covey Leadership Program",
+        "issuer": "El Líder en Mi",
+        "year": "2013-2020"
+      },
+      {
+        "title": "Basic Photography Course",
+        "issuer": "Professional Development",
+        "year": "2018"
+      },
+      {
+        "title": "Web Design HTML & CSS",
+        "issuer": "Digital Design",
+        "year": "2022"
+      },
+      {
+        "title": "The Fundamentals of Digital Marketing",
+        "issuer": "Google",
+        "year": "2022"
+      },
+      {
+        "title": "Digital Competencies for Professionals",
+        "issuer": "Professional Development",
+        "year": "2023"
+      },
+      {
+        "title": "Digitize Your Business with Google Tools",
+        "issuer": "Google",
+        "year": "2023"
+      },
+      {
+        "title": "Cybersecurity in Remote Work",
+        "issuer": "Professional Development",
+        "year": "2023"
+      },
+      {
+        "title": "Leading Your Life Through Emotional Intelligence",
+        "issuer": "ALINEA Vida y Futuro",
+        "year": "2023"
+      }
     ]
   },
   "cv": {

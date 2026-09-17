@@ -4,11 +4,12 @@ import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 import { Instagram } from 'lucide-react';
 
+// Mirrors the header: sections on the single home page.
 const navLinks = [
-  { key: 'home', href: '' },
-  { key: 'about', href: '/about' },
-  { key: 'services', href: '/services' },
-  { key: 'contact', href: '/contact' },
+  { key: 'about', href: '#about' },
+  { key: 'experience', href: '#experience' },
+  { key: 'clients', href: '#clients' },
+  { key: 'contact', href: '#contact' },
 ] as const;
 
 export function Footer() {
@@ -32,7 +33,7 @@ export function Footer() {
                 href={`/${locale}${href}`}
                 className="text-sm uppercase tracking-[0.15em] text-warm-dark hover:text-warm-darker transition-colors font-medium"
               >
-                {t(`footer.${key}`)}
+                {t(`header.nav.${key}`)}
               </Link>
             ))}
           </nav>

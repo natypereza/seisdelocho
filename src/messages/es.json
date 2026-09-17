@@ -6,7 +6,9 @@
       "about": "Nosotros",
       "portfolio": "Portafolio",
       "services": "Servicios",
-      "contact": "Contacto"
+      "contact": "Contacto",
+      "experience": "Experiencia",
+      "clients": "Clientes"
     }
   },
   "hero": {
@@ -123,9 +125,27 @@
       "strengths": "Fortalezas Profesionales"
     },
     "items": {
-      "languages": ["Español", "Inglés"],
-      "design": ["Adobe Photoshop", "Canva", "CapCut", "Fotografía", "Microsoft Office"],
-      "strengths": ["Pensamiento Estratégico", "Resolución Creativa de Problemas", "Estrategia en Redes Sociales", "Desarrollo de Marca", "Liderazgo de Equipo", "Adaptabilidad", "Gestión de Proyectos", "Marketing Digital"]
+      "languages": [
+        "Español",
+        "Inglés"
+      ],
+      "design": [
+        "Adobe Photoshop",
+        "Canva",
+        "CapCut",
+        "Fotografía",
+        "Microsoft Office"
+      ],
+      "strengths": [
+        "Pensamiento Estratégico",
+        "Resolución Creativa de Problemas",
+        "Estrategia en Redes Sociales",
+        "Desarrollo de Marca",
+        "Liderazgo de Equipo",
+        "Adaptabilidad",
+        "Gestión de Proyectos",
+        "Marketing Digital"
+      ]
     }
   },
   "education": {
@@ -149,14 +169,46 @@
   "certifications": {
     "heading": "Certificaciones Profesionales",
     "items": [
-      { "title": "Programa de Liderazgo Franklin Covey", "issuer": "El Líder en Mi", "year": "2013-2020" },
-      { "title": "Curso de Fotografía Básica", "issuer": "Desarrollo Profesional", "year": "2018" },
-      { "title": "Diseño Web HTML y CSS", "issuer": "Diseño Digital", "year": "2022" },
-      { "title": "Los Fundamentos del Marketing Digital", "issuer": "Google", "year": "2022" },
-      { "title": "Competencias Digitales para Profesionales", "issuer": "Desarrollo Profesional", "year": "2023" },
-      { "title": "Digitaliza tu Negocio con Herramientas de Google", "issuer": "Google", "year": "2023" },
-      { "title": "Ciberseguridad en el Teletrabajo", "issuer": "Desarrollo Profesional", "year": "2023" },
-      { "title": "Liderando tu Vida a Través de la Inteligencia Emocional", "issuer": "ALINEA Vida y Futuro", "year": "2023" }
+      {
+        "title": "Programa de Liderazgo Franklin Covey",
+        "issuer": "El Líder en Mi",
+        "year": "2013-2020"
+      },
+      {
+        "title": "Curso de Fotografía Básica",
+        "issuer": "Desarrollo Profesional",
+        "year": "2018"
+      },
+      {
+        "title": "Diseño Web HTML y CSS",
+        "issuer": "Diseño Digital",
+        "year": "2022"
+      },
+      {
+        "title": "Los Fundamentos del Marketing Digital",
+        "issuer": "Google",
+        "year": "2022"
+      },
+      {
+        "title": "Competencias Digitales para Profesionales",
+        "issuer": "Desarrollo Profesional",
+        "year": "2023"
+      },
+      {
+        "title": "Digitaliza tu Negocio con Herramientas de Google",
+        "issuer": "Google",
+        "year": "2023"
+      },
+      {
+        "title": "Ciberseguridad en el Teletrabajo",
+        "issuer": "Desarrollo Profesional",
+        "year": "2023"
+      },
+      {
+        "title": "Liderando tu Vida a Través de la Inteligencia Emocional",
+        "issuer": "ALINEA Vida y Futuro",
+        "year": "2023"
+      }
     ]
   },
   "cv": {
