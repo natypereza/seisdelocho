@@ -42,7 +42,7 @@ export default function ClientsPage() {
             hidden: { opacity: 0 },
             visible: { opacity: 1, transition: { staggerChildren: 0.07 } },
           }}
-          className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 md:mt-14 lg:grid-cols-3"
+          className="mt-10 grid grid-cols-2 gap-4 sm:gap-5 md:mt-14 md:grid-cols-3 lg:grid-cols-4"
         >
           {clients.map((c) => (
             <motion.figure
