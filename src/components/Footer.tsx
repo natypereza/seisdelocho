@@ -7,7 +7,7 @@ import { Instagram } from 'lucide-react';
 // Mirrors the header: sections on the single home page.
 const navLinks = [
   { key: 'about', href: '#about' },
-  { key: 'experience', href: '#experience' },
+  { key: 'background', href: '/background' },
   { key: 'clients', href: '/clients' },
   { key: 'contact', href: '#contact' },
 ] as const;
