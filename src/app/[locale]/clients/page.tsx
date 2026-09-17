@@ -1,11 +1,12 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { clients } from '@/content/portfolio';
 
 export default function ClientsPage() {
+  const reduceMotion = useReducedMotion();
 
   return (
     <section className="bg-bg-base pt-5 pb-24 md:pt-7 md:pb-32">
@@ -51,9 +52,11 @@ export default function ClientsPage() {
                 hidden: { opacity: 0, y: 18 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
               }}
-              /* relative + z on hover so the lifted card sits over its
-                 neighbours; motion-safe respects reduced-motion settings. */
-              className="relative m-0 transition-transform duration-300 ease-out motion-safe:hover:z-10 motion-safe:hover:scale-[1.06]"
+              /* The entry animation writes transform inline, so a CSS hover
+                 class would be overridden. Scale through motion instead. */
+              whileHover={reduceMotion ? undefined : { scale: 1.06, zIndex: 10 }}
+              transition={{ type: 'spring', stiffness: 260, damping: 22 }}
+              className="relative m-0"
             >
               {c.cover ? (
                 // The card is a designed piece with its own edges and shadow,
