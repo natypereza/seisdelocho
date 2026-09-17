@@ -102,10 +102,14 @@ export const certifications = [
   { title: 'Mastering Claude — Academia de IA', year: '2026' },
 ] as const;
 
-export const clients = [
+// `logo` points at a file in public/clients. Drop a new logo in that folder
+// and add the path here; the clients page falls back to the name until then.
+export type Client = { name: string; when: string; logo?: string; note?: string };
+
+export const clients: ReadonlyArray<Client> = [
   { name: 'Fixr Gt / BUSSOLA', when: 'Jan 2025 – present' },
   { name: 'KA Events', when: 'Jan 2025 – present' },
-  { name: 'Taylor & Taylor', when: 'Jun 2026 – present' },
+  { name: 'Taylor & Taylor', when: 'Jun 2026 – present', logo: '/clients/taylor-taylor.webp' },
   { name: 'Karay Foods', when: 'Feb 2023 – Feb 2025' },
   { name: 'Paccari Guatemala', when: 'Feb 2023 – May 2025' },
   { name: 'Flamzy Guatemala', when: 'Feb 2023 – May 2025' },
@@ -114,7 +118,7 @@ export const clients = [
   { name: 'Yayan Gourmet', when: '2019 – 2024' },
   { name: 'Bizniemos', when: '2019 – 2024' },
   { name: 'VidaFit SV', when: '2021 – 2023' },
-] as const;
+];
 
 export const strengths = [
   'Proactive',

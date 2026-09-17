@@ -1,6 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { useLocale } from 'next-intl';
 import { useEffect, useRef } from 'react';
 import {
   intro,
@@ -84,6 +86,7 @@ function Dots({ level }: { level: number }) {
 }
 
 export function PortfolioBody() {
+  const locale = useLocale();
   const reelRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -106,6 +109,9 @@ export function PortfolioBody() {
               ref={reelRef}
               className="aspect-[9/16] w-full object-cover"
               src="/reel.mp4"
+              /* Last frame of the clip, so the frame is never a black hole while it loads. */
+              poster="/reel-poster.jpg"
+              preload="metadata"
               autoPlay
               muted
               loop
@@ -215,7 +221,15 @@ export function PortfolioBody() {
 
       {/* ---------------- clients ---------------- */}
       <Section id="clients" className="pt-14 md:pt-20">
-        <Eyebrow>Clients through 6 del 8</Eyebrow>
+        <div className="flex flex-wrap items-baseline justify-between gap-3">
+          <Eyebrow>Clients through 6 del 8</Eyebrow>
+          <Link
+            href={`/${locale}/clients`}
+            className="border-b border-warm-accent pb-0.5 text-[.78rem] font-bold uppercase tracking-[0.14em] text-warm-darker transition-colors hover:border-warm-darker"
+          >
+            See all clients
+          </Link>
+        </div>
         <div className="mt-4 grid grid-cols-1 gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
           {clients.map((c) => (
             <div

@@ -8,7 +8,7 @@ import { Instagram } from 'lucide-react';
 const navLinks = [
   { key: 'about', href: '#about' },
   { key: 'experience', href: '#experience' },
-  { key: 'clients', href: '#clients' },
+  { key: 'clients', href: '/clients' },
   { key: 'contact', href: '#contact' },
 ] as const;
 
