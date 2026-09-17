@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
-import { Montserrat, Playfair_Display } from 'next/font/google';
+import { Playfair_Display } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
 
-const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat' });
 const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair',
@@ -28,7 +27,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/n-logo-2.png" type="image/png" />
       </head>
-      <body className={`${montserrat.variable} ${playfair.variable} ${moontime.variable} ${montserrat.className}`} suppressHydrationWarning>
+      <body className={`${playfair.variable} ${moontime.variable}`} suppressHydrationWarning>
         {children}
       </body>
     </html>

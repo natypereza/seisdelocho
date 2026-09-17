@@ -75,22 +75,22 @@
 
   /* Gradient Utilities */
   .gradient-warm {
-    background: linear-gradient(135deg, #f0efea 0%, #ffdccf 50%, #f0efea 100%);
+    background: linear-gradient(135deg, #fff6f1 0%, #ffdccf 50%, #fff6f1 100%);
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, #5C4A3A 0%, #7A6B5D 100%);
+    background: linear-gradient(135deg, #000000 0%, #4c4340 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .gradient-border {
-    border-image: linear-gradient(to right, #BFB8AE, #ffdccf) 1;
+    border-image: linear-gradient(to right, #e0c6b7, #ffdccf) 1;
   }
 
   .gradient-warm-soft {
-    background: linear-gradient(180deg, #f0efea 0%, #f5f0eb 50%, #ffdccf 100%);
+    background: linear-gradient(180deg, #fff6f1 0%, #fdeee6 50%, #ffdccf 100%);
   }
 
   /* Touch Target Sizing */
