@@ -1,8 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { useLocale } from 'next-intl';
 import { useEffect, useRef } from 'react';
 import {
   intro,
@@ -12,7 +10,6 @@ import {
   tools,
   languages,
   certifications,
-  clients,
   strengths,
 } from '@/content/portfolio';
 
@@ -86,7 +83,6 @@ function Dots({ level }: { level: number }) {
 }
 
 export function PortfolioBody() {
-  const locale = useLocale();
   const reelRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -155,10 +151,33 @@ export function PortfolioBody() {
         </div>
       </Section>
 
+      {/* ---------------- strengths ---------------- */}
+      <Section className="pt-12 md:pt-16">
+        <Eyebrow>Core strengths</Eyebrow>
+        <div className="mt-5 flex flex-wrap gap-3.5">
+          {strengths.map((s, i) => {
+            // Four shapes cycling, the way the portfolio badges alternate.
+            const shape = [
+              'bg-peach text-black rounded-[50%/42%]',
+              'bg-peach-deep text-black rounded-full',
+              'border-[1.5px] border-black text-warm-darker rounded-xl',
+              'bg-black text-peach rounded-[50%/42%]',
+            ][i % 4];
+            return (
+              <span
+                key={s}
+                className={`grid min-h-[104px] min-w-[104px] place-items-center px-3 py-3.5 text-center text-[.72rem] font-bold uppercase leading-snug tracking-[0.11em] ${shape}`}
+              >
+                {s}
+              </span>
+            );
+          })}
+        </div>
+      </Section>
       {/* ---------------- cv grid ----------------
           Three columns, each stacking its own cards, so a short card never
           leaves a gap under it the way row alignment would. */}
-      <Section id="experience" className="pt-12 md:pt-16">
+      <Section id="experience" className="pt-12 pb-16 md:pt-16 md:pb-20">
         <div className="grid grid-cols-1 items-start gap-5 md:grid-cols-2 lg:grid-cols-3">
           <div className="grid content-start gap-5">
             <Card title="education">
@@ -219,53 +238,6 @@ export function PortfolioBody() {
         </div>
       </Section>
 
-      {/* ---------------- clients ---------------- */}
-      <Section id="clients" className="pt-14 md:pt-20">
-        <div className="flex flex-wrap items-baseline justify-between gap-3">
-          <Eyebrow>Clients through 6 del 8</Eyebrow>
-          <Link
-            href={`/${locale}/clients`}
-            className="border-b border-warm-accent pb-0.5 text-[.78rem] font-bold uppercase tracking-[0.14em] text-warm-darker transition-colors hover:border-warm-darker"
-          >
-            See all clients
-          </Link>
-        </div>
-        <div className="mt-4 grid grid-cols-1 gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
-          {clients.map((c) => (
-            <div
-              key={c.name}
-              className="flex items-baseline justify-between gap-3 border-b border-warm-light py-2.5 text-[.93rem]"
-            >
-              <span className="font-bold text-warm-darker">{c.name}</span>
-              <span className="flex-none text-[.85rem] text-greige tabular-nums">{c.when}</span>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* ---------------- strengths ---------------- */}
-      <Section className="pt-14 pb-16 md:pt-20 md:pb-20">
-        <Eyebrow>Core strengths</Eyebrow>
-        <div className="mt-5 flex flex-wrap gap-3.5">
-          {strengths.map((s, i) => {
-            // Four shapes cycling, the way the portfolio badges alternate.
-            const shape = [
-              'bg-peach text-black rounded-[50%/42%]',
-              'bg-peach-deep text-black rounded-full',
-              'border-[1.5px] border-black text-warm-darker rounded-xl',
-              'bg-black text-peach rounded-[50%/42%]',
-            ][i % 4];
-            return (
-              <span
-                key={s}
-                className={`grid min-h-[104px] min-w-[104px] place-items-center px-3 py-3.5 text-center text-[.72rem] font-bold uppercase leading-snug tracking-[0.11em] ${shape}`}
-              >
-                {s}
-              </span>
-            );
-          })}
-        </div>
-      </Section>
     </>
   );
 }
