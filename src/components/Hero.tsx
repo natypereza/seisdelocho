@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 
-const specialties = ['Branding', 'Content', 'Aesthetics'] as const;
+const specialties = ['Branding', 'Marketing', 'Content', 'Creative Direction'] as const;
 
 export function Hero() {
   const t = useTranslations();
@@ -76,12 +76,15 @@ export function Hero() {
             {t('hero.tagline')}
           </motion.p>
 
-          <motion.div variants={item} className="mt-8 flex flex-wrap justify-center gap-3">
-            {specialties.map((s) => (
-              <span
-                key={s}
-                className="rounded-full border-[1.4px] border-black px-5 py-1.5 text-sm text-black"
-              >
+          {/* One line separated by middots, rather than four separate pills. */}
+          <motion.div
+            variants={item}
+            className="mt-7 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-black"
+            style={{ fontSize: 'clamp(.9rem, 1.7vw, 1.05rem)' }}
+          >
+            {specialties.map((s, i) => (
+              <span key={s} className="flex items-center gap-x-3">
+                {i > 0 && <span aria-hidden="true" className="text-black/40">&middot;</span>}
                 {s}
               </span>
             ))}

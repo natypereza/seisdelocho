@@ -13,18 +13,12 @@ export const intro = {
 } as const;
 
 export const capabilities = [
-  'branding',
-  'brand identity',
-  'brand strategy',
-  'graphic design',
-  'content creation',
-  'social media management',
-  'creative direction',
-  'marketing management',
-  'communications',
-  'event planning & design',
-  'photography',
-  'digital marketing',
+  'Brand Strategy',
+  'Brand Identity',
+  'Creative Direction',
+  'Content & Social Media',
+  'Marketing & Communications',
+  'Events & Experiences',
 ] as const;
 
 export const education = [
@@ -121,13 +115,10 @@ export const clients: ReadonlyArray<Client> = [
 ];
 
 export const strengths = [
-  'Proactive',
-  'Positive attitude',
-  'Innovative',
-  'Perseverant',
+  'Creative thinking',
+  'Problem solving',
+  'Adaptability',
   'Critical thinking',
   'Teamwork',
-  'Creativity',
-  'Adaptability',
-  'Social media management',
+  'Ownership',
 ] as const;
