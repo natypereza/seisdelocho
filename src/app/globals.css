@@ -105,7 +105,7 @@
 
   /* Outlined chip used for specialties and capabilities. */
   .chip {
-    @apply inline-block rounded-full border border-warm-accent bg-bg-elevated px-4 py-1.5 text-sm text-warm-darker;
+    @apply inline-block rounded-full border border-warm-accent bg-bg-elevated px-3.5 py-1.5 text-[.95rem] text-warm-darker;
   }
 
   /* Touch Target Sizing */

@@ -133,7 +133,7 @@ export function PortfolioBody() {
       {/* ---------------- capability band ---------------- */}
       <Section className="pt-12 md:pt-16">
         <div className="band-striped px-5 py-7 md:px-8 md:py-9">
-          <div className="flex flex-wrap gap-2.5">
+          <div className="flex flex-wrap gap-2">
             {capabilities.map((c) => (
               <span key={c} className="chip">
                 {c}
@@ -146,7 +146,7 @@ export function PortfolioBody() {
       {/* ---------------- strengths ---------------- */}
       <Section className="pt-12 pb-16 md:pt-16 md:pb-20">
         <Eyebrow>Core strengths</Eyebrow>
-        <div className="mt-5 flex flex-wrap gap-3.5">
+        <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
           {strengths.map((s, i) => {
             // Four shapes cycling, the way the portfolio badges alternate.
             const shape = [
@@ -158,7 +158,7 @@ export function PortfolioBody() {
             return (
               <span
                 key={s}
-                className={`grid min-h-[104px] min-w-[104px] place-items-center px-3 py-3.5 text-center text-[.72rem] font-bold uppercase leading-snug tracking-[0.11em] ${shape}`}
+                className={`grid min-h-[104px] w-full place-items-center px-3 py-3.5 text-center text-[.72rem] font-bold uppercase leading-snug tracking-[0.11em] ${shape}`}
               >
                 {s}
               </span>
