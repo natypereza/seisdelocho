@@ -51,7 +51,9 @@ export default function ClientsPage() {
                 hidden: { opacity: 0, y: 18 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
               }}
-              className="m-0"
+              /* relative + z on hover so the lifted card sits over its
+                 neighbours; motion-safe respects reduced-motion settings. */
+              className="relative m-0 transition-transform duration-300 ease-out motion-safe:hover:z-10 motion-safe:hover:scale-[1.06]"
             >
               {c.cover ? (
                 // The card is a designed piece with its own edges and shadow,
