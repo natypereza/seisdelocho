@@ -93,6 +93,21 @@
     background: linear-gradient(180deg, #fff6f1 0%, #fdeee6 50%, #ffdccf 100%);
   }
 
+  /* Peach pinstripe band, carried over from the 6del8 portfolio layout. */
+  .band-striped {
+    background-color: theme('colors.bg-elevated');
+    background-image: repeating-linear-gradient(
+      90deg,
+      theme('colors.peach-deep') 0 7px,
+      rgba(255, 255, 255, 0.62) 7px 14px
+    );
+  }
+
+  /* Outlined chip used for specialties and capabilities. */
+  .chip {
+    @apply inline-block rounded-full border border-warm-accent bg-bg-elevated px-4 py-1.5 text-sm text-warm-darker;
+  }
+
   /* Touch Target Sizing */
   .touch-target {
     @apply min-h-[44px] min-w-[44px];
