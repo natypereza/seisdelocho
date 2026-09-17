@@ -1,12 +1,12 @@
 'use client';
 
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { Instagram } from 'lucide-react';
 
 // Mirrors the header: sections on the single home page.
 const navLinks = [
-  { key: 'about', href: '#about' },
+  { key: 'about', href: '/#about' },
   { key: 'background', href: '/background' },
   { key: 'clients', href: '/clients' },
   { key: 'contact', href: '/contact' },
@@ -14,14 +14,13 @@ const navLinks = [
 
 export function Footer() {
   const t = useTranslations();
-  const locale = useLocale();
 
   return (
     <footer className="border-t border-greige/40 py-12 md:py-16 bg-bg-base">
       <div className="container-custom">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-8">
           {/* Logo */}
-          <Link href={`/${locale}`} className="hover:opacity-80 transition-opacity">
+          <Link href="/" className="hover:opacity-80 transition-opacity">
             <img src="/n-logo-2.png" alt="6del8" className="h-10 w-auto" />
           </Link>
 
@@ -30,7 +29,7 @@ export function Footer() {
             {navLinks.map(({ key, href }) => (
               <Link
                 key={key}
-                href={`/${locale}${href}`}
+                href={href || "/"}
                 className="text-sm uppercase tracking-[0.15em] text-warm-dark hover:text-warm-darker transition-colors font-medium"
               >
                 {t(`header.nav.${key}`)}

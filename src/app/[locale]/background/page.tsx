@@ -1,13 +1,11 @@
 'use client';
 
-import { useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { CvGrid } from '@/components/CvGrid';
 
 export default function BackgroundPage() {
-  const locale = useLocale();
 
   return (
     <section className="bg-bg-base pt-5 pb-24 md:pt-7 md:pb-32">
@@ -18,7 +16,7 @@ export default function BackgroundPage() {
           transition={{ duration: 0.6 }}
         >
           <Link
-            href={`/${locale}`}
+            href="/"
             className="mb-10 inline-flex items-center gap-2 text-sm md:mb-12 text-warm-dark transition-colors hover:text-warm-darker"
           >
             <ArrowLeft className="h-4 w-4" />

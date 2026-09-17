@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { Menu, X } from 'lucide-react';
@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 // Single-page site: every link scrolls to a section on the home page.
 const navLinks = [
-  { key: 'about', href: '#about' },
+  { key: 'about', href: '/#about' },
   { key: 'background', href: '/background' },
   { key: 'clients', href: '/clients' },
   { key: 'contact', href: '/contact' },
@@ -17,7 +17,6 @@ const navLinks = [
 
 export function Header() {
   const t = useTranslations();
-  const locale = useLocale();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -28,7 +27,7 @@ export function Header() {
       <header className="fixed top-0 w-full bg-bg-base/95 backdrop-blur-sm border-b border-greige/40 z-50">
         <div className="container-custom h-16 md:h-20 flex items-center justify-between">
           {/* Logo */}
-          <Link href={`/${locale}`} className="hover:opacity-80 transition-opacity">
+          <Link href="/" className="hover:opacity-80 transition-opacity">
             <img src="/n-logo-2.png" alt="6del8" className="h-12 md:h-16 w-auto" />
           </Link>
 
@@ -37,7 +36,7 @@ export function Header() {
             {navLinks.map(({ key, href }) => (
               <Link
                 key={key}
-                href={`/${locale}${href}`}
+                href={href || "/"}
                 className="text-sm uppercase tracking-[0.15em] text-warm-dark hover:text-warm-darker transition-colors font-medium"
               >
                 {t(`header.nav.${key}`)}
@@ -74,7 +73,7 @@ export function Header() {
                 {navLinks.map(({ key, href }) => (
                   <Link
                     key={key}
-                    href={`/${locale}${href}`}
+                    href={href || "/"}
                     onClick={() => setMobileMenuOpen(false)}
                     className="py-3 text-sm uppercase tracking-[0.15em] text-warm-dark hover:text-warm-darker transition-colors font-medium"
                   >

@@ -11,7 +11,7 @@ export default function NotFound() {
       <div className="text-center">
         <h1 className="text-6xl font-light mb-4">404</h1>
         <p className="text-xl text-neutral-600 mb-8">Page not found</p>
-        <Link href={`/${locale}`} className="text-neutral-900 hover:underline">
+        <Link href="/" className="text-neutral-900 hover:underline">
           Go back home
         </Link>
       </div>

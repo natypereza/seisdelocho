@@ -6,7 +6,8 @@ export const routing = defineRouting({
   // src/messages so they can be switched back on by listing them here.
   locales: ['en'],
   defaultLocale: 'en',
-  localePrefix: 'always',
+  // Single locale, so URLs carry no /en prefix.
+  localePrefix: 'never',
 });
 
 export type Locale = (typeof routing.locales)[number];

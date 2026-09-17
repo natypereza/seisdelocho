@@ -1,12 +1,10 @@
 'use client';
 
-import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { ContactBlock } from '@/components/ContactBlock';
 
 export default function ContactPage() {
-  const locale = useLocale();
 
   return (
     // The block is black edge to edge, so the whole page goes black and fills
@@ -16,7 +14,7 @@ export default function ContactPage() {
           shrink-wrap this block and centre it instead of stretching it. */}
       <div className="w-full container-custom pt-5 md:pt-7">
         <Link
-          href={`/${locale}`}
+          href="/"
           className="inline-flex items-center gap-2 text-sm text-peach/70 transition-colors hover:text-peach"
         >
           <ArrowLeft className="h-4 w-4" />

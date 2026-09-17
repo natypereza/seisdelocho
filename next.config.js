@@ -16,18 +16,12 @@ const nextConfig = {
   // /es and /nl were live before the site moved to English only. Send those
   // URLs to their English equivalent instead of serving a 404 to anyone
   // arriving from a bookmark or a search result.
+  // The site dropped its /en prefix and its Spanish and Dutch versions.
+  // Everything that was live under those paths lands on its new home.
   async redirects() {
     return [
-      {
-        source: '/:locale(es|nl)',
-        destination: '/en',
-        permanent: false,
-      },
-      {
-        source: '/:locale(es|nl)/:path*',
-        destination: '/en/:path*',
-        permanent: false,
-      },
+      { source: '/:locale(en|es|nl)', destination: '/', permanent: false },
+      { source: '/:locale(en|es|nl)/:path*', destination: '/:path*', permanent: false },
     ];
   },
 };

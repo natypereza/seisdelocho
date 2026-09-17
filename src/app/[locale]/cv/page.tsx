@@ -24,7 +24,7 @@ export default function CVPage() {
             transition={{ duration: 0.6 }}
           >
             <Link
-              href={`/${locale}`}
+              href="/"
               className="inline-flex items-center gap-2 text-sm text-warm-dark hover:text-warm-darker transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4" />
