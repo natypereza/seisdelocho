@@ -1,0 +1,5 @@
+# Secrets live in the Vercel project's environment variables, not in the upload.
+.env
+.env.*
+node_modules
+.next

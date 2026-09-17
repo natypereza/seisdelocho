@@ -21,3 +21,5 @@ out/
 /*.PDF
 scripts/image-manifest.json
 tsconfig.tsbuildinfo
+.vercel
+.env*
