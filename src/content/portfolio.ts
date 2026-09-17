@@ -102,22 +102,22 @@ export const certifications = [
   { title: 'Mastering Claude — Academia de IA', year: '2026' },
 ] as const;
 
-// `logo` points at a file in public/clients. Drop a new logo in that folder
-// and add the path here; the clients page falls back to the name until then.
-export type Client = { name: string; when: string; logo?: string; note?: string };
+// `cover` is the designed client card in public/clients. The card already
+// carries the brand name and the dates, so the page shows it on its own.
+export type Client = { name: string; when: string; cover?: string };
 
 export const clients: ReadonlyArray<Client> = [
-  { name: 'Fixr Gt / BUSSOLA', when: 'Jan 2025 – present' },
-  { name: 'KA Events', when: 'Jan 2025 – present' },
-  { name: 'Taylor & Taylor', when: 'Jun 2026 – present', logo: '/clients/taylor-taylor.webp' },
-  { name: 'Karay Foods', when: 'Feb 2023 – Feb 2025' },
-  { name: 'Paccari Guatemala', when: 'Feb 2023 – May 2025' },
-  { name: 'Flamzy Guatemala', when: 'Feb 2023 – May 2025' },
-  { name: 'Lule Guatemala', when: 'Jan – May 2025' },
-  { name: 'Moanne Moon', when: '2019 – 2024' },
-  { name: 'Yayan Gourmet', when: '2019 – 2024' },
-  { name: 'Bizniemos', when: '2019 – 2024' },
-  { name: 'VidaFit SV', when: '2021 – 2023' },
+  { name: 'Fixr Gt / BUSSOLA', when: 'Jan 2025 – present', cover: '/clients/fixr-bussola.webp' },
+  { name: 'KA Events', when: 'Jan 2025 – present', cover: '/clients/ka-events.webp' },
+  { name: 'Taylor & Taylor', when: 'Jun 2026 – present', cover: '/clients/taylor-taylor.webp' },
+  { name: 'Karay Foods', when: 'Feb 2023 – Feb 2025', cover: '/clients/karay-foods.webp' },
+  { name: 'Paccari Guatemala', when: 'Feb 2023 – May 2025', cover: '/clients/paccari.webp' },
+  { name: 'Flamzy Guatemala', when: 'Feb 2023 – May 2025', cover: '/clients/flamzy.webp' },
+  { name: 'Lule Guatemala', when: 'Jan – May 2025', cover: '/clients/lule.webp' },
+  { name: 'Moanne Moon', when: '2019 – 2024', cover: '/clients/moanne-moon.webp' },
+  { name: 'Yayan Gourmet', when: '2019 – 2024', cover: '/clients/yayan-gourmet.webp' },
+  { name: 'Bizniemos', when: '2019 – 2024', cover: '/clients/bizniemos.webp' },
+  { name: 'VidaFit SV', when: '2021 – 2023', cover: '/clients/vidafit.webp' },
 ];
 
 export const strengths = [

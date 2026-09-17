@@ -40,42 +40,47 @@ export default function ClientsPage() {
         <motion.div
           initial="hidden"
           animate="visible"
-          variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.06 } } }}
-          className="mt-14 grid grid-cols-2 gap-4 md:mt-20 md:grid-cols-3 lg:grid-cols-4"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { staggerChildren: 0.07 } },
+          }}
+          className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 md:mt-20 lg:grid-cols-3"
         >
           {clients.map((c) => (
-            <motion.div
+            <motion.figure
               key={c.name}
-              variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
-              className="flex flex-col border border-warm-light bg-bg-elevated"
+              variants={{
+                hidden: { opacity: 0, y: 18 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+              }}
+              className="m-0"
             >
-              {/* Fixed-ratio plate so every tile lines up whether it holds a
-                  logo or the name standing in for one. */}
-              <div className="flex aspect-[4/3] items-center justify-center p-6">
-                {c.logo ? (
-                  <img
-                    src={c.logo}
-                    alt={c.name}
-                    className="max-h-full max-w-full object-contain"
-                    loading="lazy"
-                  />
-                ) : (
-                  <span className="text-center font-decorative text-lg font-bold leading-tight text-warm-darker md:text-xl">
+              {c.cover ? (
+                // The card is a designed piece with its own edges and shadow,
+                // so it sits on the page rather than inside a frame.
+                <img
+                  src={c.cover}
+                  alt={`${c.name} — client cover`}
+                  className="h-auto w-full"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="flex aspect-[1414/2000] items-center justify-center border border-warm-light bg-bg-elevated p-6">
+                  <span className="text-center font-decorative text-xl font-bold text-warm-darker">
                     {c.name}
                   </span>
-                )}
-              </div>
-              <div className="border-t border-warm-light px-4 py-3">
-                <p className="text-[.8rem] font-bold uppercase tracking-[0.12em] text-warm-darker">
-                  {c.name}
-                </p>
-                <p className="text-[.78rem] text-greige tabular-nums">{c.when}</p>
-              </div>
-            </motion.div>
+                </div>
+              )}
+              {/* The covers carry the name and dates; this keeps them available
+                  to screen readers and to anyone the images fail to load for. */}
+              <figcaption className="sr-only">
+                {c.name} · {c.when}
+              </figcaption>
+            </motion.figure>
           ))}
         </motion.div>
 
-        <p className="mt-12 text-center text-sm text-greige">
+        <p className="mt-14 text-center text-sm text-greige">
           {clients.length} brands · 2019 to today
         </p>
       </div>
