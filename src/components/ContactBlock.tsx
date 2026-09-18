@@ -23,13 +23,13 @@ export function ContactBlock() {
     // tone and proportions, and the section is as tall as whichever is taller.
     <section id="contact" className="relative grid scroll-mt-24 overflow-hidden bg-bg-base">
       <img
-        src="/pajaritos.webp"
+        src="/pajaritos-color.webp"
         alt=""
         aria-hidden="true"
         className="col-start-1 row-start-1 w-full"
       />
 
-      <div className="col-start-1 row-start-1 flex items-center py-12 md:py-16">
+      <div className="col-start-1 row-start-1 flex items-center py-10 md:py-14">
         {/* w-full: container-custom carries mx-auto, which would otherwise
             shrink-wrap and centre this inside the flex row. */}
         <div className="w-full container-custom">
@@ -38,47 +38,56 @@ export function ContactBlock() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            /* The box does the contrast work, so the photo needs no veil. */
-            className="max-w-md border border-warm-light bg-bg-base/90 p-7 backdrop-blur-[2px] md:p-9"
           >
+            {/* Peach on the blue sky: warm against cool, and the same hue as
+                the birds. The shadow carries it across the white clouds. */}
             <motion.h2
               variants={item}
-              className="font-script text-warm-darker"
-              style={{ fontSize: 'clamp(2.25rem, 5vw, 3.75rem)', lineHeight: 1 }}
+              className="font-script text-peach"
+              style={{
+                fontSize: 'clamp(3rem, 8vw, 6rem)',
+                lineHeight: 1,
+                textShadow: '0 2px 24px rgba(0,0,0,0.45)',
+              }}
             >
               {t('heading')}
             </motion.h2>
 
-            <motion.div variants={item} className="mt-5 grid gap-2.5 text-base">
-              <a href={`mailto:${t('email')}`} className={link}>
-                {t('email')}
-              </a>
-              <a
-                href="https://wa.me/50256968292"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={link}
-              >
-                {t('whatsapp')}
-              </a>
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-warm-darker">
+            <motion.div
+              variants={item}
+              className="mt-6 max-w-md border border-warm-light bg-bg-base/90 p-7 backdrop-blur-[2px] md:p-8"
+            >
+              <div className="grid gap-2.5 text-base">
+                <a href={`mailto:${t('email')}`} className={link}>
+                  {t('email')}
+                </a>
                 <a
-                  href="https://www.instagram.com/seisdelocho_/"
+                  href="https://wa.me/50256968292"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border-b border-warm-darker/40 transition-colors hover:border-warm-darker"
+                  className={link}
                 >
-                  @seisdelocho_
+                  {t('whatsapp')}
                 </a>
-                <span aria-hidden="true">·</span>
-                <a
-                  href="https://www.instagram.com/natapereza/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="border-b border-warm-darker/40 transition-colors hover:border-warm-darker"
-                >
-                  @natapereza
-                </a>
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-warm-darker">
+                  <a
+                    href="https://www.instagram.com/seisdelocho_/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border-b border-warm-darker/40 transition-colors hover:border-warm-darker"
+                  >
+                    @seisdelocho_
+                  </a>
+                  <span aria-hidden="true">·</span>
+                  <a
+                    href="https://www.instagram.com/natapereza/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border-b border-warm-darker/40 transition-colors hover:border-warm-darker"
+                  >
+                    @natapereza
+                  </a>
+                </div>
               </div>
             </motion.div>
           </motion.div>
