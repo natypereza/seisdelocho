@@ -40,13 +40,14 @@ export default function ClientsPage() {
       tiles.current.map((el, i) => {
         if (!el) return { x: 0, y: 0, r: 0 };
         const r = el.getBoundingClientRect();
-        // A progressive fan, not a cycling one: each card behind turns and
-        // drops a little further, so the pile reads in order from Bussola
-        // down to VidaFit instead of repeating the same few angles.
+        // Depth from the top of the pile: VidaFit leads at zero, Bussola sits
+        // furthest back. Each card behind turns and drops a little further,
+        // so the order reads instead of repeating the same few angles.
+        const depth = tiles.current.length - 1 - i;
         return {
-          x: stackX - r.left + i * 3,
-          y: stackY - r.top + i * 5,
-          r: i * 1.6,
+          x: stackX - r.left + depth * 3,
+          y: stackY - r.top + depth * 5,
+          r: depth * 1.6,
         };
       })
     );
@@ -113,12 +114,17 @@ export default function ClientsPage() {
                 }}
                 transition={
                   spread
-                    ? { type: 'spring', stiffness: 120, damping: 20, delay: i * 0.06 }
+                    ? {
+                        type: 'spring',
+                        stiffness: 120,
+                        damping: 20,
+                        delay: (clients.length - 1 - i) * 0.06,
+                      }
                     : { duration: 0 }
                 }
-                /* Stacked, the first client sits on top and the last at the
+                /* Stacked, the last client sits on top and the first at the
                    bottom of the pile; spread, the hovered card leads. */
-                style={{ zIndex: spread ? undefined : clients.length - i }}
+                style={{ zIndex: spread ? undefined : i }}
                 data-card=""
                 className="relative"
               >
