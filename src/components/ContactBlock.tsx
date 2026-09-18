@@ -29,7 +29,7 @@ export function ContactBlock() {
         className="col-start-1 row-start-1 w-full"
       />
 
-      <div className="col-start-1 row-start-1 flex items-center py-10 md:py-14">
+      <div className="col-start-1 row-start-1 flex items-start pt-10 pb-10 md:pt-14 md:pb-14">
         {/* w-full: container-custom carries mx-auto, which would otherwise
             shrink-wrap and centre this inside the flex row. */}
         <div className="w-full container-custom">
@@ -45,7 +45,7 @@ export function ContactBlock() {
               variants={item}
               className="font-script text-peach"
               style={{
-                fontSize: 'clamp(3rem, 8vw, 6rem)',
+                fontSize: 'clamp(3.5rem, 11vw, 8.5rem)',
                 lineHeight: 1,
                 textShadow: '0 2px 24px rgba(0,0,0,0.45)',
               }}
