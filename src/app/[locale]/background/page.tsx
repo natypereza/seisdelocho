@@ -122,11 +122,22 @@ export default function BackgroundPage() {
               {education.map((e, i) => (
                 <div key={e.what} className="relative mx-auto w-full max-w-[330px]">
                   <img src={`/postit-${i + 1}.webp`} alt="" aria-hidden="true" className="w-full" />
-                  <div className="absolute inset-x-[12%] bottom-[10%] top-[18%] flex flex-col justify-center text-center">
-                    <p className="text-[.66rem] font-bold uppercase tracking-[0.18em] text-greige">
+                  {/* The cream note sits its copy higher than the pink one. */}
+                  <div
+                    className={`absolute inset-x-[12%] flex flex-col justify-center text-center ${
+                      i === 0 ? 'bottom-[10%] top-[18%]' : 'bottom-[20%] top-[14%]'
+                    }`}
+                  >
+                    {/* Near-white lifts the label off the pink; on the cream
+                        note it would vanish, so that one keeps the greige. */}
+                    <p
+                      className={`text-[.66rem] font-bold uppercase tracking-[0.18em] ${
+                        i === 0 ? 'text-[#fdf4ee]' : 'text-greige'
+                      }`}
+                    >
                       {e.when}
                     </p>
-                    <p className="mt-1.5 font-decorative text-base font-bold leading-snug text-warm-darker md:text-lg">
+                    <p className="mt-1.5 text-base font-bold leading-snug text-warm-darker md:text-lg">
                       {e.what}
                     </p>
                     <p className="mt-1 text-[.8rem] leading-snug text-warm-dark">{e.where}</p>
