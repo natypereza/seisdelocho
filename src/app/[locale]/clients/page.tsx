@@ -109,8 +109,9 @@ export default function ClientsPage() {
                     ? { type: 'spring', stiffness: 120, damping: 20, delay: i * 0.06 }
                     : { duration: 0 }
                 }
-                /* Stacked, later cards sit on top; spread, the hovered one does. */
-                style={{ zIndex: spread ? undefined : i }}
+                /* Stacked, the first client sits on top and the last at the
+                   bottom of the pile; spread, the hovered card leads. */
+                style={{ zIndex: spread ? undefined : clients.length - i }}
                 data-card=""
                 className="relative"
               >
