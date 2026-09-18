@@ -56,7 +56,7 @@ function Entry({ e }: { e: Experience }) {
         className="group grid w-full grid-cols-[1fr_auto] items-start gap-4 py-6 text-left"
       >
         <span className="block">
-          <span className="block font-decorative text-lg font-bold leading-tight text-warm-darker md:text-xl">
+          <span className="block text-lg font-bold leading-tight text-warm-darker md:text-xl">
             {e.role}
           </span>
           <span className="mt-1 block text-[.88rem] text-warm-dark">{e.org}</span>

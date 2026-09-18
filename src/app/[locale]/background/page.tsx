@@ -116,13 +116,13 @@ export default function BackgroundPage() {
         {/* ------- education, languages, tools, certifications ------- */}
         <div className="mt-16 grid gap-12 md:mt-20 md:gap-16">
           <Block id="education" title="education">
-            {/* One clipped note per entry, the text sitting on the paper — the
-                clip takes the top fifth, so the copy starts below it. */}
+            {/* A post-it each, the copy sitting on the paper — the tape takes
+                the top tenth of both notes. */}
             <div className="grid gap-6 sm:grid-cols-2 sm:gap-8">
-              {education.map((e) => (
+              {education.map((e, i) => (
                 <div key={e.what} className="relative mx-auto w-full max-w-[330px]">
-                  <img src="/education-note.webp" alt="" aria-hidden="true" className="w-full" />
-                  <div className="absolute inset-x-[9%] bottom-[8%] top-[22%] flex flex-col justify-center text-center">
+                  <img src={`/postit-${i + 1}.webp`} alt="" aria-hidden="true" className="w-full" />
+                  <div className="absolute inset-x-[12%] bottom-[10%] top-[18%] flex flex-col justify-center text-center">
                     <p className="text-[.66rem] font-bold uppercase tracking-[0.18em] text-greige">
                       {e.when}
                     </p>
@@ -137,17 +137,22 @@ export default function BackgroundPage() {
           </Block>
 
           <Block id="languages" title="languages">
-            <div className="max-w-md">
-              {languages.map((l) => (
+            {/* Left to right rather than stacked, each divided from the next. */}
+            <div className="grid grid-cols-1 gap-y-5 sm:grid-cols-3 sm:gap-y-0">
+              {languages.map((l, i) => (
                 <div
                   key={l.name}
-                  className="flex items-center justify-between gap-4 border-t border-warm-light py-3 first:border-t-0 first:pt-0"
+                  className={
+                    i > 0
+                      ? 'border-t border-warm-light pt-5 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0'
+                      : ''
+                  }
                 >
-                  <span>
-                    <span className="block text-[.95rem] font-bold text-warm-darker">{l.name}</span>
-                    <span className="block text-[.72rem] italic text-greige">{l.note}</span>
-                  </span>
-                  <Stars level={l.level} label={l.name} />
+                  <p className="text-[.95rem] font-bold text-warm-darker">{l.name}</p>
+                  <p className="text-[.72rem] italic text-greige">{l.note}</p>
+                  <div className="mt-2.5">
+                    <Stars level={l.level} label={l.name} />
+                  </div>
                 </div>
               ))}
             </div>
@@ -170,9 +175,7 @@ export default function BackgroundPage() {
           </Block>
 
           <Block id="certifications" title="certifications">
-            {/* One column: in two, a row-filled grid reads in zigzag and the
-                newest-first order stops being obvious. */}
-            <div className="grid">
+            <div className="grid gap-x-10 lg:grid-cols-2">
               {certifications.map((c) => (
                 <div
                   key={c.title}
