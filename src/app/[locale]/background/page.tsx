@@ -36,14 +36,17 @@ function Block({ id, title, children }: { id: string; title: string; children: R
   );
 }
 
-function Dots({ level }: { level: number }) {
+/* The rating is Natalia's own row of star patches, cut into five. A level of
+   one shows one star, not one filled dot out of five. */
+function Stars({ level, label }: { level: number; label: string }) {
   return (
-    <span className="flex flex-none gap-[5px]" aria-hidden="true">
-      {[1, 2, 3, 4, 5].map((n) => (
-        <span
-          key={n}
-          className={`block h-[9px] w-[9px] rounded-full ${n <= level ? 'bg-black' : 'bg-black/15'}`}
-        />
+    <span
+      className="flex flex-none items-center gap-1.5"
+      role="img"
+      aria-label={`${label}: ${level} of 5`}
+    >
+      {Array.from({ length: level }, (_, i) => (
+        <img key={i} src={`/stars/${i + 1}.webp`} alt="" className="h-6 w-auto md:h-7" />
       ))}
     </span>
   );
@@ -135,7 +138,7 @@ export default function BackgroundPage() {
                     <span className="block text-[.95rem] font-bold text-warm-darker">{l.name}</span>
                     <span className="block text-[.72rem] italic text-greige">{l.note}</span>
                   </span>
-                  <Dots level={l.level} />
+                  <Stars level={l.level} label={l.name} />
                 </div>
               ))}
             </div>
