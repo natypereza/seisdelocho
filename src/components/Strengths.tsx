@@ -6,17 +6,17 @@ import { strengths } from '@/content/portfolio';
 /* Each camera's screen sits in a different spot on its body, so the panel is
    placed per camera — measured off the artwork, as a share of that crop. */
 const cameras = [
-  { src: '/cameras/blue.webp',   left: 17.0, top: 8.9,  width: 68.0, height: 58.0 },
-  { src: '/cameras/silver.webp', left: 14.5, top: 7.0,  width: 57.4, height: 50.3 },
-  { src: '/cameras/green.webp',  left: 15.4, top: 4.6,  width: 57.7, height: 51.0 },
-  { src: '/cameras/gold.webp',   left: 7.1,  top: 17.3, width: 56.8, height: 72.8 },
-  { src: '/cameras/red.webp',    left: 8.4,  top: 7.0,  width: 72.6, height: 60.8 },
-  { src: '/cameras/pink.webp',   left: 8.2,  top: 22.3, width: 58.5, height: 66.1 },
+  { src: '/cameras/blue.webp',   left: 8.6, top: 15.8, width: 58.3, height: 68.2 },
+  { src: '/cameras/silver.webp', left: 7.3, top: 28.1, width: 50.3, height: 57.6 },
+  { src: '/cameras/green.webp',  left: 4.4, top: 28.1, width: 51.5, height: 57.0 },
+  { src: '/cameras/gold.webp',   left: 7.2, top: 17.6, width: 56.8, height: 72.5 },
+  { src: '/cameras/red.webp',    left: 6.6, top: 18.9, width: 60.8, height: 73.4 },
+  { src: '/cameras/pink.webp',   left: 8.3, top: 22.1, width: 58.3, height: 66.3 },
 ] as const;
 
 export function Strengths() {
   return (
-    <div className="grid grid-cols-2 items-end gap-4 sm:grid-cols-3 lg:grid-cols-6 lg:gap-3">
+    <div className="grid grid-cols-1 items-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {strengths.map((s, i) => {
         const cam = cameras[i % cameras.length];
         return (
