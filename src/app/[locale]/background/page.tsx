@@ -116,15 +116,24 @@ export default function BackgroundPage() {
         {/* ------- education, languages, tools, certifications ------- */}
         <div className="mt-16 grid gap-12 md:mt-20 md:gap-16">
           <Block id="education" title="education">
-            {education.map((e) => (
-              <div key={e.what} className="border-t border-warm-light py-3 first:border-t-0 first:pt-0">
-                <p className="text-[.7rem] font-bold uppercase tracking-[0.16em] text-greige">
-                  {e.when}
-                </p>
-                <p className="text-[1.02rem] font-bold leading-snug text-warm-darker">{e.what}</p>
-                <p className="text-[.86rem] leading-snug text-warm-dark">{e.where}</p>
-              </div>
-            ))}
+            {/* One clipped note per entry, the text sitting on the paper — the
+                clip takes the top fifth, so the copy starts below it. */}
+            <div className="grid gap-6 sm:grid-cols-2 sm:gap-8">
+              {education.map((e) => (
+                <div key={e.what} className="relative">
+                  <img src="/education-note.webp" alt="" aria-hidden="true" className="w-full" />
+                  <div className="absolute inset-x-[13%] bottom-[10%] top-[24%] flex flex-col justify-center text-center">
+                    <p className="text-[.66rem] font-bold uppercase tracking-[0.18em] text-greige">
+                      {e.when}
+                    </p>
+                    <p className="mt-1.5 font-decorative text-base font-bold leading-snug text-warm-darker md:text-lg">
+                      {e.what}
+                    </p>
+                    <p className="mt-1 text-[.8rem] leading-snug text-warm-dark">{e.where}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </Block>
 
           <Block id="languages" title="languages">
