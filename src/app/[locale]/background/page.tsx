@@ -103,22 +103,30 @@ export default function BackgroundPage() {
         {/* The photo is pinned to the section's own box, so it grows and
             shrinks as the accordions open and close. The veil keeps the black
             type readable over the darker birds and wires. */}
+        {/* Photo stack and content share one grid cell, so the section is as
+            tall as whichever is taller — the photos are never cut, and opening
+            an accordion simply extends the cream past them. */}
         <section
           id="experience"
-          className="relative mt-16 scroll-mt-24 overflow-hidden md:mt-24"
+          className="relative mt-16 grid scroll-mt-24 overflow-hidden md:mt-24"
         >
-          {/* Full width at the photo's own ratio, anchored to the top — it is
-              never stretched or cropped, so opening an accordion grows the
-              cream beneath it rather than zooming into the sky. The gradient
-              hands the photo over to the page colour instead of ending on a
-              hard edge. */}
-          <div aria-hidden="true" className="absolute inset-x-0 top-0">
-            <img src="/experience/pajaritos.webp" alt="" className="w-full" />
-            <div className="absolute inset-0 bg-bg-base/[0.74]" />
-            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-b from-transparent to-bg-base" />
+          <div aria-hidden="true" className="col-start-1 row-start-1">
+            <div className="relative">
+              <img src="/experience/pajaritos.webp" alt="" className="w-full" />
+              <div className="absolute inset-0 bg-bg-base/[0.74]" />
+            </div>
+            {/* The beach frame is far darker than the birds, so it takes a
+                heavier veil to keep black type legible over it. */}
+            <div className="relative">
+              <img src="/experience/cangrejo.webp" alt="" className="w-full" />
+              <div className="absolute inset-0 bg-bg-base/[0.86]" />
+            </div>
+            <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-b from-transparent to-bg-base" />
           </div>
 
-          <div className="relative px-5 py-8 md:px-9 md:py-11">
+          {/* relative: the photo wrappers are positioned, so unpositioned content
+              would paint underneath them. */}
+          <div className="relative col-start-1 row-start-1 px-5 py-8 md:px-9 md:py-11">
             <h2 className="mb-6 font-decorative text-2xl font-bold italic text-warm-darker md:mb-8 md:text-[1.75rem]">
               experience
             </h2>
