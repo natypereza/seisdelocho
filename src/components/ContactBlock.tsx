@@ -52,10 +52,13 @@ export function ContactBlock() {
             birds. The shadow carries it across the white clouds. */}
         <motion.h2
           variants={item}
-          className="w-full container-custom text-right font-script text-peach"
+          className="w-full container-custom text-right font-decorative font-medium text-peach"
           style={{
-            fontSize: 'clamp(3.5rem, 11vw, 8.5rem)',
-            lineHeight: 1,
+            /* Playfair carries far more weight than the script at the same
+               size, so the ceiling comes down to match its presence. */
+            fontSize: 'clamp(2.5rem, 7vw, 5.5rem)',
+            lineHeight: 1.05,
+            letterSpacing: '-0.01em',
             textShadow: '0 2px 24px rgba(0,0,0,0.45)',
           }}
         >
