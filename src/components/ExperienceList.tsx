@@ -21,11 +21,11 @@ function Frame({ image }: { image: ExpImage }) {
   }
   return (
     <div
-      className="grid aspect-[4/3] w-full place-items-center border border-warm-light bg-bg-elevated px-4"
+      className="grid aspect-[4/3] w-full place-items-center border border-warm-light bg-bg-elevated px-3"
       role="img"
       aria-label={`${image.alt} — image to come`}
     >
-      <span className="font-decorative text-base italic text-greige">{image.alt}</span>
+      <span className="text-center font-decorative text-sm italic text-greige">{image.alt}</span>
     </div>
   );
 }
@@ -34,7 +34,7 @@ function Prose({ label, children }: { label: string; children: React.ReactNode }
   return (
     <div>
       <p className="text-[.68rem] font-bold uppercase tracking-[0.22em] text-greige">{label}</p>
-      <p className="mt-2 text-[.95rem] leading-relaxed text-warm-dark">{children}</p>
+      <p className="mt-2 text-[.92rem] leading-relaxed text-warm-dark">{children}</p>
     </div>
   );
 }
@@ -53,23 +53,15 @@ function Entry({ e }: { e: Experience }) {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls={panelId}
-        className="group grid w-full grid-cols-[1fr_auto] items-start gap-4 py-7 text-left md:py-8"
+        className="group grid w-full grid-cols-[1fr_auto] items-start gap-4 py-6 text-left"
       >
-        <span className="grid gap-2 md:grid-cols-[minmax(0,200px)_1fr] md:gap-10">
-          <span className="block">
-            <span className="block font-decorative text-2xl italic text-peach-deep md:text-[1.75rem]">
-              {e.n}
-            </span>
-            <span className="mt-1 block text-[.7rem] font-bold uppercase tracking-[0.18em] text-greige tabular-nums">
-              {e.when}
-            </span>
+        <span className="block">
+          <span className="block font-decorative text-lg font-bold leading-tight text-warm-darker md:text-xl">
+            {e.role}
           </span>
-
-          <span className="block">
-            <span className="block font-decorative text-xl font-bold leading-tight text-warm-darker md:text-2xl">
-              {e.role}
-            </span>
-            <span className="mt-1 block text-[.9rem] text-warm-dark">{e.org}</span>
+          <span className="mt-1 block text-[.88rem] text-warm-dark">{e.org}</span>
+          <span className="mt-1.5 block text-[.7rem] font-bold uppercase tracking-[0.18em] text-greige tabular-nums">
+            {e.when}
           </span>
         </span>
 
@@ -92,32 +84,27 @@ function Entry({ e }: { e: Experience }) {
             transition={{ duration: 0.35, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <div className="pb-9 md:grid md:grid-cols-[minmax(0,200px)_1fr] md:gap-10 md:pb-10">
-              <div aria-hidden="true" />
-              <div>
-                <div className={`grid gap-6 ${e.images ? 'lg:grid-cols-2 lg:gap-10' : ''}`}>
-                  {e.about && <Prose label="About">{e.about}</Prose>}
-                  <Prose label={e.didLabel}>{e.did}</Prose>
+            <div className="grid gap-5 pb-8">
+              {e.about && <Prose label="About">{e.about}</Prose>}
+              <Prose label={e.didLabel}>{e.did}</Prose>
+
+              {e.images && (
+                <div className="grid grid-cols-2 gap-3">
+                  {e.images.map((img, i) => (
+                    <Frame key={i} image={img} />
+                  ))}
                 </div>
+              )}
 
-                {e.images && (
-                  <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    {e.images.map((img, i) => (
-                      <Frame key={i} image={img} />
-                    ))}
-                  </div>
-                )}
-
-                {e.slug && (
-                  <Link
-                    href={`/background/${e.slug}`}
-                    className="group/btn mt-7 inline-flex items-center gap-2 border border-warm-darker px-6 py-3 text-[.72rem] font-bold uppercase tracking-[0.18em] text-warm-darker transition-colors duration-300 hover:bg-warm-darker hover:text-peach"
-                  >
-                    View experience
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-1" />
-                  </Link>
-                )}
-              </div>
+              {e.slug && (
+                <Link
+                  href={`/background/${e.slug}`}
+                  className="group/btn inline-flex w-fit items-center gap-2 border border-warm-darker px-5 py-2.5 text-[.7rem] font-bold uppercase tracking-[0.18em] text-warm-darker transition-colors duration-300 hover:bg-warm-darker hover:text-peach"
+                >
+                  View experience
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-1" />
+                </Link>
+              )}
             </div>
           </motion.div>
         )}
@@ -127,11 +114,23 @@ function Entry({ e }: { e: Experience }) {
 }
 
 export function ExperienceList() {
+  /* Two independent stacks: opening a role on one side grows only that
+     column, leaving the other where it was. */
+  const left = experiences.slice(0, 4);
+  const right = experiences.slice(4);
+
   return (
-    <div>
-      {experiences.map((e) => (
-        <Entry key={e.n} e={e} />
-      ))}
+    <div className="grid gap-x-12 md:grid-cols-2 lg:gap-x-16">
+      <div className="content-start">
+        {left.map((e) => (
+          <Entry key={e.role + e.org} e={e} />
+        ))}
+      </div>
+      <div className="content-start">
+        {right.map((e) => (
+          <Entry key={e.role + e.org} e={e} />
+        ))}
+      </div>
     </div>
   );
 }
