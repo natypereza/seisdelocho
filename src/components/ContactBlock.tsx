@@ -13,84 +13,102 @@ function WhatsApp({ className }: { className?: string }) {
   );
 }
 
+/* The window cut into the frame, measured off the artwork. */
+const WINDOW = { left: 5.2, top: 5.9, width: 90.3, height: 69.0 };
+
 export function ContactBlock() {
   const t = useTranslations('contact');
 
   const container = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.12 } },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
   };
   const item = {
     hidden: { opacity: 0, y: 15 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
-  /* 48px keeps each a comfortable tap target even though the mark is 30px. */
-  const dot =
-    'grid h-14 w-14 place-items-center text-peach transition-transform duration-300 hover:scale-110';
-  const glyph = 'h-[34px] w-[34px] drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]';
+  const row =
+    'group inline-flex items-center gap-3 text-warm-dark transition-colors hover:text-warm-darker';
+  const glyph = 'h-[18px] w-[18px] flex-none text-greige transition-colors group-hover:text-warm-darker';
+  const label = 'border-b border-warm-darker/25 transition-colors group-hover:border-warm-darker';
 
   return (
-    // Photo and content share one grid cell: the frame shows whole, at its own
-    // tone and proportions, and the section is as tall as whichever is taller.
-    <section id="contact" className="relative grid scroll-mt-24 overflow-hidden bg-bg-base">
-      <img
-        src="/pajaritos-color.webp"
-        alt=""
-        aria-hidden="true"
-        className="col-start-1 row-start-1 w-full"
-      />
-
-      <motion.div
-        variants={container}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        className="col-start-1 row-start-1 flex flex-col justify-between py-9 md:py-12"
-      >
-        {/* Peach on the blue sky: warm against cool, and the same hue as the
-            birds. The shadow carries it across the white clouds. */}
-        <motion.h2
-          variants={item}
-          className="w-full container-custom text-right font-decorative font-medium text-peach"
-          style={{
-            /* Playfair carries far more weight than the script at the same
-               size, so the ceiling comes down to match its presence. */
-            fontSize: 'clamp(2.5rem, 7vw, 5.5rem)',
-            lineHeight: 1.05,
-            letterSpacing: '-0.01em',
-            textShadow: '0 2px 24px rgba(0,0,0,0.45)',
-          }}
+    <section id="contact" className="scroll-mt-24 bg-bg-base py-16 md:py-24">
+      <div className="container-custom">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
+          className="grid items-center gap-10 md:grid-cols-2 md:gap-14"
         >
-          {t('heading')}
-        </motion.h2>
+          <div>
+            <motion.h2
+              variants={item}
+              className="font-decorative font-medium text-warm-darker"
+              style={{ fontSize: 'clamp(2.25rem, 5.5vw, 4rem)', lineHeight: 1.05, letterSpacing: '-0.01em' }}
+            >
+              {t('heading')}
+            </motion.h2>
 
-        <motion.div variants={item} className="w-full container-custom">
-          <div className="-ml-3 flex items-center gap-1">
-            <a href={`mailto:${t('email')}`} className={dot} aria-label={`Email ${t('email')}`}>
-              <Mail className={glyph} strokeWidth={1.75} />
-            </a>
-            <a
-              href="https://wa.me/50256968292"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={dot}
-              aria-label={`WhatsApp ${t('whatsapp')}`}
-            >
-              <WhatsApp className={glyph} />
-            </a>
-            <a
-              href="https://www.instagram.com/natapereza/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={dot}
-              aria-label="Instagram @natapereza"
-            >
-              <Instagram className={glyph} strokeWidth={1.75} />
-            </a>
+            <motion.div variants={item} className="mt-7 grid gap-3.5 text-base">
+              <a href={`mailto:${t('email')}`} className={row}>
+                <Mail className={glyph} strokeWidth={1.75} />
+                <span className={label}>{t('email')}</span>
+              </a>
+              <a
+                href="https://wa.me/50256968292"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={row}
+              >
+                <WhatsApp className={glyph} />
+                <span className={label}>{t('whatsapp')}</span>
+              </a>
+              <a
+                href="https://www.instagram.com/seisdelocho_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={row}
+              >
+                <Instagram className={glyph} strokeWidth={1.75} />
+                <span className={label}>@seisdelocho_</span>
+              </a>
+              <a
+                href="https://www.instagram.com/natapereza/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={row}
+              >
+                <Instagram className={glyph} strokeWidth={1.75} />
+                <span className={label}>@natapereza</span>
+              </a>
+            </motion.div>
           </div>
+
+          {/* The photo sits behind the frame and shows through its window. */}
+          <motion.div variants={item} className="relative mx-auto w-full max-w-[460px]">
+            <img
+              src="/pajaritos-color.webp"
+              alt="Swallows on the wires"
+              className="absolute object-cover"
+              style={{
+                left: `${WINDOW.left}%`,
+                top: `${WINDOW.top}%`,
+                width: `${WINDOW.width}%`,
+                height: `${WINDOW.height}%`,
+              }}
+            />
+            <img
+              src="/photo-frame.webp"
+              alt=""
+              aria-hidden="true"
+              className="relative w-full drop-shadow-[0_12px_30px_rgba(60,44,30,0.18)]"
+            />
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 }
