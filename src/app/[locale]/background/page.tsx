@@ -100,11 +100,27 @@ export default function BackgroundPage() {
         </motion.div>
 
         {/* ---------------- experience ---------------- */}
-        <section id="experience" className="mt-16 scroll-mt-24 md:mt-24">
-          <h2 className="mb-6 font-decorative text-2xl font-bold italic text-warm-darker md:mb-8 md:text-[1.75rem]">
-            experience
-          </h2>
-          <ExperienceList />
+        {/* The photo is pinned to the section's own box, so it grows and
+            shrinks as the accordions open and close. The veil keeps the black
+            type readable over the darker birds and wires. */}
+        <section
+          id="experience"
+          className="relative mt-16 scroll-mt-24 overflow-hidden md:mt-24"
+        >
+          <img
+            src="/experience/pajaritos.webp"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div aria-hidden="true" className="absolute inset-0 bg-bg-base/[0.74]" />
+
+          <div className="relative px-5 py-8 md:px-9 md:py-11">
+            <h2 className="mb-6 font-decorative text-2xl font-bold italic text-warm-darker md:mb-8 md:text-[1.75rem]">
+              experience
+            </h2>
+            <ExperienceList />
+          </div>
         </section>
 
         {/* ------- education, languages, tools, certifications ------- */}
