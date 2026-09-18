@@ -10,9 +10,21 @@ export function ContactBlock() {
   const item = { hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
 
   return (
-    // Black ground with peach type — the closing block of the 6del8 portfolio.
-    <section id="contact" className="scroll-mt-24 bg-black py-16 text-peach md:py-24">
-      <div className="container-custom">
+    // The birds frame carries the closing block. It is a high-key photo, so the
+    // type is black and a light veil keeps it legible over the darker wires.
+    <section
+      id="contact"
+      className="relative scroll-mt-24 overflow-hidden bg-bg-base py-16 text-warm-darker md:py-24"
+    >
+      <img
+        src="/pajaritos.webp"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <div aria-hidden="true" className="absolute inset-0 bg-bg-base/[0.55]" />
+
+      <div className="container-custom relative">
         <motion.div
           variants={container}
           initial="hidden"
@@ -31,7 +43,7 @@ export function ContactBlock() {
             <motion.div variants={item} className="mt-6 grid gap-2.5 text-base md:text-lg">
               <a
                 href={`mailto:${t('email')}`}
-                className="w-fit border-b border-peach/40 transition-colors hover:border-peach"
+                className="w-fit border-b border-warm-darker/40 transition-colors hover:border-warm-darker"
               >
                 {t('email')}
               </a>
@@ -39,7 +51,7 @@ export function ContactBlock() {
                 href="https://wa.me/50256968292"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-fit border-b border-peach/40 transition-colors hover:border-peach"
+                className="w-fit border-b border-warm-darker/40 transition-colors hover:border-warm-darker"
               >
                 {t('whatsapp')}
               </a>
@@ -48,7 +60,7 @@ export function ContactBlock() {
                   href="https://www.instagram.com/seisdelocho_/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border-b border-peach/40 transition-colors hover:border-peach"
+                  className="border-b border-warm-darker/40 transition-colors hover:border-warm-darker"
                 >
                   @seisdelocho_
                 </a>
@@ -57,12 +69,12 @@ export function ContactBlock() {
                   href="https://www.instagram.com/natapereza/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border-b border-peach/40 transition-colors hover:border-peach"
+                  className="border-b border-warm-darker/40 transition-colors hover:border-warm-darker"
                 >
                   @natapereza
                 </a>
               </div>
-              <p className="mt-2 text-sm text-peach/70">Guatemala City, Guatemala</p>
+              <p className="mt-2 text-sm text-warm-dark">Guatemala City, Guatemala</p>
             </motion.div>
           </div>
 
@@ -70,8 +82,8 @@ export function ContactBlock() {
             variants={item}
             src="/logo-6del8.png"
             alt="6del8"
-            /* Black artwork on transparency, inverted to read on the dark ground. */
-            className="h-auto w-44 justify-self-start opacity-95 invert md:w-52 md:justify-self-end"
+            /* Black artwork on transparency — no invert now the ground is light. */
+            className="h-auto w-44 justify-self-start opacity-90 md:w-52 md:justify-self-end"
           />
         </motion.div>
       </div>
