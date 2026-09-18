@@ -40,7 +40,14 @@ export default function ClientsPage() {
       tiles.current.map((el, i) => {
         if (!el) return { x: 0, y: 0, r: 0 };
         const r = el.getBoundingClientRect();
-        return { x: stackX - r.left, y: stackY - r.top, r: ((i % 5) - 2) * 3.2 };
+        // A progressive fan, not a cycling one: each card behind turns and
+        // drops a little further, so the pile reads in order from Bussola
+        // down to VidaFit instead of repeating the same few angles.
+        return {
+          x: stackX - r.left + i * 3,
+          y: stackY - r.top + i * 5,
+          r: i * 1.6,
+        };
       })
     );
     setSpread(false);
