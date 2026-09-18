@@ -3,17 +3,15 @@
 import { useRef, useState } from 'react';
 import { strengths } from '@/content/portfolio';
 
-/* One camera per strength, with its screen's rectangle measured off that
-   camera's own crop — each model wears its screen in a different spot.
-   `photo` is what shows in the screen; fotos 1-3 are still to come, so the
-   three in hand repeat for now. */
+/* One camera per strength, every image on the same canvas so the bodies
+   match in scale. Screen rectangles are measured against that canvas. */
 const cameras = [
-  { src: '/cameras/a.webp', left: 8.3,  top: 34.1, width: 44.7, height: 50.3, photo: '/photos/4.webp' },
-  { src: '/cameras/b.webp', left: 11.6, top: 13.5, width: 55.6, height: 71.6, photo: '/photos/5.webp' },
-  { src: '/cameras/c.webp', left: 10.4, top: 13.7, width: 55.4, height: 72.6, photo: '/photos/6.webp' },
-  { src: '/cameras/d.webp', left: 7.9,  top: 18.9, width: 56.1, height: 69.2, photo: '/photos/4.webp' },
-  { src: '/cameras/e.webp', left: 8.8,  top: 23.9, width: 56.9, height: 62.0, photo: '/photos/5.webp' },
-  { src: '/cameras/f.webp', left: 7.2,  top: 17.6, width: 55.7, height: 66.2, photo: '/photos/6.webp' },
+  { src: '/cameras/a.webp', left: 13.5, top: 33.9, width: 39.1, height: 50.0, photo: '/photos/1.webp' },
+  { src: '/cameras/b.webp', left: 16.2, top: 13.2, width: 48.4, height: 72.1, photo: '/photos/2.webp' },
+  { src: '/cameras/c.webp', left: 15.2, top: 13.2, width: 48.8, height: 72.9, photo: '/photos/3.webp' },
+  { src: '/cameras/d.webp', left: 11.3, top: 18.9, width: 51.4, height: 69.3, photo: '/photos/4.webp' },
+  { src: '/cameras/e.webp', left: 10.2, top: 23.9, width: 54.9, height: 62.1, photo: '/photos/5.webp' },
+  { src: '/cameras/f.webp', left: 7.4,  top: 17.9, width: 55.3, height: 66.1, photo: '/photos/6.webp' },
 ] as const;
 
 export function Strengths() {
@@ -84,8 +82,16 @@ export function Strengths() {
               />
               {/* The frames are dark and busy, so the type sits on a wash. */}
               <span aria-hidden="true" className="absolute inset-0 bg-black/35" />
-              <span className="absolute inset-0 grid place-items-center px-2 text-center text-[.7rem] font-bold uppercase leading-tight tracking-[0.1em] text-white drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
-                {s}
+              <span className="absolute inset-0 grid place-items-center px-2 text-center text-[.95rem] font-bold uppercase leading-[1.15] tracking-[0.1em] text-white drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)] md:text-[1.05rem]">
+                {/* Two words take a line each, so they read as a pair rather
+                    than wrapping wherever the screen happens to end. */}
+                <span>
+                  {s.split(' ').map((word) => (
+                    <span key={word} className="block">
+                      {word}
+                    </span>
+                  ))}
+                </span>
               </span>
             </figcaption>
           </figure>
