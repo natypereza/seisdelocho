@@ -107,13 +107,16 @@ export default function BackgroundPage() {
           id="experience"
           className="relative mt-16 scroll-mt-24 overflow-hidden md:mt-24"
         >
-          <img
-            src="/experience/pajaritos.webp"
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-          <div aria-hidden="true" className="absolute inset-0 bg-bg-base/[0.74]" />
+          {/* Full width at the photo's own ratio, anchored to the top — it is
+              never stretched or cropped, so opening an accordion grows the
+              cream beneath it rather than zooming into the sky. The gradient
+              hands the photo over to the page colour instead of ending on a
+              hard edge. */}
+          <div aria-hidden="true" className="absolute inset-x-0 top-0">
+            <img src="/experience/pajaritos.webp" alt="" className="w-full" />
+            <div className="absolute inset-0 bg-bg-base/[0.74]" />
+            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-b from-transparent to-bg-base" />
+          </div>
 
           <div className="relative px-5 py-8 md:px-9 md:py-11">
             <h2 className="mb-6 font-decorative text-2xl font-bold italic text-warm-darker md:mb-8 md:text-[1.75rem]">
