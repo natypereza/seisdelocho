@@ -1,10 +1,10 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useRef, useState } from 'react';
 import { strengths } from '@/content/portfolio';
 
 /* Each camera's screen sits in a different spot on its body, so the panel is
-   placed per camera — measured off the artwork, as a share of that crop. */
+   placed per camera — measured off the rotated artwork, as a share of it. */
 const cameras = [
   { src: '/cameras/blue.webp',   left: 8.6, top: 15.8, width: 58.3, height: 68.2 },
   { src: '/cameras/silver.webp', left: 7.3, top: 28.1, width: 50.3, height: 57.6 },
@@ -15,22 +15,57 @@ const cameras = [
 ] as const;
 
 export function Strengths() {
+  const strip = useRef<HTMLDivElement>(null);
+  const drag = useRef<{ x: number; left: number } | null>(null);
+  const [dragging, setDragging] = useState(false);
+
+  // Trackpads and touch scroll this sideways on their own; this adds
+  // click-and-pull for anyone on a plain mouse.
+  const onPointerDown = (e: React.PointerEvent) => {
+    const el = strip.current;
+    if (!el) return;
+    drag.current = { x: e.clientX, left: el.scrollLeft };
+    setDragging(true);
+    el.setPointerCapture(e.pointerId);
+  };
+  const onPointerMove = (e: React.PointerEvent) => {
+    const el = strip.current;
+    if (!el || !drag.current) return;
+    el.scrollLeft = drag.current.left - (e.clientX - drag.current.x);
+  };
+  const endDrag = (e: React.PointerEvent) => {
+    drag.current = null;
+    setDragging(false);
+    strip.current?.releasePointerCapture(e.pointerId);
+  };
+
   return (
-    <div className="grid grid-cols-1 items-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div
+      ref={strip}
+      role="region"
+      aria-label="Core strengths"
+      tabIndex={0}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={endDrag}
+      onPointerCancel={endDrag}
+      className={`flex snap-x gap-4 overflow-x-auto pb-4 ${
+        dragging ? 'cursor-grabbing select-none' : 'cursor-grab'
+      }`}
+    >
       {strengths.map((s, i) => {
         const cam = cameras[i % cameras.length];
         return (
-          <motion.figure
-            key={s}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.45, delay: i * 0.08 }}
-            className="relative m-0"
-          >
-            <img src={cam.src} alt="" aria-hidden="true" className="h-auto w-full" />
+          <figure key={s} className="relative m-0 w-[300px] flex-none snap-center md:w-[340px]">
+            <img
+              src={cam.src}
+              alt=""
+              aria-hidden="true"
+              draggable={false}
+              className="h-auto w-full"
+            />
             <figcaption
-              className="absolute grid place-items-center px-1 text-center"
+              className="absolute grid place-items-center px-2 text-center"
               style={{
                 left: `${cam.left}%`,
                 top: `${cam.top}%`,
@@ -38,11 +73,11 @@ export function Strengths() {
                 height: `${cam.height}%`,
               }}
             >
-              <span className="text-[.6rem] font-bold uppercase leading-tight tracking-[0.08em] text-warm-darker sm:text-[.68rem]">
+              <span className="text-[.7rem] font-bold uppercase leading-tight tracking-[0.1em] text-warm-darker">
                 {s}
               </span>
             </figcaption>
-          </motion.figure>
+          </figure>
         );
       })}
     </div>
