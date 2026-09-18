@@ -103,35 +103,11 @@ export default function BackgroundPage() {
         {/* The photo is pinned to the section's own box, so it grows and
             shrinks as the accordions open and close. The veil keeps the black
             type readable over the darker birds and wires. */}
-        {/* Photo stack and content share one grid cell, so the section is as
-            tall as whichever is taller — the photos are never cut, and opening
-            an accordion simply extends the cream past them. */}
-        <section
-          id="experience"
-          className="relative mt-16 grid scroll-mt-24 overflow-hidden md:mt-24"
-        >
-          <div aria-hidden="true" className="col-start-1 row-start-1">
-            <div className="relative">
-              <img src="/experience/pajaritos.webp" alt="" className="w-full" />
-              <div className="absolute inset-0 bg-bg-base/[0.74]" />
-            </div>
-            {/* The beach frame is far darker than the birds, so it takes a
-                heavier veil to keep black type legible over it. */}
-            <div className="relative">
-              <img src="/experience/cangrejo.webp" alt="" className="w-full" />
-              <div className="absolute inset-0 bg-bg-base/[0.86]" />
-            </div>
-            <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-b from-transparent to-bg-base" />
-          </div>
-
-          {/* relative: the photo wrappers are positioned, so unpositioned content
-              would paint underneath them. */}
-          <div className="relative col-start-1 row-start-1 px-5 py-8 md:px-9 md:py-11">
-            <h2 className="mb-6 font-decorative text-2xl font-bold italic text-warm-darker md:mb-8 md:text-[1.75rem]">
-              experience
-            </h2>
-            <ExperienceList />
-          </div>
+        <section id="experience" className="mt-16 scroll-mt-24 md:mt-24">
+          <h2 className="mb-6 font-decorative text-2xl font-bold italic text-warm-darker md:mb-8 md:text-[1.75rem]">
+            experience
+          </h2>
+          <ExperienceList />
         </section>
 
         {/* ------- education, languages, tools, certifications ------- */}
