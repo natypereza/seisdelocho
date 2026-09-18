@@ -52,7 +52,7 @@ export function ContactBlock() {
             birds. The shadow carries it across the white clouds. */}
         <motion.h2
           variants={item}
-          className="w-full container-custom font-script text-peach"
+          className="w-full container-custom text-right font-script text-peach"
           style={{
             fontSize: 'clamp(3.5rem, 11vw, 8.5rem)',
             lineHeight: 1,

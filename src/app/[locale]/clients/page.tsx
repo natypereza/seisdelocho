@@ -97,10 +97,12 @@ export default function ClientsPage() {
                   tiles.current[i] = el;
                 }}
                 initial={false}
+                /* Bigger while piled, settling to full size as they land. */
                 animate={{
                   x: spread ? 0 : off.x,
                   y: spread ? 0 : off.y,
                   rotate: spread ? 0 : off.r,
+                  scale: spread ? 1 : 1.55,
                 }}
                 transition={
                   spread
