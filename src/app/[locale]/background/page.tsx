@@ -3,13 +3,57 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
-import { CvGrid } from '@/components/CvGrid';
+import { ExperienceList } from '@/components/ExperienceList';
+import { education, languages, tools, certifications } from '@/content/portfolio';
+
+const jump = [
+  { label: 'Experience', href: '#experience' },
+  { label: 'Education', href: '#education' },
+  { label: 'Languages', href: '#languages' },
+  { label: 'Tools', href: '#tools' },
+  { label: 'Certifications', href: '#certifications' },
+] as const;
+
+/* Section title in the left rail, content on the right — the same rhythm the
+   experience entries use, so the page reads as one piece. */
+function Block({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
+  return (
+    <motion.section
+      id={id}
+      initial={{ opacity: 0, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.5 }}
+      className="scroll-mt-24 border-t border-warm-accent pt-10 md:pt-14"
+    >
+      <div className="grid gap-6 md:grid-cols-[minmax(0,200px)_1fr] md:gap-10">
+        <h2 className="font-decorative text-2xl font-bold italic text-warm-darker md:text-[1.75rem]">
+          {title}
+        </h2>
+        <div>{children}</div>
+      </div>
+    </motion.section>
+  );
+}
+
+function Dots({ level }: { level: number }) {
+  return (
+    <span className="flex flex-none gap-[5px]" aria-hidden="true">
+      {[1, 2, 3, 4, 5].map((n) => (
+        <span
+          key={n}
+          className={`block h-[9px] w-[9px] rounded-full ${n <= level ? 'bg-black' : 'bg-black/15'}`}
+        />
+      ))}
+    </span>
+  );
+}
 
 export default function BackgroundPage() {
-
   return (
-    <section className="bg-bg-base pt-5 pb-24 md:pt-7 md:pb-32">
+    <div className="bg-bg-base pt-5 pb-24 md:pt-7 md:pb-32">
       <div className="container-custom">
+        {/* ---------------- hero ---------------- */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -17,7 +61,7 @@ export default function BackgroundPage() {
         >
           <Link
             href="/"
-            className="mb-10 inline-flex items-center gap-2 text-sm md:mb-12 text-warm-dark transition-colors hover:text-warm-darker"
+            className="mb-10 inline-flex items-center gap-2 text-sm text-warm-dark transition-colors hover:text-warm-darker md:mb-12"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to home
@@ -27,23 +71,101 @@ export default function BackgroundPage() {
             className="text-center font-script text-warm-darker"
             style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', lineHeight: 1.1 }}
           >
-            Background
+            Experience
           </h1>
           <p className="mx-auto mt-3 max-w-xl text-center text-warm-dark">
-            Where I studied, where I&rsquo;ve worked, what I work with, and what I&rsquo;ve trained
-            in along the way.
+            The roles, projects and experiences that shaped how I work today.
           </p>
+
+          <nav
+            aria-label="On this page"
+            className="mt-7 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[.8rem] uppercase tracking-[0.14em] text-warm-dark"
+          >
+            {jump.map((j, i) => (
+              <span key={j.href} className="flex items-center gap-x-3">
+                {i > 0 && (
+                  <span aria-hidden="true" className="text-greige">
+                    &middot;
+                  </span>
+                )}
+                <a
+                  href={j.href}
+                  className="border-b border-transparent pb-0.5 transition-colors hover:border-warm-darker hover:text-warm-darker"
+                >
+                  {j.label}
+                </a>
+              </span>
+            ))}
+          </nav>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="mt-10 md:mt-14"
-        >
-          <CvGrid />
-        </motion.div>
+        {/* ---------------- experience ---------------- */}
+        <section id="experience" className="mt-16 scroll-mt-24 md:mt-24">
+          <ExperienceList />
+        </section>
+
+        {/* ------- education, languages, tools, certifications ------- */}
+        <div className="mt-16 grid gap-12 md:mt-20 md:gap-16">
+          <Block id="education" title="education">
+            {education.map((e) => (
+              <div key={e.what} className="border-t border-warm-light py-3 first:border-t-0 first:pt-0">
+                <p className="text-[.7rem] font-bold uppercase tracking-[0.16em] text-greige">
+                  {e.when}
+                </p>
+                <p className="text-[1.02rem] font-bold leading-snug text-warm-darker">{e.what}</p>
+                <p className="text-[.86rem] leading-snug text-warm-dark">{e.where}</p>
+              </div>
+            ))}
+          </Block>
+
+          <Block id="languages" title="languages">
+            <div className="max-w-md">
+              {languages.map((l) => (
+                <div
+                  key={l.name}
+                  className="flex items-center justify-between gap-4 border-t border-warm-light py-3 first:border-t-0 first:pt-0"
+                >
+                  <span>
+                    <span className="block text-[.95rem] font-bold text-warm-darker">{l.name}</span>
+                    <span className="block text-[.72rem] italic text-greige">{l.note}</span>
+                  </span>
+                  <Dots level={l.level} />
+                </div>
+              ))}
+            </div>
+          </Block>
+
+          <Block id="tools" title="software &amp; tools">
+            <div className="grid gap-x-10 sm:grid-cols-2">
+              {tools.map((t) => (
+                <p
+                  key={t.name}
+                  className="border-t border-warm-light py-2.5 text-[.95rem] font-bold text-warm-darker"
+                >
+                  {t.name}
+                  {t.note && (
+                    <span className="text-[.85rem] font-normal italic text-greige"> — {t.note}</span>
+                  )}
+                </p>
+              ))}
+            </div>
+          </Block>
+
+          <Block id="certifications" title="certifications">
+            <div className="grid gap-x-10 lg:grid-cols-2">
+              {certifications.map((c) => (
+                <div
+                  key={c.title}
+                  className="flex items-baseline justify-between gap-3 border-t border-warm-light py-2.5 text-[.9rem]"
+                >
+                  <span className="text-warm-dark">{c.title}</span>
+                  <span className="flex-none text-[.78rem] text-greige tabular-nums">{c.year}</span>
+                </div>
+              ))}
+            </div>
+          </Block>
+        </div>
       </div>
-    </section>
+    </div>
   );
 }
