@@ -6,56 +6,62 @@ import { motion } from 'framer-motion';
 export function ContactBlock() {
   const t = useTranslations('contact');
 
-  const container = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } };
-  const item = { hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
+  const container = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+  };
+  const item = {
+    hidden: { opacity: 0, y: 15 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
+  const link =
+    'w-fit border-b border-warm-darker/40 text-warm-darker transition-colors hover:border-warm-darker';
 
   return (
-    // The birds frame carries the closing block. It is a high-key photo, so the
-    // type is black and a light veil keeps it legible over the darker wires.
-    <section
-      id="contact"
-      className="relative scroll-mt-24 overflow-hidden bg-bg-base py-16 text-warm-darker md:py-24"
-    >
+    // Photo and content share one grid cell: the frame shows whole, at its own
+    // tone and proportions, and the section is as tall as whichever is taller.
+    <section id="contact" className="relative grid scroll-mt-24 overflow-hidden bg-bg-base">
       <img
         src="/pajaritos.webp"
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover"
+        className="col-start-1 row-start-1 w-full"
       />
-      <div aria-hidden="true" className="absolute inset-0 bg-bg-base/[0.55]" />
 
-      <div className="container-custom relative">
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="visible"
-          className="grid items-end gap-10 md:grid-cols-[1fr_auto]"
-        >
-          <div>
+      <div className="col-start-1 row-start-1 flex items-center py-12 md:py-16">
+        {/* w-full: container-custom carries mx-auto, which would otherwise
+            shrink-wrap and centre this inside the flex row. */}
+        <div className="w-full container-custom">
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            /* The box does the contrast work, so the photo needs no veil. */
+            className="max-w-md border border-warm-light bg-bg-base/90 p-7 backdrop-blur-[2px] md:p-9"
+          >
             <motion.h2
               variants={item}
-              className="font-script"
-              style={{ fontSize: 'clamp(2.75rem, 7vw, 5.5rem)', lineHeight: 1 }}
+              className="font-script text-warm-darker"
+              style={{ fontSize: 'clamp(2.25rem, 5vw, 3.75rem)', lineHeight: 1 }}
             >
               {t('heading')}
             </motion.h2>
 
-            <motion.div variants={item} className="mt-6 grid gap-2.5 text-base md:text-lg">
-              <a
-                href={`mailto:${t('email')}`}
-                className="w-fit border-b border-warm-darker/40 transition-colors hover:border-warm-darker"
-              >
+            <motion.div variants={item} className="mt-5 grid gap-2.5 text-base">
+              <a href={`mailto:${t('email')}`} className={link}>
                 {t('email')}
               </a>
               <a
                 href="https://wa.me/50256968292"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-fit border-b border-warm-darker/40 transition-colors hover:border-warm-darker"
+                className={link}
               >
                 {t('whatsapp')}
               </a>
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-warm-darker">
                 <a
                   href="https://www.instagram.com/seisdelocho_/"
                   target="_blank"
@@ -74,18 +80,9 @@ export function ContactBlock() {
                   @natapereza
                 </a>
               </div>
-              <p className="mt-2 text-sm text-warm-dark">Guatemala City, Guatemala</p>
             </motion.div>
-          </div>
-
-          <motion.img
-            variants={item}
-            src="/logo-6del8.png"
-            alt="6del8"
-            /* Black artwork on transparency — no invert now the ground is light. */
-            className="h-auto w-44 justify-self-start opacity-90 md:w-52 md:justify-self-end"
-          />
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
