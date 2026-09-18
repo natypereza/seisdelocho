@@ -38,6 +38,27 @@ function Block({ id, title, children }: { id: string; title: string; children: R
 
 /* The rating is Natalia's own row of star patches, cut into five. A level of
    one shows one star, not one filled dot out of five. */
+/* The folder sits behind everything from the title to the certifications.
+   It is cut into three: the lip with its clip, a flat band that repeats down
+   the middle, and the bottom edge — so it grows to any height without the
+   artwork stretching. */
+function Folder() {
+  return (
+    <div aria-hidden="true" className="absolute inset-0 flex flex-col">
+      <img src="/folder/folder-top.webp" alt="" className="w-full" />
+      <div
+        className="min-h-0 flex-1"
+        style={{
+          backgroundImage: 'url(/folder/folder-mid.webp)',
+          backgroundRepeat: 'repeat-y',
+          backgroundSize: '100% auto',
+        }}
+      />
+      <img src="/folder/folder-bottom.webp" alt="" className="w-full" />
+    </div>
+  );
+}
+
 function Stars({ level, label }: { level: number; label: string }) {
   return (
     <span
@@ -56,20 +77,31 @@ export default function BackgroundPage() {
   return (
     <div className="bg-bg-base pt-5 pb-24 md:pt-7 md:pb-32">
       <div className="container-custom">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4 }}
+        >
+          <Link
+            href="/"
+            className="mb-6 inline-flex items-center gap-2 text-sm text-warm-dark transition-colors hover:text-warm-darker"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back to home
+          </Link>
+        </motion.div>
+      </div>
+
+      <div className="container-custom relative">
+        <Folder />
+        {/* Sits inside the paper, which runs from 7% to 91% of the folder. */}
+        <div className="relative px-[9%] pb-16 pt-6 md:pb-20">
         {/* ---------------- hero ---------------- */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <Link
-            href="/"
-            className="mb-10 inline-flex items-center gap-2 text-sm text-warm-dark transition-colors hover:text-warm-darker md:mb-12"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to home
-          </Link>
-
           <h1
             className="text-center font-script text-warm-darker"
             style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', lineHeight: 1.1 }}
@@ -198,6 +230,7 @@ export default function BackgroundPage() {
               ))}
             </div>
           </Block>
+        </div>
         </div>
       </div>
     </div>
