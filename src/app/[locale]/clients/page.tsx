@@ -40,10 +40,10 @@ export default function ClientsPage() {
       tiles.current.map((el, i) => {
         if (!el) return { x: 0, y: 0, r: 0 };
         const r = el.getBoundingClientRect();
-        // Depth from the top of the pile: VidaFit leads at zero, Bussola sits
-        // furthest back. Each card behind turns and drops a little further,
-        // so the order reads instead of repeating the same few angles.
-        const depth = tiles.current.length - 1 - i;
+        // Depth from the top of the pile: Bussola is the cover at zero and
+        // VidaFit sits furthest back. Each card behind turns and drops a
+        // little further, so the order reads rather than repeating angles.
+        const depth = i;
         return {
           x: stackX - r.left + depth * 3,
           y: stackY - r.top + depth * 5,
@@ -122,9 +122,10 @@ export default function ClientsPage() {
                       }
                     : { duration: 0 }
                 }
-                /* Stacked, the last client sits on top and the first at the
-                   bottom of the pile; spread, the hovered card leads. */
-                style={{ zIndex: spread ? undefined : i }}
+                /* Bussola is the cover of the pile; spread, the hovered card
+                   leads. It deals last, so it holds the front while the rest
+                   fly out from behind it. */
+                style={{ zIndex: spread ? undefined : clients.length - i }}
                 data-card=""
                 className="relative"
               >
