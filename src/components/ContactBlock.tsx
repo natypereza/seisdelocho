@@ -41,7 +41,7 @@ export function ContactBlock() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.25 }}
-          className="grid items-center gap-10 md:grid-cols-2 md:gap-14"
+          className="grid items-center gap-10 md:grid-cols-[1fr_1.3fr] md:gap-12"
         >
           <div>
             <motion.h2
@@ -87,24 +87,34 @@ export function ContactBlock() {
             </motion.div>
           </div>
 
-          {/* The photo sits behind the frame and shows through its window. */}
-          <motion.div variants={item} className="relative mx-auto w-full max-w-[460px]">
+          <motion.div variants={item} className="flex items-center justify-center gap-4 sm:gap-6">
+            {/* The photo sits behind the frame and shows through its window. */}
+            <div className="relative w-[62%] max-w-[420px] flex-none">
+              <img
+                src="/pajaritos-color.webp"
+                alt="Swallows on the wires"
+                className="absolute object-cover"
+                style={{
+                  left: `${WINDOW.left}%`,
+                  top: `${WINDOW.top}%`,
+                  width: `${WINDOW.width}%`,
+                  height: `${WINDOW.height}%`,
+                }}
+              />
+              <img
+                src="/photo-frame.webp"
+                alt=""
+                aria-hidden="true"
+                className="relative w-full drop-shadow-[0_12px_30px_rgba(60,44,30,0.18)]"
+              />
+            </div>
+
+            {/* Tilted a touch, so the two read as things laid down together
+                rather than two pictures in a row. */}
             <img
-              src="/pajaritos-color.webp"
-              alt="Swallows on the wires"
-              className="absolute object-cover"
-              style={{
-                left: `${WINDOW.left}%`,
-                top: `${WINDOW.top}%`,
-                width: `${WINDOW.width}%`,
-                height: `${WINDOW.height}%`,
-              }}
-            />
-            <img
-              src="/photo-frame.webp"
-              alt=""
-              aria-hidden="true"
-              className="relative w-full drop-shadow-[0_12px_30px_rgba(60,44,30,0.18)]"
+              src="/creativity-card.webp"
+              alt="Creativity without rules — Natalia Pérez"
+              className="w-[34%] max-w-[220px] flex-none -rotate-3 drop-shadow-[0_12px_30px_rgba(60,44,30,0.18)]"
             />
           </motion.div>
         </motion.div>
