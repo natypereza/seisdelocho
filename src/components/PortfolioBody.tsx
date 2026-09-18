@@ -1,11 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Strengths } from '@/components/Strengths';
 import { useEffect, useRef } from 'react';
 import {
   intro,
   capabilities,
-  strengths,
 } from '@/content/portfolio';
 
 const rise = {
@@ -146,24 +146,8 @@ export function PortfolioBody() {
       {/* ---------------- strengths ---------------- */}
       <Section className="pt-12 pb-16 md:pt-16 md:pb-20">
         <Eyebrow>Core strengths</Eyebrow>
-        <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-          {strengths.map((s, i) => {
-            // Four shapes cycling, the way the portfolio badges alternate.
-            const shape = [
-              'bg-peach text-black rounded-[50%/42%]',
-              'bg-peach-deep text-black rounded-full',
-              'border-[1.5px] border-black text-warm-darker rounded-xl',
-              'bg-black text-peach rounded-[50%/42%]',
-            ][i % 4];
-            return (
-              <span
-                key={s}
-                className={`grid min-h-[104px] w-full place-items-center px-3 py-3.5 text-center text-[.72rem] font-bold uppercase leading-snug tracking-[0.11em] ${shape}`}
-              >
-                {s}
-              </span>
-            );
-          })}
+        <div className="mt-5">
+          <Strengths />
         </div>
       </Section>
 
