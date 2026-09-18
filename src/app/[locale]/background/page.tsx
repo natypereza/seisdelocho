@@ -38,23 +38,23 @@ function Block({ id, title, children }: { id: string; title: string; children: R
 
 /* The rating is Natalia's own row of star patches, cut into five. A level of
    one shows one star, not one filled dot out of five. */
-/* The folder sits behind everything from the title to the certifications.
-   It is cut into three: the lip with its clip, a flat band that repeats down
-   the middle, and the bottom edge — so it grows to any height without the
-   artwork stretching. */
+/* The notepad sits behind everything from the title to the certifications.
+   It is cut into three: the spiral, a flat band that repeats down the page,
+   and the bottom edge — so it grows to any height with the spiral kept whole
+   and never stretched or repeated. */
 function Folder() {
   return (
     <div aria-hidden="true" className="absolute inset-0 flex flex-col">
-      <img src="/folder/folder-top.webp" alt="" className="w-full" />
+      <img src="/folder/notepad-top.webp" alt="" className="w-full" />
       <div
         className="min-h-0 flex-1"
         style={{
-          backgroundImage: 'url(/folder/folder-mid.webp)',
+          backgroundImage: 'url(/folder/notepad-mid.webp)',
           backgroundRepeat: 'repeat-y',
           backgroundSize: '100% auto',
         }}
       />
-      <img src="/folder/folder-bottom.webp" alt="" className="w-full" />
+      <img src="/folder/notepad-bottom.webp" alt="" className="w-full" />
     </div>
   );
 }
@@ -94,8 +94,9 @@ export default function BackgroundPage() {
 
       <div className="container-custom relative">
         <Folder />
-        {/* Sits inside the paper, which runs from 7% to 91% of the folder. */}
-        <div className="relative px-[9%] pb-16 pt-6 md:pb-20">
+        {/* Percentage padding tracks the container's width, which is also what
+            sets the spiral's height — so the copy clears it at any size. */}
+        <div className="relative px-[9%] pb-16 pt-[20%] md:pb-20">
         {/* ---------------- hero ---------------- */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
