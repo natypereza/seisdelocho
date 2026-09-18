@@ -158,7 +158,9 @@ export default function BackgroundPage() {
           </Block>
 
           <Block id="certifications" title="certifications">
-            <div className="grid gap-x-10 lg:grid-cols-2">
+            {/* One column: in two, a row-filled grid reads in zigzag and the
+                newest-first order stops being obvious. */}
+            <div className="grid">
               {certifications.map((c) => (
                 <div
                   key={c.title}

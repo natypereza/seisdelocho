@@ -84,16 +84,17 @@ export const languages = [
 ] as const;
 
 export const certifications = [
+  // Newest first, ordered by the year each one finished.
+  { title: 'Mastering Claude — Academia de IA', year: '2026' },
+  { title: 'Foundations of Project Management — Google / Coursera', year: '2026' },
+  { title: 'Emotional Intelligence — ALINEA Vida y Futuro', year: '2023' },
+  { title: 'Cybersecurity for Remote Work', year: '2023' },
+  { title: 'Digitize Your Business with Google Tools', year: '2023' },
+  { title: 'Digital Skills for Professionals', year: '2023' },
+  { title: 'Fundamentals of Digital Marketing — Google', year: '2022' },
+  { title: 'HTML & CSS Web Design', year: '2022' },
   { title: 'FranklinCovey — The Leader in Me', year: '2013–20' },
   { title: 'Basic Photography Course', year: '2018' },
-  { title: 'HTML & CSS Web Design', year: '2022' },
-  { title: 'Fundamentals of Digital Marketing — Google', year: '2022' },
-  { title: 'Digital Skills for Professionals', year: '2023' },
-  { title: 'Digitize Your Business with Google Tools', year: '2023' },
-  { title: 'Cybersecurity for Remote Work', year: '2023' },
-  { title: 'Emotional Intelligence — ALINEA Vida y Futuro', year: '2023' },
-  { title: 'Foundations of Project Management — Google / Coursera', year: '2026' },
-  { title: 'Mastering Claude — Academia de IA', year: '2026' },
 ] as const;
 
 // `cover` is the designed client card in public/clients. The card already
