@@ -71,7 +71,7 @@ export default function BackgroundPage() {
             className="text-center font-script text-warm-darker"
             style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', lineHeight: 1.1 }}
           >
-            Experience
+            Background
           </h1>
           <p className="mx-auto mt-3 max-w-xl text-center text-warm-dark">
             The roles, projects and experiences that shaped how I work today.
@@ -101,6 +101,9 @@ export default function BackgroundPage() {
 
         {/* ---------------- experience ---------------- */}
         <section id="experience" className="mt-16 scroll-mt-24 md:mt-24">
+          <h2 className="mb-6 font-decorative text-2xl font-bold italic text-warm-darker md:mb-8 md:text-[1.75rem]">
+            experience
+          </h2>
           <ExperienceList />
         </section>
 
