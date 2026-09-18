@@ -45,7 +45,7 @@ export function ContactBlock() {
               </a>
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                 <a
-                  href="https://instagram.com/seisdelocho_"
+                  href="https://www.instagram.com/seisdelocho_/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="border-b border-peach/40 transition-colors hover:border-peach"
@@ -54,7 +54,7 @@ export function ContactBlock() {
                 </a>
                 <span aria-hidden="true">·</span>
                 <a
-                  href="https://instagram.com/natapereza"
+                  href="https://www.instagram.com/natapereza/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="border-b border-peach/40 transition-colors hover:border-peach"

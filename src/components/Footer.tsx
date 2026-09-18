@@ -40,16 +40,16 @@ export function Footer() {
           {/* Social */}
           <div className="flex items-center gap-4">
             <a
-              href="https://instagram.com/seisdelocho"
+              href="https://www.instagram.com/seisdelocho_/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-warm-dark hover:text-warm-darker transition-colors"
-              aria-label="Instagram @seisdelocho"
+              aria-label="Instagram @seisdelocho_"
             >
               <Instagram className="w-5 h-5" />
             </a>
             <a
-              href="https://instagram.com/natapereza"
+              href="https://www.instagram.com/natapereza/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-warm-dark hover:text-warm-darker transition-colors"
