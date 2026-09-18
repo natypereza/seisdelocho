@@ -120,9 +120,9 @@ export default function BackgroundPage() {
                 clip takes the top fifth, so the copy starts below it. */}
             <div className="grid gap-6 sm:grid-cols-2 sm:gap-8">
               {education.map((e) => (
-                <div key={e.what} className="relative">
+                <div key={e.what} className="relative mx-auto w-full max-w-[330px]">
                   <img src="/education-note.webp" alt="" aria-hidden="true" className="w-full" />
-                  <div className="absolute inset-x-[13%] bottom-[10%] top-[24%] flex flex-col justify-center text-center">
+                  <div className="absolute inset-x-[9%] bottom-[8%] top-[22%] flex flex-col justify-center text-center">
                     <p className="text-[.66rem] font-bold uppercase tracking-[0.18em] text-greige">
                       {e.when}
                     </p>
