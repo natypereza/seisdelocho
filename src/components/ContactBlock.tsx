@@ -13,8 +13,39 @@ function WhatsApp({ className }: { className?: string }) {
   );
 }
 
-/* The window cut into the frame, measured off the artwork. */
+/* The windows cut into each frame, measured off the artwork. */
 const WINDOW = { left: 5.2, top: 5.9, width: 90.3, height: 69.0 };
+const WINDOW_V = { left: 7.6, top: 7.7, width: 92.2, height: 70.9 };
+
+/* A frame with its photograph showing through the window. */
+function Framed({
+  frame,
+  photo,
+  alt,
+  win,
+}: {
+  frame: string;
+  photo: string;
+  alt: string;
+  win: { left: number; top: number; width: number; height: number };
+}) {
+  return (
+    <>
+      <img
+        src={photo}
+        alt={alt}
+        className="absolute object-cover"
+        style={{
+          left: `${win.left}%`,
+          top: `${win.top}%`,
+          width: `${win.width}%`,
+          height: `${win.height}%`,
+        }}
+      />
+      <img src={frame} alt="" aria-hidden="true" className="relative w-full" />
+    </>
+  );
+}
 
 export function ContactBlock() {
   const t = useTranslations('contact');
@@ -87,34 +118,32 @@ export function ContactBlock() {
             </motion.div>
           </div>
 
-          <motion.div variants={item} className="flex items-center justify-center gap-4 sm:gap-6">
-            {/* The photo sits behind the frame and shows through its window. */}
-            <div className="relative w-[62%] max-w-[420px] flex-none">
-              <img
-                src="/pajaritos-color.webp"
+          {/* Three pieces overlapping at their own angles, the way they would
+              land on a desk. Percentage positions keep the arrangement intact
+              at any width. */}
+          <motion.div variants={item} className="relative mx-auto aspect-[10/7] w-full max-w-[560px]">
+            <div className="absolute left-0 top-[6%] w-[58%] -rotate-3 drop-shadow-[0_14px_34px_rgba(60,44,30,0.22)]">
+              <Framed
+                frame="/photo-frame.webp"
+                photo="/pajaritos-color.webp"
                 alt="Swallows on the wires"
-                className="absolute object-cover"
-                style={{
-                  left: `${WINDOW.left}%`,
-                  top: `${WINDOW.top}%`,
-                  width: `${WINDOW.width}%`,
-                  height: `${WINDOW.height}%`,
-                }}
-              />
-              <img
-                src="/photo-frame.webp"
-                alt=""
-                aria-hidden="true"
-                className="relative w-full drop-shadow-[0_12px_30px_rgba(60,44,30,0.18)]"
+                win={WINDOW}
               />
             </div>
 
-            {/* Tilted a touch, so the two read as things laid down together
-                rather than two pictures in a row. */}
+            <div className="absolute left-[40%] top-0 w-[34%] rotate-2 drop-shadow-[0_14px_34px_rgba(60,44,30,0.22)]">
+              <Framed
+                frame="/photo-frame-vertical.webp"
+                photo="/luna.webp"
+                alt="Luna"
+                win={WINDOW_V}
+              />
+            </div>
+
             <img
               src="/creativity-card.webp"
               alt="Creativity without rules — Natalia Pérez"
-              className="w-[34%] max-w-[220px] flex-none -rotate-3 drop-shadow-[0_12px_30px_rgba(60,44,30,0.18)]"
+              className="absolute right-0 top-[24%] w-[31%] -rotate-6 drop-shadow-[0_14px_34px_rgba(60,44,30,0.22)]"
             />
           </motion.div>
         </motion.div>
