@@ -123,7 +123,7 @@ export function ContactBlock() {
               at any width. The group grew; the card's percentage came down by
               the same amount so it stays the size it was. */}
           <motion.div variants={item} className="relative mx-auto aspect-[10/6.5] w-full max-w-[620px]">
-            <div className="absolute left-0 top-[6%] w-[60%] -rotate-3 drop-shadow-[0_14px_34px_rgba(60,44,30,0.22)]">
+            <div className="absolute left-0 top-[6%] w-[70%] -rotate-3 drop-shadow-[0_14px_34px_rgba(60,44,30,0.22)]">
               <Framed
                 frame="/photo-frame.webp"
                 photo="/pajaritos-color.webp"
@@ -132,7 +132,7 @@ export function ContactBlock() {
               />
             </div>
 
-            <div className="absolute left-[40%] top-0 w-[35%] rotate-2 drop-shadow-[0_14px_34px_rgba(60,44,30,0.22)]">
+            <div className="absolute left-[43%] top-0 w-[35%] rotate-2 drop-shadow-[0_14px_34px_rgba(60,44,30,0.22)]">
               <Framed
                 frame="/photo-frame-vertical.webp"
                 photo="/luna.webp"
