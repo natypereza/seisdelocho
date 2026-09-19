@@ -3,10 +3,7 @@
 import { motion } from 'framer-motion';
 import { Strengths } from '@/components/Strengths';
 import { useEffect, useRef } from 'react';
-import {
-  intro,
-  capabilities,
-} from '@/content/portfolio';
+import { intro } from '@/content/portfolio';
 
 const rise = {
   hidden: { opacity: 0, y: 20 },
@@ -126,19 +123,6 @@ export function PortfolioBody() {
                 <p key={p.slice(0, 24)}>{p}</p>
               ))}
             </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* ---------------- capability band ---------------- */}
-      <Section className="pt-12 md:pt-16">
-        <div className="band-striped px-5 py-7 md:px-8 md:py-9">
-          <div className="flex flex-wrap gap-2">
-            {capabilities.map((c) => (
-              <span key={c} className="chip">
-                {c}
-              </span>
-            ))}
           </div>
         </div>
       </Section>
