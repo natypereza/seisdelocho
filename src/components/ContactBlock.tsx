@@ -72,7 +72,7 @@ export function ContactBlock() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.25 }}
-          className="grid items-center gap-10 md:grid-cols-[1fr_1.3fr] md:gap-12"
+          className="grid items-center gap-10 md:grid-cols-[1fr_1.45fr] md:gap-12"
         >
           <div>
             <motion.h2
@@ -120,9 +120,10 @@ export function ContactBlock() {
 
           {/* Three pieces overlapping at their own angles, the way they would
               land on a desk. Percentage positions keep the arrangement intact
-              at any width. */}
-          <motion.div variants={item} className="relative mx-auto aspect-[10/7] w-full max-w-[560px]">
-            <div className="absolute left-0 top-[6%] w-[58%] -rotate-3 drop-shadow-[0_14px_34px_rgba(60,44,30,0.22)]">
+              at any width. The group grew; the card's percentage came down by
+              the same amount so it stays the size it was. */}
+          <motion.div variants={item} className="relative mx-auto aspect-[10/6.5] w-full max-w-[620px]">
+            <div className="absolute left-0 top-[6%] w-[60%] -rotate-3 drop-shadow-[0_14px_34px_rgba(60,44,30,0.22)]">
               <Framed
                 frame="/photo-frame.webp"
                 photo="/pajaritos-color.webp"
@@ -131,7 +132,7 @@ export function ContactBlock() {
               />
             </div>
 
-            <div className="absolute left-[40%] top-0 w-[34%] rotate-2 drop-shadow-[0_14px_34px_rgba(60,44,30,0.22)]">
+            <div className="absolute left-[40%] top-0 w-[35%] rotate-2 drop-shadow-[0_14px_34px_rgba(60,44,30,0.22)]">
               <Framed
                 frame="/photo-frame-vertical.webp"
                 photo="/luna.webp"
@@ -143,7 +144,7 @@ export function ContactBlock() {
             <img
               src="/creativity-card.webp"
               alt="Creativity without rules — Natalia Pérez"
-              className="absolute right-0 top-[24%] w-[31%] -rotate-6 drop-shadow-[0_14px_34px_rgba(60,44,30,0.22)]"
+              className="absolute right-0 top-[24%] w-[28%] -rotate-6 drop-shadow-[0_14px_34px_rgba(60,44,30,0.22)]"
             />
           </motion.div>
         </motion.div>
