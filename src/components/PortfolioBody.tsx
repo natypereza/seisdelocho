@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Strengths } from '@/components/Strengths';
+import { TableMenu } from '@/components/TableMenu';
 import { useEffect, useRef } from 'react';
 import { intro } from '@/content/portfolio';
 
@@ -128,10 +129,18 @@ export function PortfolioBody() {
       </Section>
 
       {/* ---------------- strengths ---------------- */}
-      <Section className="pt-12 pb-16 md:pt-16 md:pb-20">
+      <Section className="pt-12 md:pt-16">
         <Eyebrow>Core strengths</Eyebrow>
         <div className="mt-5">
           <Strengths />
+        </div>
+      </Section>
+
+      {/* ---------------- the menu ---------------- */}
+      <Section className="pt-12 pb-16 md:pt-16 md:pb-20">
+        <Eyebrow>What I bring to the table</Eyebrow>
+        <div className="mt-5">
+          <TableMenu />
         </div>
       </Section>
 
