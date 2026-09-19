@@ -138,7 +138,13 @@ export function PortfolioBody() {
 
       {/* ---------------- the menu ---------------- */}
       <Section className="pt-12 pb-16 md:pt-16 md:pb-20">
-        <Eyebrow>What I bring to the table</Eyebrow>
+        {/* The greeting's hand, a size down: a section title, not a second hello. */}
+        <p
+          className="font-script text-warm-darker"
+          style={{ fontSize: 'clamp(2rem, 4.5vw, 3.25rem)', lineHeight: 1 }}
+        >
+          What I bring to the table
+        </p>
         <div className="mt-5">
           <TableMenu />
         </div>
