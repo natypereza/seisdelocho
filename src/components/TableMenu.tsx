@@ -51,6 +51,7 @@ export function TableMenu() {
   const perch = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
   const sheet = useRef<HTMLImageElement>(null);
+  const onPlate = useRef<HTMLImageElement>(null);
   const frame = useRef<number | null>(null);
 
   const [landed, setLanded] = useState(false);
@@ -86,10 +87,12 @@ export function TableMenu() {
      the handful of time updates the browser sends. */
   const uncover = useCallback(() => {
     const v = video.current;
-    const el = sheet.current;
-    if (v && el) {
+    if (v) {
       const h = hiddenAt(v.currentTime);
-      el.style.clipPath = h > 0.002 ? `inset(${(h * 100).toFixed(2)}% 0 0 0)` : 'none';
+      const cut = h > 0.002 ? `inset(${(h * 100).toFixed(2)}% 0 0 0)` : 'none';
+      // Both cards are the same card until one of them leaves.
+      if (sheet.current) sheet.current.style.clipPath = cut;
+      if (onPlate.current) onPlate.current.style.clipPath = cut;
       if (v.currentTime >= FULLY_OPEN) setLanded(true);
     }
     frame.current = requestAnimationFrame(uncover);
@@ -157,8 +160,26 @@ export function TableMenu() {
         </div>
       </div>
 
-      {/* One menu the whole way: the lid uncovers it on the platter, then it
-          flies into its column and grows. */}
+      {/* The card that stays: once the lid has uncovered it, it keeps
+          standing on the platter for the rest of the clip. */}
+      {perchAt && (
+        <img
+          ref={onPlate}
+          src="/menu.webp"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute block"
+          style={{
+            left: perchAt.left,
+            top: perchAt.top,
+            width: perchAt.width,
+            clipPath: clipped ? 'inset(100% 0 0 0)' : 'none',
+          }}
+        />
+      )}
+
+      {/* And the copy that leaves: it sits exactly on the one above until the
+          lid reaches the top, then flies into its column and grows. */}
       {slotAt && target && (
         <motion.div
           initial={false}
