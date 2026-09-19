@@ -186,7 +186,7 @@ export function TableMenu() {
           animate={{ x: target.left, y: target.top, scale: target.width / slotAt.width }}
           transition={
             landed
-              ? { type: 'spring', stiffness: 90, damping: 18 }
+              ? { type: 'spring', stiffness: 260, damping: 26 }
               : { duration: 0.35, ease: 'easeOut' }
           }
           style={{
