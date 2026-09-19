@@ -18,12 +18,19 @@ export function Strengths() {
   const strip = useRef<HTMLDivElement>(null);
   const drag = useRef<{ x: number; left: number } | null>(null);
   const [dragging, setDragging] = useState(false);
+  /* Which camera is showing its note: the cursor sets it on a desktop,
+     a tap on a phone, and the keyboard when a camera takes focus. */
+  const [open, setOpen] = useState<number | null>(null);
+  /* Where a finger went down, so a swipe along the strip is not read as a
+     tap on the camera it happened to start on. */
+  const tap = useRef<number | null>(null);
 
   // Trackpads and touch scroll this sideways on their own; this adds
-  // click-and-pull for anyone on a plain mouse.
+  // click-and-pull for anyone on a plain mouse. Touch keeps its native
+  // scrolling, so a tap on a camera still reaches the camera.
   const onPointerDown = (e: React.PointerEvent) => {
     const el = strip.current;
-    if (!el) return;
+    if (!el || e.pointerType !== 'mouse') return;
     drag.current = { x: e.clientX, left: el.scrollLeft };
     setDragging(true);
     el.setPointerCapture(e.pointerId);
@@ -34,6 +41,7 @@ export function Strengths() {
     el.scrollLeft = drag.current.left - (e.clientX - drag.current.x);
   };
   const endDrag = (e: React.PointerEvent) => {
+    if (!drag.current) return;
     drag.current = null;
     setDragging(false);
     strip.current?.releasePointerCapture(e.pointerId);
@@ -55,8 +63,28 @@ export function Strengths() {
     >
       {strengths.map((s, i) => {
         const cam = cameras[i % cameras.length];
+        const showing = open === i;
         return (
-          <figure key={s} className="relative m-0 w-[300px] flex-none snap-center md:w-[340px]">
+          <figure
+            key={s.title}
+            tabIndex={0}
+            onPointerEnter={(e) => e.pointerType === 'mouse' && setOpen(i)}
+            onPointerLeave={(e) => e.pointerType === 'mouse' && setOpen((o) => (o === i ? null : o))}
+            /* A tap swaps the note in and a second tap puts the title back;
+               a swipe across the strip leaves it alone. */
+            onPointerDown={(e) => {
+              tap.current = e.pointerType === 'mouse' ? null : e.clientX;
+            }}
+            onPointerUp={(e) => {
+              if (tap.current === null) return;
+              const moved = Math.abs(e.clientX - tap.current);
+              tap.current = null;
+              if (moved < 8) setOpen((o) => (o === i ? null : i));
+            }}
+            onFocus={() => setOpen(i)}
+            onBlur={() => setOpen((o) => (o === i ? null : o))}
+            className="relative m-0 w-[300px] flex-none snap-center rounded-sm outline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-warm-darker md:w-[340px]"
+          >
             <img
               src={cam.src}
               alt=""
@@ -80,18 +108,39 @@ export function Strengths() {
                 draggable={false}
                 className="absolute inset-0 h-full w-full object-cover"
               />
-              {/* The frames are dark and busy, so the type sits on a wash. */}
-              <span aria-hidden="true" className="absolute inset-0 bg-black/35" />
-              <span className="absolute inset-0 grid place-items-center px-2 text-center text-[.95rem] font-bold uppercase leading-[1.15] tracking-[0.1em] text-white drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)] md:text-[1.05rem]">
+              {/* The frames are dark and busy, so the type sits on a wash —
+                  a shade deeper while the longer note is showing. */}
+              <span
+                aria-hidden="true"
+                className={`absolute inset-0 transition-colors duration-300 ${
+                  showing ? 'bg-black/55' : 'bg-black/35'
+                }`}
+              />
+
+              {/* Both lines stay in the page for screen readers; only their
+                  opacity crosses over. */}
+              <span
+                className={`absolute inset-0 grid place-items-center px-2 text-center text-[.95rem] font-bold uppercase leading-[1.15] tracking-[0.1em] text-white drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)] transition-opacity duration-300 md:text-[1.05rem] ${
+                  showing ? 'opacity-0' : 'opacity-100'
+                }`}
+              >
                 {/* Two words take a line each, so they read as a pair rather
                     than wrapping wherever the screen happens to end. */}
                 <span>
-                  {s.split(' ').map((word) => (
+                  {s.title.split(' ').map((word) => (
                     <span key={word} className="block">
                       {word}
                     </span>
                   ))}
                 </span>
+              </span>
+
+              <span
+                className={`absolute inset-0 grid place-items-center px-3 text-center text-[.78rem] leading-snug text-white drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)] transition-opacity duration-300 md:text-[.85rem] ${
+                  showing ? 'opacity-100' : 'opacity-0'
+                }`}
+              >
+                <span>{s.note}</span>
               </span>
             </figcaption>
           </figure>

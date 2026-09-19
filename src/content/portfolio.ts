@@ -115,11 +115,13 @@ export const clients: ReadonlyArray<Client> = [
   { name: 'VidaFit SV', when: '2021 – 2023', cover: '/clients/vidafit.webp' },
 ];
 
+/* The camera strip: the title is on the screen, and the note takes its
+   place while the camera is hovered or tapped. */
 export const strengths = [
-  'Creative thinking',
-  'Problem solving',
-  'Adaptability',
-  'Critical thinking',
-  'Teamwork',
-  'Ownership',
+  { title: 'Creative thinking', note: 'Finding ideas beyond the obvious.' },
+  { title: 'Problem solving', note: 'Finding a way forward when things don’t go as planned.' },
+  { title: 'Adaptability', note: 'Adjusting quickly to different brands, people and challenges.' },
+  { title: 'Critical thinking', note: 'Looking at the bigger picture before making decisions.' },
+  { title: 'Curiosity', note: 'Always asking, learning and looking a little deeper.' },
+  { title: 'Ownership', note: 'Taking responsibility and making sure things actually happen.' },
 ] as const;
