@@ -30,6 +30,10 @@ const REVEAL: ReadonlyArray<readonly [number, number]> = [
 /* By now the lid is at the top of the frame: the menu leaves the platter. */
 const FULLY_OPEN = 5.0;
 
+/* The clip runs brisk: 6.6s of film in a little over four. Cue points are
+   read off currentTime, so speeding it up moves them with it. */
+const SPEED = 1.5;
+
 function hiddenAt(t: number) {
   if (t <= REVEAL[0][0]) return 1;
   for (let i = 1; i < REVEAL.length; i++) {
@@ -111,6 +115,7 @@ export function TableMenu() {
       (entries) => {
         if (!entries[0].isIntersecting) return;
         io.disconnect();
+        v.playbackRate = SPEED;
         // A browser that refuses to autoplay still gets the menu.
         v.play().catch(() => setLanded(true));
       },
