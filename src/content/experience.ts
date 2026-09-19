@@ -1,4 +1,7 @@
-// The eight roles behind the Background page, in the order they appear.
+// The eight roles behind the Background page.
+//
+// Order matters: the list is dealt into two columns, the first four down
+// the left and the last four down the right.
 //
 // `slug` present  -> the role gets its own full page at /background/<slug>.
 // `images`        -> the two-image preview; entries without a `src` render as
@@ -17,7 +20,6 @@ export type ExpProject = {
 };
 
 export type Experience = {
-  n: string;
   slug?: string;
   /** Heading on the full page. Defaults to the company part of `org`. */
   pageTitle?: string;
@@ -34,7 +36,6 @@ export type Experience = {
 
 export const experiences: readonly Experience[] = [
   {
-    n: '01',
     slug: 'bussola',
     when: 'Jan 2025 — Present',
     role: 'Brand & Communications Lead',
@@ -60,7 +61,32 @@ export const experiences: readonly Experience[] = [
     projectsNote: 'More projects will be added as the material is selected.',
   },
   {
-    n: '02',
+    slug: 'ka-events',
+    when: 'Jan 2020 — Present',
+    role: 'Event Planner & Designer',
+    org: 'KA Events · Guatemala City',
+    about:
+      'KA Events plans and designs events of all kinds, from weddings and birthdays to baby showers, first communions and seasonal installations.',
+    didLabel: 'What I do',
+    did: 'I work across the event process, from client meetings, moodboards and layouts to supplier coordination, timelines and on-site execution. I also create content for KA Events, photographing events and managing the visual content used across social media.',
+    images: [{ alt: 'KA Events' }, { alt: 'KA Events' }],
+    projectsNote:
+      'A visual page rather than a written one: galleries of weddings, birthdays and celebrations, baby showers, first communions, floral design, Christmas installations, layouts and moodboards, and behind the scenes.',
+  },
+  {
+    slug: '6-del-8',
+    when: '2020 — Present',
+    role: 'Business Owner',
+    org: '6 del 8 · Branding, Marketing & Content',
+    about:
+      '6 del 8 is my creative business, working with brands across different industries on marketing, branding, content and digital presence.',
+    didLabel: 'What I do',
+    did: 'I manage projects independently from idea to execution. Clients usually come in knowing what they need, and I help shape the direction, develop the idea and bring it to life through branding, content, social media, websites and creative work.',
+    images: [{ alt: '6 del 8' }, { alt: '6 del 8' }],
+    projectsNote:
+      'Selected client work. Each project will carry the brand, what I worked on, a short description and its images — the clients and pieces are still being selected.',
+  },
+  {
     slug: 'panem',
     pageTitle: 'The People Behind · PANEM',
     when: 'Jun 2025 — Feb 2026',
@@ -98,21 +124,6 @@ export const experiences: readonly Experience[] = [
     ],
   },
   {
-    n: '03',
-    slug: '6-del-8',
-    when: '2020 — Present',
-    role: 'Business Owner',
-    org: '6 del 8 · Branding, Marketing & Content',
-    about:
-      '6 del 8 is my creative business, working with brands across different industries on marketing, branding, content and digital presence.',
-    didLabel: 'What I do',
-    did: 'I manage projects independently from idea to execution. Clients usually come in knowing what they need, and I help shape the direction, develop the idea and bring it to life through branding, content, social media, websites and creative work.',
-    images: [{ alt: '6 del 8' }, { alt: '6 del 8' }],
-    projectsNote:
-      'Selected client work. Each project will carry the brand, what I worked on, a short description and its images — the clients and pieces are still being selected.',
-  },
-  {
-    n: '04',
     slug: 'energy-foods',
     when: 'Feb 2023 — Jan 2025',
     role: 'Marketing Manager',
@@ -148,21 +159,6 @@ export const experiences: readonly Experience[] = [
       'Alongside these, the page can show social media, photography, invitations, menus, business cards, website work, influencer collaborations and brand activations.',
   },
   {
-    n: '05',
-    slug: 'ka-events',
-    when: 'Jan 2020 — Present',
-    role: 'Event Planner & Designer',
-    org: 'KA Events · Guatemala City',
-    about:
-      'KA Events plans and designs events of all kinds, from weddings and birthdays to baby showers, first communions and seasonal installations.',
-    didLabel: 'What I do',
-    did: 'I work across the event process, from client meetings, moodboards and layouts to supplier coordination, timelines and on-site execution. I also create content for KA Events, photographing events and managing the visual content used across social media.',
-    images: [{ alt: 'KA Events' }, { alt: 'KA Events' }],
-    projectsNote:
-      'A visual page rather than a written one: galleries of weddings, birthdays and celebrations, baby showers, first communions, floral design, Christmas installations, layouts and moodboards, and behind the scenes.',
-  },
-  {
-    n: '06',
     when: 'Jun — Jul 2022',
     role: 'Internship',
     org: 'Taylor & Taylor · Virginia Beach, United States',
@@ -173,7 +169,6 @@ export const experiences: readonly Experience[] = [
     images: [{ alt: 'Taylor & Taylor' }, { alt: 'Taylor & Taylor' }],
   },
   {
-    n: '07',
     when: 'Oct — Dec 2020',
     role: 'Math & Physics Tutor',
     org: 'Independent · San Salvador, El Salvador',
@@ -181,7 +176,6 @@ export const experiences: readonly Experience[] = [
     did: 'I tutored a sophomore student in math and physics, preparing lessons, exercises, study materials and homework based on the topics they needed support with. The goal was simple: help them understand the material and pass their classes — which they did.',
   },
   {
-    n: '08',
     when: 'Nov 2018',
     role: 'Internship',
     org: 'V Medical Spa · Guatemala City',
